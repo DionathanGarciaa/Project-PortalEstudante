@@ -75,7 +75,7 @@ const Usuario = () => {
                 
             </select>
             
-            
+            </form>
 
 
         </Container>

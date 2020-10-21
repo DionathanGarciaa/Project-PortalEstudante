@@ -3,9 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import Home from '../pages/Home';
 import Matricula from '../pages/Matricula';
 import CadastroUsuario from '../pages/CadastroUsuario';
-import Padrao from '../Pages/Padrao/index';
-import Login from '../Pages/Login/index';
-import Redefinir from '../Pages/RedefinirSenha/index';
+import Padrao from '../pages/Padrao';
+import Login from '../pages/Login';
+import Redefinir from '../pages/RedefinirSenha';
 
 
 function Routes() {

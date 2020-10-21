@@ -1,5 +1,5 @@
 import React from 'react';
-import User from '../../Assets/user.svg';
+import User from '../../assets/user.svg';
 import { Container } from './style';
 
 const Header = () => {
