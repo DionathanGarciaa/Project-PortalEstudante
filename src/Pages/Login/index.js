@@ -26,28 +26,28 @@ const Login = () => {
 
                     {/* INPUT EMAIL */}
                     <Box1>
-                         <label htmlFor="Email">E-mail</label>
+                        <label htmlFor="Email">E-mail</label>
+                        <input 
+                            id="Email"
+                            Type="email"
+                            Value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                            required
+                        />
                     </Box1>
-                    <input 
-                        id="Email"
-                        Type="email"
-                        Value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                        required
-                    />
 
                     {/* INPUT SENHA */}
                     <Box2>
                         <label htmlFor="Senha">Senha</label>
+                        <input 
+                            id="Senha"
+                            Type="password"
+                            Value={senha}
+                            onChange={(event) => setSenha(event.target.value)}
+                            minLength='6'
+                            required
+                        />
                     </Box2>
-                    <input 
-                        id="Senha"
-                        Type="password"
-                        Value={senha}
-                        onChange={(event) => setSenha(event.target.value)}
-                        minLength='6'
-                        required
-                    />
 
                     {/* LINK PARA REDEFINIR SENHA */}
                     <Senha>

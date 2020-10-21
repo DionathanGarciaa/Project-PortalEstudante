@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    height: 754px;
-    width: 1536px;
+    height: 100%;
+    width: 100%;
     background: #C4C4C4;
 `;
 
@@ -26,6 +26,7 @@ export const Formulario = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 
     form{
         display: flex;
@@ -34,9 +35,21 @@ export const Formulario = styled.div`
         flex-direction: column;
         height: 400px;
         width: 600px;
+        border-radius: 5px;
         background: #ffffff;
         color: #000;
-        border-radius: 5px;
+    }
+`;
+
+export const Box1 = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    label{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        margin-right: 200px;
+        padding: 10px 0 5px 0;
     }
 
     input{
@@ -48,78 +61,64 @@ export const Formulario = styled.div`
         border-color: #c0c0c0;
         border-radius: 8px;
         padding-left: 10px;
-        padding-top: 10px;
-        padding-bottom: 5px;
         color: #000;
-        margin-bottom: 30px;
         outline: 0;
     }
 `;
 
-export const Box1 = styled.div`
-    background: #fff;
-    position: absolute;
-    height:20px;
-    width:44px;
-    top: 267px;
-    left: 640px;
-    padding-top: 2px;
-    padding-left: 2px;
-    white-space: nowrap;
-    
-
-    label{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        margin-right: 205px;
-        padding: 20px 0 1px 0;
-    }
-`;
-
 export const Box2 = styled.div`
-    background: #fff;
-    position: absolute;
-    height:20px;
-    width:32px;
-    top: 335px;
-    left: 640px;
-    padding-top: 2px;
-    padding-left: 2px;
-    white-space: nowrap;
-    
+    display:flex;
+    flex-direction: column;
 
     label{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        margin-right: 205px;
-        padding: 20px 0 1px 0;
+        margin-right: 200px;
+        padding: 10px 0 5px 0;
+    }
+
+    input{
+        height: 38px;
+        width: 265px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        border: 1px solid ;
+        border-color: #c0c0c0;
+        border-radius: 8px;
+        padding-left: 10px;
+        color: #000;
+        outline: 0;
     }
 `;
 
 export const Box3 = styled.div`
-    background: #fff;
-    position: absolute;
-    height:20px;
-    width:81px;
-    top: 403px;
-    left: 640px;
-    padding-top: 2px;
-    padding-left: 2px;
-    white-space: nowrap;
-    
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
 
     label{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        margin-right: 205px;
-        padding: 20px 0 1px 0;
+        margin-right: 200px;
+        padding: 10px 0 5px 0;
+    }
+
+    input{
+        height: 38px;
+        width: 265px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        border: 1px solid ;
+        border-color: #c0c0c0;
+        border-radius: 8px;
+        padding-left: 10px;
+        color: #000;
+        outline: 0;
     }
 `;
 
 export const Botao = styled.div`
-
-    position: absolute;
-    bottom:200px;
+    padding-top: 30px;
 
     button{
         display: flex;

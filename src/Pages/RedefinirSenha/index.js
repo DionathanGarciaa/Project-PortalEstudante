@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Title, Formulario, Box1, Box2, Box3, Senha, Botao, Imagem } from './style';
+import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
 import Img from '../../Assets/img.svg';
 
 const RedefinirSenha = () => {
@@ -26,40 +26,41 @@ const RedefinirSenha = () => {
 
                     {/* INPUT EMAIL */}
                     <Box1>
-                         <label htmlFor="Email">E-mail</label>
+                        <label htmlFor="Email">E-mail</label>
+                        <input 
+                            id="Email"
+                            Type="email"
+                            Value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                            required
+                        />
                     </Box1>
-                    <input 
-                        id="Email"
-                        Type="email"
-                        Value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                        required
-                    />
 
                     {/* INPUT CPF */}
                     <Box2>
-                         <label htmlFor="cpf">CPF</label>
+                        <label htmlFor="cpf">CPF</label>
+                        <input 
+                            id="cpf"
+                            Type="text"
+                            Value={cpf}
+                            onChange={(event) => setCpf(event.target.value)}
+                            required
+                        />
                     </Box2>
-                    <input 
-                        id="cpf"
-                        Type="text"
-                        Value={cpf}
-                        onChange={(event) => setCpf(event.target.value)}
-                        required
-                    />
 
                     {/* INPUT NOVA SENHA */}
                     <Box3>
                         <label htmlFor="Senha">Nova Senha</label>
+                    
+                        <input 
+                            id="Senha"
+                            Type="password"
+                            Value={senha}
+                            onChange={(event) => setSenha(event.target.value)}
+                            minLength='6'
+                            required
+                        />
                     </Box3>
-                    <input 
-                        id="Senha"
-                        Type="password"
-                        Value={senha}
-                        onChange={(event) => setSenha(event.target.value)}
-                        minLength='6'
-                        required
-                    />
 
                     {/* BOTAO */}
                     <Botao>
@@ -67,6 +68,7 @@ const RedefinirSenha = () => {
                             <strong>Redefinir Senha</strong>
                         </button>
                     </Botao>
+                    
                 </form>
             </Formulario>
 

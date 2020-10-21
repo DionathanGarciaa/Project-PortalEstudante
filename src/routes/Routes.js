@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom';
-import Padrao from '../Pages/Padrao/index';
-import Login from '../Pages/Login/index';
-import Redefinir from '../Pages/RedefinirSenha/index';
-import Home from '../Pages/Home/index';
+import Padrao from '../Pages/Padrao';
+import Login from '../Pages/Login';
+import Redefinir from '../Pages/RedefinirSenha';
+import Home from '../Pages/Home';
 
 
 function Routes() {
