@@ -8,9 +8,9 @@ export const Container = styled.div`
     height: 87px;
     background-color: #6C63FF;
     
-h1 {
-    height: 240px;
-    width: 400px;
+h2 {
+    height: 200px;
+    width: 250px;
     color: #fff;
     font-family: Helvetica, Arial,  sans-serif;
     font-size: 24px;
@@ -22,3 +22,4 @@ img {
     padding: 20px;
     padding-right:30px;
 }
+`
