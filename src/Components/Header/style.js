@@ -16,9 +16,11 @@ h1 {
     font-size: 24px;
     padding: 30px;
 }
+
 img {
     height: 48px;
     width: 48px;
     padding: 20px;
     padding-right:30px;
 }
+`;
