@@ -1,9 +1,11 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom';
-import Padrao from '../Pages/Padrao';
-import Login from '../Pages/Login';
-import Redefinir from '../Pages/RedefinirSenha';
-import Home from '../Pages/Home';
+import { Switch, Route } from "react-router-dom";
+import Padrao from '../pages/Padrao';
+import Login from '../pages/Login';
+import Redefinir from '../pages/RedefinirSenha';
+import Home from '../pages/Home';
+import Matricula from '../pages/Matricula';
+import CadastroUsuario from '../pages/CadastroUsuario';
 
 
 function Routes() {
@@ -13,6 +15,8 @@ function Routes() {
             <Route path="/Login" component={Login}/>
             <Route path="/Redefinir" component={Redefinir}/>
             <Route path="/Home" component={Home}/>
+            <Route path="/Matricula" component={Matricula}/>
+            <Route path="/CadastroUsuario" component={CadastroUsuario}/>
         </Switch>
     );
 }

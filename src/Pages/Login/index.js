@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Senha, Botao, Imagem } from './style';
-import Img from '../../Assets/img.svg';
+import Img from '../../assets/img.svg';
 
 const Login = () => {
     const[email, setEmail] = useState('');
