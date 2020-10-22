@@ -20,6 +20,8 @@ export const Title = styled.div`
 h1{
     font-weight: inherit;
     font-size: 28px;
+    padding: 40px 0px 70px 145px;
+    color: #000
 }
 
 `
@@ -64,8 +66,8 @@ export const Select = styled.div`
 margin-top:60px;
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap:60px;
-column-gap: 120px;
+/* gap:60px; */
+/* column-gap: 120px; */
 
 select {
     width: 550px;
@@ -99,4 +101,6 @@ button {
     background: transparent;
     border-radius: 8px;
 }`
+
+
 
