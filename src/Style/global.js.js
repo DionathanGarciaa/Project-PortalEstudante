@@ -7,4 +7,9 @@ export default createGlobalStyle`
     font-family: Helvetica, Arial,  sans-serif;
 
   }
+
+  html, body, #root{
+    height: 100%;
+    width: 100%;
+  }
 `;

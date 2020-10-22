@@ -1,11 +1,11 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom";
-import Home from '../pages/Home';
-import Matricula from '../pages/Matricula';
-import CadastroUsuario from '../pages/CadastroUsuario';
 import Padrao from '../pages/Padrao';
 import Login from '../pages/Login';
 import Redefinir from '../pages/RedefinirSenha';
+import Home from '../pages/Home';
+import Matricula from '../pages/Matricula';
+import CadastroUsuario from '../pages/CadastroUsuario';
 
 
 function Routes() {
