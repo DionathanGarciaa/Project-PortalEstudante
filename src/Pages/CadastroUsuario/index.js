@@ -11,8 +11,6 @@ const Usuario = () => {
     const [email, setEmail] = useState();
     const [usuario, setUsuario] = useState([{tipo1: "Aluno", tipo2: "Professor", tipo3: "Administrador" }]);
 
-    
-    
 
     return(
 
@@ -25,14 +23,14 @@ const Usuario = () => {
 
             <form>
 
-            <input 
-            id="nome"
-            type="text"
-            placeholder="Nome"
-            value={nome}
-            required
-            onChange={(event) => setNome(event.target.value)}
-            />
+                <input 
+                    id="nome"
+                    type="text"
+                    placeholder="Nome"
+                    value={nome}
+                    required
+                    onChange={(event) => setNome(event.target.value)}
+                />
 
             <input 
             id="nome"
