@@ -1,24 +1,29 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Content = styled.div`
+
+a {
     display: flex;
-input {
-    
-}    
-`
+    justify-content: flex-end;
+    text-decoration: none;
+    font-size: 24px;  
+    font-weight: bolder;  
+    color: #F01414  ;
+
+}
+`;
+
 export const Title = styled.div`
     display: flex;
     justify-content: center;
+
 h1{
     font-weight: inherit;
     font-size: 28px;
     padding: 40px 0px 70px 145px;
     color: #000
 }
-
-`
-
-
+`;
 
 export const Container = styled.div`
     width: 100%;
@@ -52,7 +57,7 @@ input {
 input::placeholder {
     color: #000;
 }
-`
+`;
 
 export const Select = styled.div`
 margin-top:60px;
@@ -74,11 +79,8 @@ select {
     color: #000;
     padding: 19px;
     -webkit-appearance: none; 
-    
-
-}`
-
-
+}
+`;
 
 export const Button = styled.div`
     display: flex;
@@ -92,7 +94,5 @@ button {
     border: 1px solid #0E4DA4;
     background: transparent;
     border-radius: 8px;
-}`
-
-
-
+}
+`;

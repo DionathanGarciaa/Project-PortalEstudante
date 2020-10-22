@@ -12,7 +12,7 @@ const Home = () => {
         <Card>
             <Link to="/CadastroUsuario" className="p1">Cadastrar novo usuário</Link>
             <Link to="/Matricula" className="p2">Matricular aluno</Link>
-            <p className="p3">Cadastrar nova disciplina</p>
+            <Link to="/CadastrarDisciplina" className="p3">Cadastrar nova disciplina</Link>
         </Card>
         </Content>
     )
