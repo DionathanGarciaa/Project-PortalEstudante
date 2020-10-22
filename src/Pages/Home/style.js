@@ -7,8 +7,7 @@ h1 {
     justify-content: center;
     color: #0E4DA4;
     font-size: 48px;
-    padding-top: 170px;
-    padding-bottom: 140px;
+    padding: 10% 0;
     font-weight: inherit;
 }
 `
