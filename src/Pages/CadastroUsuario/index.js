@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Content, Container, Title, Select, Button } from './style';
+import { Content, Container, Formulario, Title, Select, Button } from './style';
 import { Link } from 'react-router-dom';
 import { Selects } from '../Matricula/style';
 
@@ -18,6 +18,10 @@ const Usuario = () => {
 
     return(
 <>
+    <Container>
+
+        <Formulario>
+            
         <Content>
             <Link to="/Home">X</Link>
         </Content>
@@ -26,31 +30,32 @@ const Usuario = () => {
                 <h1>Cadastro de Usuário</h1>
         </Title>
 
-        <Container>
+        
 
 
 
             <form>
+            <div className="inputNome">
+                <input 
+                className="input1"
+                id="nome"
+                type="text"
+                placeholder="Nome"
+                value={nome}
+                required
+                onChange={(event) => setNome(event.target.value)}
+                />
 
-            <input 
-            className="input1"
-            id="nome"
-            type="text"
-            placeholder="Nome"
-            value={nome}
-            required
-            onChange={(event) => setNome(event.target.value)}
-            />
-
-            <input 
-            className="input2"
-            id="nome"
-            type="text"
-            placeholder="Sobrenome"
-            value={sobrenome}
-            required
-            onChange={(event) => setSobrenome(event.target.value)}
-            />
+                <input 
+                className="input2"
+                id="nome"
+                type="text"
+                placeholder="Sobrenome"
+                value={sobrenome}
+                required
+                onChange={(event) => setSobrenome(event.target.value)}
+                />
+            </div>
 
             <input 
             id="nome"
@@ -84,13 +89,17 @@ const Usuario = () => {
                 
             </select>
             </Select>
+
+            <Button>
+                <button>Salvar</button>
+            </Button>
             
             </form>
-        </Container>
+       
 
-                <Button>
-                    <button>Salvar</button>
-                </Button>
+
+                </Formulario>
+    </Container>
 </>
     )
 }
