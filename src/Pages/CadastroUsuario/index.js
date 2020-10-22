@@ -13,8 +13,6 @@ const Usuario = () => {
     const [usuarios, setUsuarios] = useState([{tipo: "Aluno"}, {tipo: "Professor"}, {tipo: "Administrador" }]);
     const [tipoUsuario, setTipoUsuario] = useState();
 
-    
-    
 
     return(
 <>

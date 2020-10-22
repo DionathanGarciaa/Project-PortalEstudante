@@ -45,15 +45,11 @@ export const Content = styled.div`
 
 a {
     display: flex;
-    justify-content: flex-end;
-    text-decoration: none;
-    font-size: 24px;  
-    font-weight: bolder;  
-    color: #F01414  ;
-
-}
+input {
+    
+    }
+ }    
 `
-
 export const Title = styled.div`
     display: flex;
     align-items: flex-start;

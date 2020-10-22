@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header';
+import Header from '../../components/header';
 import { Content, Container, Selects, Button } from './style';
 import { Link } from 'react-router-dom';
 
