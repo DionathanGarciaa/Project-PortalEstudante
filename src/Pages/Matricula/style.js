@@ -5,7 +5,6 @@ export const Content = styled.div`
 
 a {
     display: flex;
-    /* justify-content: flex-end; */
     text-decoration: none;
     font-size: 16px;
     padding: 40px 0px 70px 145px;
@@ -61,6 +60,7 @@ select {
     font-size: 16px;
     color: #000;
     padding: 19px;
+    -webkit-appearance: none; 
     
 
 }
