@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, ContainerExt, ContainerInt, Content, Title, Formulario, Button } from './style';
+import { Container, Content, Title, Formulario, Button } from './style';
+
 
 const Disciplina = () => {
     const [nome, setNome] = useState();
@@ -9,63 +10,59 @@ const Disciplina = () => {
 
     return (
         
-        <Container>
+        <>
+            <Container>
 
-            <ContainerExt>
+                <Formulario>
 
-                <Content>
-                    <Link to="/Home">X</Link>
-                </Content>
-        
-                <ContainerInt>
+                    {/* SAIR  */}
+                    <Content>
+                        <Link to="/Home">X</Link>
+                    </Content>
+
+                    {/* TITULO */}
                     <Title>
-                            <h1>Cadastro de Disciplina</h1>
+                        <h1>Cadastro de Disciplina</h1>
                     </Title>
 
-                    <Formulario>
-                        <form>
+                    {/* FORMULÁRIO */}
+                    <form>
+                        <input 
+                            id="nome"
+                            type="text"
+                            placeholder="Nome"
+                            value={nome}
+                            onChange={(event) => setNome(event.target.value)}
+                            required
+                        />
+            
+                        <input 
+                            id="matricula"
+                            type="text"
+                            placeholder="Matrícula Professor Responsável"
+                            value={matricula}
+                            onChange={(event) => setMatricula(event.target.value)}
+                            required
+                        />
+            
+                        <input 
+                            id="alunos"
+                            type="text"
+                            placeholder="Quantidade de Alunos"
+                            value={alunos}
+                            onChange={(event) => setAlunos(event.target.value)}
+                            required
+                        />
 
-                            <input 
-                            className="input1"
-                                id="nome"
-                                type="text"
-                                placeholder="Nome"
-                                value={nome}
-                                onChange={(event) => setNome(event.target.value)}
-                                required
-                            />
-
-                            <input 
-                                className="input2"
-                                id="Matricula"
-                                type="text"
-                                placeholder="Matricula Professor Responsável"
-                                value={matricula}
-                                required
-                                onChange={(event) => setMatricula(event.target.value)}
-                            />
-
-                            <input 
-                                className="input3"
-                                id="Aluno"
-                                type="text"
-                                placeholder="Quantidade de Alunos"
-                                value={alunos}
-                                required
-                                onChange={(event) => setAlunos(event.target.value)}
-                            />
-
-                        </form>
-                    </Formulario>
-
-                    <Button>
-                        <button>Salvar</button>
-                    </Button>
-                </ContainerInt>
-
-            </ContainerExt>
-
-        </Container>
+                        {/* BOTÃO */}
+                        <Button>
+                            <button>Salvar</button>
+                        </Button>
+                            
+                    </form>
+                </Formulario>
+            </Container>
+        </>
     )
 }
 

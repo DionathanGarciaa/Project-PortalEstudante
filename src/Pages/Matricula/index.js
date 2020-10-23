@@ -14,109 +14,106 @@ const Matricula = () => {
     const [disciplina5, setDisciplina5] = useState();
     const [disciplina6, setDisciplina6] = useState();
 
-    
     return (
         <>
-        <Header/>
+            {/* CABEÇALHO */}
+            <Header/>
 
-        <Content>   
-        <Link to="/Home">Voltar</Link>
-        </Content>
+            {/* SAIR */}
+            <Content>   
+                <Link to="/Home">Voltar</Link>
+            </Content>
         
-        <Container>
+            {/* CONTAINER */}
+            <Container>
            
-
-            <form>
-            <input 
-            id="number"
-            type="text"
-            placeholder="Nº matricula aluno"
-            value={matricula}
-            required
-            onChange={(event) => setMatricula(event.target.value)}
-            />
-            <br/>
-            <Selects>
-                <select 
-                    id="disciplinas"
-                    value={disciplina1}
-                    onChange={(event) => setDisciplina1(event.target.value)}
+                {/* FORMULÁRIO */}
+                <form>
+                    <input 
+                        id="number"
+                        type="text"
+                        placeholder="Nº matricula aluno"
+                        value={matricula}
+                        required
+                        onChange={(event) => setMatricula(event.target.value)}
+                    />
+                    <br/>
                     
-                >
-                    <option value="" disabled selected>Disciplina</option>
-                    {disciplinas.map((disciplina)=>(
-                    <option value={disciplina.nome}>{disciplina.nome}</option>
-                    ))}
-                
-                </select>
-                <select 
-                    id="disciplinas"
-                    value={disciplina2}
-                    onChange={(event) => setDisciplina2(event.target.value)}
+                    <Selects>
+                        <select 
+                            id="disciplinas"
+                            value={disciplina1}
+                            onChange={(event) => setDisciplina1(event.target.value)}
+                        >
+                            <option value="" disabled selected>Disciplina</option>
+                            {disciplinas.map((disciplina)=>(
+                                <option value={disciplina.nome}>{disciplina.nome}</option>
+                            ))}
+                        </select>
 
-                >
-                    <option value="" disabled selected>Disciplina</option>
-                    {disciplinas.map((disciplina)=>(
-                    <option value={disciplina.nome}>{disciplina.nome}</option>
-                    ))}
-                
-                </select>
-                <select 
-                    id="disciplinas"
-                    value={disciplina3}
-                    onChange={(event) => setDisciplina3(event.target.value)}
+                        <select 
+                            id="disciplinas"
+                            value={disciplina2}
+                            onChange={(event) => setDisciplina2(event.target.value)}
+                        >
+                            <option value="" disabled selected>Disciplina</option>
+                            {disciplinas.map((disciplina)=>(
+                                <option value={disciplina.nome}>{disciplina.nome}</option>
+                            ))}
+                        </select>
 
-                >
-                    <option value="" disabled selected>Disciplina</option>
-                    {disciplinas.map((disciplina)=>(
-                    <option value={disciplina.nome}>{disciplina.nome}</option>
-                    ))}
-                
-                </select>
-                <select 
-                    id="disciplinas"
-                    value={disciplina4}
-                    onChange={(event) => setDisciplina4(event.target.value)}
+                        <select 
+                            id="disciplinas"
+                            value={disciplina3}
+                            onChange={(event) => setDisciplina3(event.target.value)}
+                        >
+                            <option value="" disabled selected>Disciplina</option>
+                            {disciplinas.map((disciplina)=>(
+                                <option value={disciplina.nome}>{disciplina.nome}</option>
+                            ))}
+                        </select>
 
-                >
-                    <option value="" disabled selected>Disciplina</option>
-                    {disciplinas.map((disciplina)=>(
-                    <option value={disciplina.nome}>{disciplina.nome}</option>
-                    ))}
-                
-                </select>
-                <select 
-                    id="disciplinas"
-                    value={disciplina5}
-                    onChange={(event) => setDisciplina5(event.target.value)}
+                        <select 
+                            id="disciplinas"
+                            value={disciplina4}
+                            onChange={(event) => setDisciplina4(event.target.value)}
+                        >
+                            <option value="" disabled selected>Disciplina</option>
+                                {disciplinas.map((disciplina)=>(
+                                <option value={disciplina.nome}>{disciplina.nome}</option>
+                            ))}
+                        </select>
 
-                >
-                    <option value="" disabled selected>Disciplina</option>
-                    {disciplinas.map((disciplina)=>(
-                    <option value={disciplina.nome}>{disciplina.nome}</option>
-                    ))}
-                
-                </select>
-                <select 
-                    id="disciplinas"
-                    value={disciplina6}
-                    onChange={(event) => setDisciplina6(event.target.value)}
+                        <select 
+                            id="disciplinas"
+                            value={disciplina5}
+                            onChange={(event) => setDisciplina5(event.target.value)}
+                        >
+                            <option value="" disabled selected>Disciplina</option>
+                            {disciplinas.map((disciplina)=>(
+                                <option value={disciplina.nome}>{disciplina.nome}</option>
+                            ))}
+                        </select>
 
-                >
-                    <option value="" disabled selected>Disciplina</option>
-                    {disciplinas.map((disciplina)=>(
-                    <option value={disciplina.nome}>{disciplina.nome}</option>
-                    ))}
-                
-                </select>
-            </Selects>
-            </form>
-        </Container>
-        <Button>
-            <button>Salvar</button>
-        </Button>
+                        <select 
+                            id="disciplinas"
+                            value={disciplina6}
+                            onChange={(event) => setDisciplina6(event.target.value)}
+                        >
+                            <option value="" disabled selected>Disciplina</option>
+                            {disciplinas.map((disciplina)=>(
+                                <option value={disciplina.nome}>{disciplina.nome}</option>
+                            ))}
+                        </select>
+                    </Selects>
+                </form>
+            </Container>
+
+            {/* BOTÃO */}
+            <Button>
+                <button>Salvar</button>
+            </Button>
         </>
-
     )
 }
 

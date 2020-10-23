@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
+
 export const Content = styled.div`
 
-h1 {
-    display: flex;
-    justify-content: center;
-    color: #0E4DA4;
-    font-size: 48px;
-    padding: 10% 0;
-    font-weight: inherit;
-}
-`
+    h1 {
+        display: flex;
+        justify-content: center;
+        color: #0E4DA4;
+        font-size: 48px;
+        padding: 10% 0;
+        font-weight: inherit;
+    }
+`;
 
 export const Card = styled.div`
     display: flex;
@@ -21,45 +22,44 @@ export const Card = styled.div`
     font-size: 24px;
 
 
-p {
-    color: #;
-}  
+    p {
+        color: #;
+    }    
 
-a {
-    text-decoration: none;
+    a {
+        text-decoration: none;
+    }
 
-}
+    .p1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:#BB6BD9;
+        color: #fff;
+        height: 188px;
+        width:355px;
+        border-radius: 20px;
+    }
 
-.p1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#BB6BD9;
-    color: #fff;
-    height: 188px;
-    width:355px;
-    border-radius: 20px;
-}
+    .p2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:#6FCF97;
+        color: #fff;
+        height: 188px;
+        width:355px;
+        border-radius: 20px;
+    }
 
-.p2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#6FCF97;
-    color: #fff;
-    height: 188px;
-    width:355px;
-    border-radius: 20px;
-}
-
-.p3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#F2994A;
-    color: #fff;
-    height: 188px;
-    width:355px;
-    border-radius: 20px;
-}
-`
+    .p3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:#F2994A;
+        color: #fff;
+        height: 188px;
+        width:355px;
+        border-radius: 20px;
+    }
+`;
