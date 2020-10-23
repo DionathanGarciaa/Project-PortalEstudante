@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
 import Img from '../../assets/img.svg';
+import Api from '../../services/Api';
 
 
 const RedefinirSenha = () => {
     const[email, setEmail] = useState('');
     const[cpf, setCpf] = useState('');
-    const[senha, setSenha] = useState('');
+    const[password, setPassword] = useState('');
+    const history = useHistory();
 
     function handleSubmit(event) {
         event.preventDefault();
+        senha();
+    }
+
+    function senha() {
+        Api.post("/sessions/resetpassword", {email, cpf, password}).then(response => {
+            if(response.data){
+                history.push("/Login")
+                alert("Senha atualizada")
+            }
+            else {
+                alert("Usuário não encontrado");
+            }
+        }, err => {
+            alert("Usuário não encontrado");
+            })
     }
 
     return (
@@ -56,8 +74,8 @@ const RedefinirSenha = () => {
                         <input 
                             id="Senha"
                             Type="password"
-                            Value={senha}
-                            onChange={(event) => setSenha(event.target.value)}
+                            Value={password}
+                            onChange={(event) => setPassword(event.target.value)}
                             minLength='6'
                             required
                         />
