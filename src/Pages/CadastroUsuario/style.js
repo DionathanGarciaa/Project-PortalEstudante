@@ -77,6 +77,10 @@ export const Content = styled.div`
     height: 10%;
     a {
         display: flex;
+        color: #F01414;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bolder;
     }    
 `;
 
