@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
 import Img from '../../assets/img.svg';
 
+
 const RedefinirSenha = () => {
     const[email, setEmail] = useState('');
     const[cpf, setCpf] = useState('');
@@ -76,8 +77,7 @@ const RedefinirSenha = () => {
             <Imagem>
                <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
             </Imagem>
-
-
+            
         </Container>
     )
 }

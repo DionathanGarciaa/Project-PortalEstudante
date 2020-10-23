@@ -6,7 +6,7 @@ import Redefinir from '../pages/RedefinirSenha';
 import Home from '../pages/Home';
 import Matricula from '../pages/Matricula';
 import CadastroUsuario from '../pages/CadastroUsuario';
-
+import CadastrarDisciplina from '../pages/CadastrarDisciplina';
 
 function Routes() {
     return (
@@ -17,6 +17,7 @@ function Routes() {
             <Route path="/Home" component={Home}/>
             <Route path="/Matricula" component={Matricula}/>
             <Route path="/CadastroUsuario" component={CadastroUsuario}/>
+            <Route path="/CadastrarDisciplina" component={CadastrarDisciplina}/>
         </Switch>
     );
 }
