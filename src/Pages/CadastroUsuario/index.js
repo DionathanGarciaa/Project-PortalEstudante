@@ -32,6 +32,8 @@ const Usuario = () => {
                     {/* FORMULÁRIO */}
                     <form>
                         <div className="inputNome">
+
+                            {/* INPUT NOME */}
                             <input 
                                 className="input1"
                                 id="nome"
@@ -42,6 +44,7 @@ const Usuario = () => {
                                 onChange={(event) => setNome(event.target.value)}
                             />
 
+                            {/* INPUT SOBRENOME */}
                             <input 
                                 className="input2"
                                 id="nome"
@@ -53,6 +56,7 @@ const Usuario = () => {
                             />
                         </div>
 
+                        {/* INPUT TELEFONE */}
                         <input 
                             id="nome"
                             type="text"
@@ -62,6 +66,7 @@ const Usuario = () => {
                             onChange={(event) => setTelefone(event.target.value)}
                         />
 
+                        {/* INPUT EMAIL */}
                         <input 
                             id="nome"
                             type="text"
@@ -71,6 +76,7 @@ const Usuario = () => {
                             onChange={(event) => setEmail(event.target.value)}
                         />
 
+                        {/* INPUT DISCIPLINA */}
                         <Select>
                             <select 
                                 id="disciplinas"

@@ -27,6 +27,8 @@ const Disciplina = () => {
 
                     {/* FORMULÁRIO */}
                     <form>
+
+                        {/* INPUT NOME */}
                         <input 
                             id="nome"
                             type="text"
@@ -35,7 +37,8 @@ const Disciplina = () => {
                             onChange={(event) => setNome(event.target.value)}
                             required
                         />
-            
+                        
+                        {/* INPUT MATRICULA PROFESSOR RESPONSAVEL */}
                         <input 
                             id="matricula"
                             type="text"
@@ -44,7 +47,8 @@ const Disciplina = () => {
                             onChange={(event) => setMatricula(event.target.value)}
                             required
                         />
-            
+
+                        {/* INPUT QUANTIDADE DE ALUNOS */}
                         <input 
                             id="alunos"
                             type="text"

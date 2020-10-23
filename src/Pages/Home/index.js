@@ -9,9 +9,14 @@ const Home = () => {
     return (
 
         <Content>
+
+            {/* CABEÇALHO */}
             <Header/>
+
+            {/* TITULO */}
             <h1>Escolha uma das opções abaixo:</h1>
 
+            {/* MENU CARDS */}
             <Card>
                 <Link to="/CadastroUsuario" className="p1">Cadastrar novo usuário</Link>
                 <Link to="/Matricula" className="p2">Matricular aluno</Link>

@@ -29,6 +29,8 @@ const Matricula = () => {
            
                 {/* FORMULÁRIO */}
                 <form>
+
+                    {/* INPUT N° MATRICULA ALUNO */}
                     <input 
                         id="number"
                         type="text"
@@ -39,6 +41,7 @@ const Matricula = () => {
                     />
                     <br/>
                     
+                    {/* SELECT DISCIPLINA */}
                     <Selects>
                         <select 
                             id="disciplinas"

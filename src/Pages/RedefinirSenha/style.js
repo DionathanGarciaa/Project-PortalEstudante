@@ -94,7 +94,6 @@ export const Box2 = styled.div`
 export const Box3 = styled.div`
     display: flex;
     flex-direction: column;
-    margin-left: 15px;
 
     label{
         font-family: Arial, Helvetica, sans-serif;
