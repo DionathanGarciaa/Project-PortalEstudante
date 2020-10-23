@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Senha, Botao, Imagem } from './style';
 import Img from '../../assets/img.svg';
+import Api from '../../services/Api';
 
 
 const Login = () => {
     const[email, setEmail] = useState('');
     const[senha, setSenha] = useState('');
+    const history = useHistory();
 
     function handleSubmit(event) {
         event.preventDefault();
+        loginUser();
+    }
+
+    function loginUser() {
+        Api.post("/sessions", {email: email, password: senha}).then(response => {
+            if(response.data.token){
+                sessionStorage.setItem("token", response.data.token)
+                history.push("/Home")
+            }
+            else {
+                alert("Usuário não encontrado");
+            }
+        }, err => {
+            alert("Usuário não encontrado");
+            })
     }
 
     return (
