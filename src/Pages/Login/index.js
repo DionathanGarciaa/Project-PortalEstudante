@@ -21,9 +21,6 @@ const Login = () => {
                 sessionStorage.setItem("token", response.data.token)
                 history.push("/Home")
             }
-            else {
-                alert("Usuário não encontrado");
-            }
         }, err => {
             alert("Usuário não encontrado");
             })

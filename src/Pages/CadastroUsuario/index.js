@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
 import { Content, Container, Formulario, Title, Select, Button } from './style';
 import { Link } from 'react-router-dom';
-import { Selects } from '../Matricula/style';
+import Api from '../../services/Api';
 
 
 const Usuario = () => {
     const [nome, setNome] = useState();
     const [sobrenome, setSobrenome] = useState();
-    const [telefone, setTelefone] = useState();
+    const [cpf, setCpf] = useState();
     const [email, setEmail] = useState();
-    const [usuarios, setUsuarios] = useState([{tipo: "Aluno"}, {tipo: "Professor"}, {tipo: "Administrador" }]);
     const [tipoUsuario, setTipoUsuario] = useState();
+
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        createUser();
+    }
+
+    function createUser() {
+        Api.post("/users", { firstname: nome, lastname: sobrenome, email, cpf, usertype: tipoUsuario }).then(res => {
+            if(res.data){
+                alert("Cadastro Concluído");
+            } 
+        }, (err) => {
+            alert("");
+            })
+    }
+
 
     return(
 
@@ -30,7 +46,7 @@ const Usuario = () => {
                     </Title>
 
                     {/* FORMULÁRIO */}
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="inputNome">
 
                             {/* INPUT NOME */}
@@ -47,7 +63,7 @@ const Usuario = () => {
                             {/* INPUT SOBRENOME */}
                             <input 
                                 className="input2"
-                                id="nome"
+                                id="sobrenome"
                                 type="text"
                                 placeholder="Sobrenome"
                                 value={sobrenome}
@@ -56,19 +72,19 @@ const Usuario = () => {
                             />
                         </div>
 
-                        {/* INPUT TELEFONE */}
+                        {/* INPUT CPF */}
                         <input 
-                            id="nome"
+                            id="cpf"
                             type="text"
-                            placeholder="Telefone"
-                            value={telefone}
+                            placeholder="CPF"
+                            value={cpf}
                             required
-                            onChange={(event) => setTelefone(event.target.value)}
+                            onChange={(event) => setCpf(event.target.value)}
                         />
 
                         {/* INPUT EMAIL */}
                         <input 
-                            id="nome"
+                            id="email"
                             type="text"
                             placeholder="E-mail"
                             value={email}
@@ -76,18 +92,17 @@ const Usuario = () => {
                             onChange={(event) => setEmail(event.target.value)}
                         />
 
-                        {/* INPUT DISCIPLINA */}
+                        {/* INPUT TIPO DE USUARIO*/}
                         <Select>
                             <select 
                                 id="disciplinas"
-                                value={tipoUsuario}
                                 onChange={(event) => setTipoUsuario(event.target.value)}
-
                             >
-                                <option value="" disabled selected>Tipo de Usuário</option>
-                                {usuarios.map((usuario)=>(
-                                    <option value={usuario.tipo}>{usuario.tipo}</option>
-                                ))}
+                                <option value="1" selected>Administrador</option>   
+                                <option value="2" selected>Professor</option>
+                                <option value="3" selected>Aluno</option>
+                                <option value=""  disabled selected>Tipo de Usuário</option>
+
                             </select>
                         </Select>
 

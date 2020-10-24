@@ -22,9 +22,6 @@ const RedefinirSenha = () => {
                 history.push("/Login")
                 alert("Senha atualizada")
             }
-            else {
-                alert("Usuário não encontrado");
-            }
         }, err => {
             alert("Usuário não encontrado");
             })
