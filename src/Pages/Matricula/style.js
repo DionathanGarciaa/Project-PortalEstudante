@@ -1,13 +1,10 @@
 import styled from "styled-components";
 
 
-export const Content = styled.div`
+export const Exit = styled.div`
+    margin: 30px 0 30px 158px;
 
     a {
-        display: flex;
-        text-decoration: none;
-        font-size: 16px;
-        margin: 40px 1330px 40px 145px;
         color: #000;
     }
 `;
@@ -71,5 +68,6 @@ export const Button = styled.div`
         border: 1px solid #0E4DA4;
         background: transparent;
         border-radius: 8px;
+        cursor: pointer;
     }
 `;

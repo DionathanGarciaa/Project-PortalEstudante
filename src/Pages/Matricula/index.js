@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header';
-import { Content, Container, Selects, Button } from './style';
+import { Exit, Container, Selects, Button } from './style';
 import { Link } from 'react-router-dom';
+import { BsBoxArrowInLeft } from 'react-icons/bs';
 
 
 const Matricula = () => {
@@ -20,9 +21,11 @@ const Matricula = () => {
             <Header/>
 
             {/* SAIR */}
-            <Content>   
-                <Link to="/Home">Voltar</Link>
-            </Content>
+            <Exit>
+                <Link to="/Home">
+                    <BsBoxArrowInLeft fontSize={30} color="#000" />
+                </Link>
+            </Exit>
         
             {/* CONTAINER */}
             <Container>

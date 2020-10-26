@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 
 export const Content = styled.div`
+    z-index: 1;
 
     h1 {
         display: flex;
@@ -39,6 +40,7 @@ export const Card = styled.div`
         height: 188px;
         width:355px;
         border-radius: 20px;
+        cursor: pointer;
     }
 
     .p2{
@@ -50,6 +52,7 @@ export const Card = styled.div`
         height: 188px;
         width:355px;
         border-radius: 20px;
+        cursor: pointer;
     }
 
     .p3{
@@ -61,5 +64,6 @@ export const Card = styled.div`
         height: 188px;
         width:355px;
         border-radius: 20px;
+        cursor: pointer;
     }
 `;

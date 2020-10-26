@@ -1,72 +1,71 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Content, Title, Formulario, Button } from './style';
+import { Container, Exit, Title, Formulario, Button } from './style';
+import { BsX } from "react-icons/bs";
 
 
-const Disciplina = () => {
+const Disciplina = (props) => {
     const [nome, setNome] = useState();
     const [matricula, setMatricula] = useState();
     const [alunos, setAlunos] = useState();
 
     return (
         
-        <>
-            <Container>
+        <Container>
 
-                <Formulario>
+            <Formulario>
 
-                    {/* SAIR  */}
-                    <Content>
-                        <Link to="/Home">X</Link>
-                    </Content>
+                {/* SAIR  */}
+                <Exit onClick={() => props.showModal2(false)}>
+                    <BsX fontSize={30} color="red"/>
+                </Exit>
 
-                    {/* TITULO */}
-                    <Title>
-                        <h1>Cadastro de Disciplina</h1>
-                    </Title>
+                {/* TITULO */}
+                <Title>
+                    <h1>Cadastro de Disciplina</h1>
+                </Title>
 
-                    {/* FORMULÁRIO */}
-                    <form>
+                {/* FORMULÁRIO */}
+                <form>
 
-                        {/* INPUT NOME */}
-                        <input 
-                            id="nome"
-                            type="text"
-                            placeholder="Nome"
-                            value={nome}
-                            onChange={(event) => setNome(event.target.value)}
-                            required
-                        />
+                    {/* INPUT NOME */}
+                    <input 
+                        id="nome"
+                        type="text"
+                        placeholder="Nome"
+                        value={nome}
+                        onChange={(event) => setNome(event.target.value)}
+                        required
+                    />
                         
-                        {/* INPUT MATRICULA PROFESSOR RESPONSAVEL */}
-                        <input 
-                            id="matricula"
-                            type="text"
-                            placeholder="Matrícula Professor Responsável"
-                            value={matricula}
-                            onChange={(event) => setMatricula(event.target.value)}
-                            required
-                        />
+                    {/* INPUT MATRICULA PROFESSOR RESPONSAVEL */}
+                    <input 
+                        id="matricula"
+                        type="text"
+                        placeholder="Matrícula Professor Responsável"
+                        value={matricula}
+                        onChange={(event) => setMatricula(event.target.value)}
+                        required
+                    />
 
-                        {/* INPUT QUANTIDADE DE ALUNOS */}
-                        <input 
-                            id="alunos"
-                            type="text"
-                            placeholder="Quantidade de Alunos"
-                            value={alunos}
-                            onChange={(event) => setAlunos(event.target.value)}
-                            required
-                        />
+                    {/* INPUT QUANTIDADE DE ALUNOS */}
+                    <input 
+                        id="alunos"
+                        type="text"
+                        placeholder="Quantidade de Alunos"
+                        value={alunos}
+                        onChange={(event) => setAlunos(event.target.value)}
+                        required
+                    />
 
-                        {/* BOTÃO */}
-                        <Button>
-                            <button>Salvar</button>
-                        </Button>
+                    {/* BOTÃO */}
+                    <Button>
+                        <button>Salvar</button>
+                    </Button>
                             
-                    </form>
-                </Formulario>
-            </Container>
-        </>
+                </form>
+            </Formulario>
+        </Container>
+    
     )
 }
 
