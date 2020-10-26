@@ -7,7 +7,7 @@ export const Content = styled.div`
         display: flex;
         text-decoration: none;
         font-size: 16px;
-        padding: 40px 0px 70px 145px;
+        margin: 40px 1330px 40px 145px;
         color: #000;
     }
 `;
@@ -16,7 +16,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    height:540px;
+    height: 65%;
 
     input {
         width: 550px;

@@ -35,11 +35,40 @@ export const Container = styled.div`
     }
 `;
 
+export const Content = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width:87%;
+    height: 10%;
+    a {
+        display: flex;
+        color: #F01414;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bolder;
+    }    
+`;
+
+export const Title = styled.div`
+    display: flex;
+    align-items: flex-start;
+    width: 75%;
+
+    h1{
+        display: flex;
+        align-items: flex-start;
+        font-weight: inherit;
+        font-size: 28px;
+        padding-bottom: 50px;
+        color: #000
+    }
+`;
+
 export const Formulario = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height:70vh;
+    height:90vh;
     width: 40vw;
     flex-direction:column;
     box-sizing: border-box;
@@ -68,35 +97,6 @@ export const Formulario = styled.div`
             }
         }
     }    
-`;
-
-export const Content = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    width:87%;
-    height: 10%;
-    a {
-        display: flex;
-        color: #F01414;
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: bolder;
-    }    
-`;
-
-export const Title = styled.div`
-    display: flex;
-    align-items: flex-start;
-    width: 75%;
-
-    h1{
-        display: flex;
-        align-items: flex-start;
-        font-weight: inherit;
-        font-size: 28px;
-        padding-bottom: 20px;
-        color: #000
-    }
 `;
 
 export const Select = styled.div`

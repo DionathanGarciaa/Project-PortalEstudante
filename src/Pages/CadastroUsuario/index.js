@@ -9,6 +9,7 @@ const Usuario = () => {
     const [sobrenome, setSobrenome] = useState();
     const [cpf, setCpf] = useState();
     const [email, setEmail] = useState();
+    const [senha, setSenha] = useState();
     const [tipoUsuario, setTipoUsuario] = useState();
 
 
@@ -18,7 +19,7 @@ const Usuario = () => {
     }
 
     function createUser() {
-        Api.post("/users", { firstname: nome, lastname: sobrenome, email, cpf, usertype: tipoUsuario }).then(res => {
+        Api.post("/users", { firstname: nome, lastname: sobrenome, cpf, email, password: senha, usertype: tipoUsuario }).then(res => {
             if(res.data){
                 alert("Cadastro Concluído");
             } 
@@ -90,6 +91,16 @@ const Usuario = () => {
                             value={email}
                             required
                             onChange={(event) => setEmail(event.target.value)}
+                        />
+
+                        {/* INPUT SENHA */}
+                        <input 
+                            id="senha"
+                            type="password"
+                            placeholder="Senha"
+                            value={senha}
+                            required
+                            onChange={(event) => setSenha(event.target.value)}
                         />
 
                         {/* INPUT TIPO DE USUARIO*/}
