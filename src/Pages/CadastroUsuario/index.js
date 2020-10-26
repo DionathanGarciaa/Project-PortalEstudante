@@ -21,10 +21,10 @@ const Usuario = (props) => {
     function createUser() {
         Api.post("/users", { firstname: nome, lastname: sobrenome, cpf, email, password: senha, usertype: tipoUsuario }).then(res => {
             if(res.data){
-                alert("Cadastro Concluído");
+                alert("Cadastro concluído");
             } 
         }, (err) => {
-            alert("");
+            alert("Usuário já existe");
             })
     }
 

@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
 import { Container, Exit, Title, Formulario, Button } from './style';
 import { BsX } from "react-icons/bs";
+import Api from '../../services/Api';
 
 
 const Disciplina = (props) => {
     const [nome, setNome] = useState();
     const [matricula, setMatricula] = useState();
     const [alunos, setAlunos] = useState();
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        createDiscipline();
+    }
+
+    function createDiscipline() {
+        Api.post("/discipline", { name: nome, idTeacher: matricula, numberStudents: alunos }).then(res => {
+            if(res.data){
+                alert("Cadastro concluído")
+            }
+        }, (err) => {
+            alert("Não foi possível cadastrar essa disciplina")
+        })
+    }
 
     return (
         
@@ -25,7 +41,7 @@ const Disciplina = (props) => {
                 </Title>
 
                 {/* FORMULÁRIO */}
-                <form>
+                <form onSubmit={handleSubmit}>
 
                     {/* INPUT NOME */}
                     <input 
