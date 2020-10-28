@@ -16,11 +16,39 @@ export const Container = styled.div`
         font-size: 24px;
         padding: 30px;
     }
+`;
 
-    img {
-        height: 48px;
-        width: 48px;
-        padding: 20px;
-        padding-right:30px;
+export const User = styled.div`
+    padding: 10px;
+
+    div{
+        position: relative;
+    }
+
+    [div] .ul{
+        display: none;
+    }
+
+    [div]:hover .ul{
+        display: none;
+    }
+
+    ul{
+        position: absolute;
+        top:87px;
+        right: 0;
+        width: 100px;
+        background: #6C63FF;
+        z-index:4;
+    }
+
+    li{
+        color: #000;
+        list-style-type: none;
+    }
+
+    li:hover{
+        color:#fff;
+        cursor: pointer;
     }
 `;

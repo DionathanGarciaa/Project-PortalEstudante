@@ -1,6 +1,6 @@
 import React from 'react';
-import User from '../../assets/user.svg';
-import { Container } from './style';
+import { Container, User } from './style';
+import { FaUserCircle } from "react-icons/fa";
 
 
 const Header = () => {
@@ -9,8 +9,20 @@ const Header = () => {
 
     <Container>
         <h2>Bem-vindo, fulaninho</h2>
+
+        <User>
+
+          <div>
+            <FaUserCircle fontSize={70} color="#fff"/>
+          </div>
+          
+            <ul>
+              <li>Meus Dados</li>
+              <li>Sair</li>
+            </ul>
         
-        <img src={User} alt="user"/>
+        </User>
+        
     </Container>
 
   );
