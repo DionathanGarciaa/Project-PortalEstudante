@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import { Container, Exit, Title, Formulario, Button } from './style';
 import { BsX } from "react-icons/bs";
 import Api from '../../services/Api';
+import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
+import AlertErro from '../../components/ModalAlerts/ErroAlert';
 
 
 const Disciplina = (props) => {
     const [nome, setNome] = useState();
     const [matricula, setMatricula] = useState();
     const [alunos, setAlunos] = useState();
+    const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
+    const [modalAlertErro, setModalAlertErro] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
+
+
+    function ModalClickSuccess(){
+        setModalAlertSuccess(false);
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -17,70 +27,77 @@ const Disciplina = (props) => {
     function createDiscipline() {
         Api.post("/discipline", { name: nome, idTeacher: matricula, numberStudents: alunos }).then(res => {
             if(res.data){
-                alert("Cadastro concluído")
+                setModalAlertSuccess(true)
             }
         }, (err) => {
-            alert("Não foi possível cadastrar essa disciplina")
+            setErrorMessage(err.response.data.error);
+            setModalAlertErro(true);
         })
     }
 
     return (
         
-        <Container>
+        <>
+            {/* MODAL */}
+            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Disciplina cadastrada"}/>}
+            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage}/>}
 
-            <Formulario>
+            <Container>
 
-                {/* SAIR  */}
-                <Exit onClick={() => props.showModal2(false)}>
-                    <BsX fontSize={30} color="red"/>
-                </Exit>
+                <Formulario>
 
-                {/* TITULO */}
-                <Title>
-                    <h1>Cadastro de Disciplina</h1>
-                </Title>
+                    {/* SAIR  */}
+                    <Exit onClick={() => props.showModal2(false)}>
+                        <BsX fontSize={30} color="red"/>
+                    </Exit>
 
-                {/* FORMULÁRIO */}
-                <form onSubmit={handleSubmit}>
+                    {/* TITULO */}
+                    <Title>
+                        <h1>Cadastro de Disciplina</h1>
+                    </Title>
 
-                    {/* INPUT NOME */}
-                    <input 
-                        id="nome"
-                        type="text"
-                        placeholder="Nome"
-                        value={nome}
-                        onChange={(event) => setNome(event.target.value)}
-                        required
-                    />
-                        
-                    {/* INPUT MATRICULA PROFESSOR RESPONSAVEL */}
-                    <input 
-                        id="matricula"
-                        type="text"
-                        placeholder="Matrícula Professor Responsável"
-                        value={matricula}
-                        onChange={(event) => setMatricula(event.target.value)}
-                        required
-                    />
+                    {/* FORMULÁRIO */}
+                    <form onSubmit={handleSubmit}>
 
-                    {/* INPUT QUANTIDADE DE ALUNOS */}
-                    <input 
-                        id="alunos"
-                        type="text"
-                        placeholder="Quantidade de Alunos"
-                        value={alunos}
-                        onChange={(event) => setAlunos(event.target.value)}
-                        required
-                    />
-
-                    {/* BOTÃO */}
-                    <Button>
-                        <button>Salvar</button>
-                    </Button>
+                        {/* INPUT NOME */}
+                        <input 
+                            id="nome"
+                            type="text"
+                            placeholder="Nome"
+                            value={nome}
+                            onChange={(event) => setNome(event.target.value)}
+                            required
+                        />
                             
-                </form>
-            </Formulario>
-        </Container>
+                        {/* INPUT MATRICULA PROFESSOR RESPONSAVEL */}
+                        <input 
+                            id="matricula"
+                            type="text"
+                            placeholder="Matrícula Professor Responsável"
+                            value={matricula}
+                            onChange={(event) => setMatricula(event.target.value)}
+                            required
+                        />
+
+                        {/* INPUT QUANTIDADE DE ALUNOS */}
+                        <input 
+                            id="alunos"
+                            type="text"
+                            placeholder="Quantidade de Alunos"
+                            value={alunos}
+                            onChange={(event) => setAlunos(event.target.value)}
+                            required
+                        />
+
+                        {/* BOTÃO */}
+                        <Button>
+                            <button>Salvar</button>
+                        </Button>
+                                
+                    </form>
+                </Formulario>
+            </Container>
+        </>
     
     )
 }

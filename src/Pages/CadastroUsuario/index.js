@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Exit, Container, Formulario, Title, Select, Button } from './style';
 import Api from '../../services/Api';
 import { BsX } from "react-icons/bs";
+import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
+import AlertErro from '../../components/ModalAlerts/ErroAlert';
 
 
 const Usuario = (props) => {
@@ -11,7 +13,14 @@ const Usuario = (props) => {
     const [email, setEmail] = useState();
     const [senha, setSenha] = useState();
     const [tipoUsuario, setTipoUsuario] = useState();
+    const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
+    const [modalAlertErro, setModalAlertErro] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
 
+
+    function ModalClickSuccess(){
+        setModalAlertSuccess(false);
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -21,110 +30,116 @@ const Usuario = (props) => {
     function createUser() {
         Api.post("/users", { firstname: nome, lastname: sobrenome, cpf, email, password: senha, usertype: tipoUsuario }).then(res => {
             if(res.data){
-                alert("Cadastro concluído");
+                setModalAlertSuccess(true)
             } 
         }, (err) => {
-            alert("Usuário já existe");
-            })
+            setErrorMessage(err.response.data.error);
+            setModalAlertErro(true);
+        })
     }
 
-
     return(
-            
-        <Container>
-            <Formulario>
-                    
-                {/* SAIR */}
-                <Exit onClick={() => props.showModal1(false)}>
-                    <BsX fontSize={30} color="red"/>
-                </Exit>
 
-                {/* TITULO */}
-                <Title>
-                    <h1>Cadastro de Usuário</h1>
-                </Title>
+        <>
+            {/* MODAL */}
+            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Usuário Cadastrado"}/>}
+            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage}/>}
 
-                {/* FORMULÁRIO */}
-                <form onSubmit={handleSubmit}>
-                    <div className="inputNome">
+            <Container>
+                <Formulario>
+                        
+                    {/* SAIR */}
+                    <Exit onClick={() => props.showModal1(false)}>
+                        <BsX fontSize={30} color="red"/>
+                    </Exit>
 
-                        {/* INPUT NOME */}
+                    {/* TITULO */}
+                    <Title>
+                        <h1>Cadastro de Usuário</h1>
+                    </Title>
+
+                    {/* FORMULÁRIO */}
+                    <form onSubmit={handleSubmit}>
+                        <div className="inputNome">
+
+                            {/* INPUT NOME */}
+                            <input 
+                                className="input1"
+                                id="nome"
+                                type="text"
+                                placeholder="Nome"
+                                value={nome}
+                                required
+                                onChange={(event) => setNome(event.target.value)}
+                            />
+
+                            {/* INPUT SOBRENOME */}
+                            <input 
+                                className="input2"
+                                id="sobrenome"
+                                type="text"
+                                placeholder="Sobrenome"
+                                value={sobrenome}
+                                required
+                                onChange={(event) => setSobrenome(event.target.value)}
+                            />
+                        </div>
+
+                        {/* INPUT CPF */}
                         <input 
-                            className="input1"
-                            id="nome"
+                            id="cpf"
                             type="text"
-                            placeholder="Nome"
-                            value={nome}
+                            placeholder="CPF"
+                            value={cpf}
                             required
-                            onChange={(event) => setNome(event.target.value)}
+                            onChange={(event) => setCpf(event.target.value)}
                         />
 
-                        {/* INPUT SOBRENOME */}
+                        {/* INPUT EMAIL */}
                         <input 
-                            className="input2"
-                            id="sobrenome"
+                            id="email"
                             type="text"
-                            placeholder="Sobrenome"
-                            value={sobrenome}
+                            placeholder="E-mail"
+                            value={email}
                             required
-                            onChange={(event) => setSobrenome(event.target.value)}
+                            onChange={(event) => setEmail(event.target.value)}
                         />
-                    </div>
 
-                    {/* INPUT CPF */}
-                    <input 
-                        id="cpf"
-                        type="text"
-                        placeholder="CPF"
-                        value={cpf}
-                        required
-                        onChange={(event) => setCpf(event.target.value)}
-                    />
+                        {/* INPUT SENHA */}
+                        <input 
+                            id="senha"
+                            type="password"
+                            placeholder="Senha"
+                            value={senha}
+                            required
+                            onChange={(event) => setSenha(event.target.value)}
+                        />
 
-                    {/* INPUT EMAIL */}
-                    <input 
-                        id="email"
-                        type="text"
-                        placeholder="E-mail"
-                        value={email}
-                        required
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
+                        {/* INPUT TIPO DE USUARIO*/}
+                        <Select>
+                            <select 
+                                id="disciplinas"
+                                onChange={(event) => setTipoUsuario(event.target.value)}
+                            >
+                                <option value="1" selected>Administrador</option>   
+                                <option value="2" selected>Professor</option>
+                                <option value="3" selected>Aluno</option>
+                                <option value=""  disabled selected>Tipo de Usuário</option>
 
-                    {/* INPUT SENHA */}
-                    <input 
-                        id="senha"
-                        type="password"
-                        placeholder="Senha"
-                        value={senha}
-                        required
-                        onChange={(event) => setSenha(event.target.value)}
-                    />
+                            </select>
+                        </Select>
 
-                    {/* INPUT TIPO DE USUARIO*/}
-                    <Select>
-                        <select 
-                            id="disciplinas"
-                            onChange={(event) => setTipoUsuario(event.target.value)}
-                        >
-                            <option value="1" selected>Administrador</option>   
-                            <option value="2" selected>Professor</option>
-                            <option value="3" selected>Aluno</option>
-                            <option value=""  disabled selected>Tipo de Usuário</option>
-
-                        </select>
-                    </Select>
-
-                    {/* BOTÃO */}
-                    <Button>
-                        <button>Salvar</button>
-                    </Button>
-                            
-                </form>
+                        {/* BOTÃO */}
+                        <Button>
+                            <button>Salvar</button>
+                        </Button>
+                                
+                    </form>
+                        
+                </Formulario>
                     
-            </Formulario>
-                
-        </Container>
+            </Container>
+        </>
     )
 }
 
