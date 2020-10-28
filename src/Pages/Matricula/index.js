@@ -4,6 +4,9 @@ import { Exit, Container, Selects, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Api from '../../services/Api';
+import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
+import AlertErro from '../../components/ModalAlerts/ErroAlert';
+
 
 const Matricula = () => {
     const [matricula, setMatricula] = useState();
@@ -11,7 +14,14 @@ const Matricula = () => {
     const [disciplinesSelected, setDisciplinesSelected]= useState([
        '', '', '', '', '', ''
     ])
+    const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
+    const [modalAlertErro, setModalAlertErro] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
+    
 
+    function ModalClickSuccess(){
+        setModalAlertSuccess(false);
+    }
 
     useEffect(() => {
         Api.get('/content').then((response) => {
@@ -25,20 +35,34 @@ const Matricula = () => {
         cadastrarDisciplinas()
     }
 
-    function cadastrarDisciplinas () {
+    function cadastrarDisciplinas() {
         // let materia = [disciplina1, disciplina2, disciplina3, disciplina4, disciplina5, disciplina6];
 
 
         Api.post(`/registration/${matricula}`, {disciplines: disciplinesSelected}).then((response) => {
-            console.log(response.data)
-            alert("ok")
-    } )
-}
-
-
+            if(response.data){
+                setModalAlertSuccess(true)
+            }
+        }, (err) => {
+            setErrorMessage(err.response.data.error);
+            setModalAlertErro(true);
+        })
+    }
 
     return (
+
         <>
+            {/* MODAL */}
+            {modalAlertSuccess && <AlertSuccess 
+                showAlertSuccess={ModalClickSuccess} 
+                text={"Aluno matriculado"}
+            />}
+
+            {modalAlertErro && <AlertErro 
+                showAlertErro={setModalAlertErro} 
+                text={errorMessage}
+            />}
+
             {/* CABEÇALHO */}
             <Header/>
 

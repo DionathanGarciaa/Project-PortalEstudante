@@ -14,7 +14,7 @@ const Header = () => {
         <User>
 
           <div>
-            <FaUserCircle fontSize={70} color="#fff"/>
+              <FaUserCircle fontSize={50} color="#fff"/>
           </div>
           
             <ul>

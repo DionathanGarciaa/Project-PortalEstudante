@@ -59,7 +59,7 @@ export const Selects = styled.div`
 export const Button = styled.div`
     display: flex;
     justify-content: flex-end;
-    padding-top: 50px;
+    padding-top: 25px;
 
     button {
         height: 60px;

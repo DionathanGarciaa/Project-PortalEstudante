@@ -19,27 +19,31 @@ export const Container = styled.div`
 `;
 
 export const User = styled.div`
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
 
     div{
-        position: relative;
-    }
-
-    div .ul{
-        display: none;
-    }
-
-    div:hover .ul{
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 12px;
+        margin-top: 25px;       
     }
 
     ul{
-        position: absolute;
-        top:87px;
-        right: 0;
-        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 150px;
+        height: 100px;
         background: #6C63FF;
-        z-index:4;
+        padding: 10px 0 5px 0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        font-size: 19px;
+        
     }
 
     li{
@@ -47,20 +51,11 @@ export const User = styled.div`
         list-style-type: none;
         margin: 10px 5px 0 5px;
         padding: 0 0 5px 0;
+        color: #fff;
     }
 
-    li:hover{
-        color:#fff;
-        cursor: pointer;
-    }
-
-    li a {
+    a{
         text-decoration:none;
-        color: #000;
-        cursor: pointer;
-    }
-
-    li a:hover {
         color: #fff;
     }
 `;
