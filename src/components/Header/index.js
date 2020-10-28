@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, User } from './style';
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -18,7 +19,9 @@ const Header = () => {
           
             <ul>
               <li>Meus Dados</li>
-              <li>Sair</li>
+              <li>
+                <Link to="/Login">Sair</Link>
+              </li>
             </ul>
         
         </User>

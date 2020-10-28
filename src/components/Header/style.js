@@ -25,11 +25,11 @@ export const User = styled.div`
         position: relative;
     }
 
-    [div] .ul{
+    div .ul{
         display: none;
     }
 
-    [div]:hover .ul{
+    div:hover .ul{
         display: none;
     }
 
@@ -45,10 +45,22 @@ export const User = styled.div`
     li{
         color: #000;
         list-style-type: none;
+        margin: 10px 5px 0 5px;
+        padding: 0 0 5px 0;
     }
 
     li:hover{
         color:#fff;
         cursor: pointer;
+    }
+
+    li a {
+        text-decoration:none;
+        color: #000;
+        cursor: pointer;
+    }
+
+    li a:hover {
+        color: #fff;
     }
 `;
