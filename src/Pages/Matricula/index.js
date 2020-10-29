@@ -83,7 +83,7 @@ const Matricula = () => {
                     <input 
                         id="number"
                         type="text"
-                        placeholder="Nº matricula aluno"
+                        placeholder="CPF"
                         value={matricula}
                         required
                         onChange={(event) => setMatricula(event.target.value)}
