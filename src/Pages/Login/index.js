@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Senha, Botao, Imagem } from './style';
-import Img from '../../assets/img.svg';
+import Img from '../../Assets/img.svg';
 import Api from '../../services/Api';
 import Alert from '../../components/ModalAlerts/ErroAlert';
 
@@ -13,15 +13,15 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
 
-    
+
     function handleSubmit(event) {
         event.preventDefault();
         loginUser();
     }
 
     function loginUser() {
-        Api.post("/sessions", {email: email, password: senha}).then(response => {
-            if(response.data.token){
+        Api.post("/sessions", { email: email, password: senha }).then(response => {
+            if (response.data.token) {
                 sessionStorage.setItem("token", response.data.token)
                 history.push("/Home")
             }
@@ -35,8 +35,8 @@ const Login = () => {
 
         <>
             {/* MODAL */}
-            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage}/>}
-            
+            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage} />}
+
             <Container>
 
                 {/* TITULO */}
@@ -51,10 +51,10 @@ const Login = () => {
                         {/* INPUT EMAIL */}
                         <Box1>
                             <label htmlFor="Email">E-mail</label>
-                            <input 
+                            <input
                                 id="Email"
-                                Type="email"
-                                Value={email}
+                                type="email"
+                                value={email}
                                 onChange={(event) => setEmail(event.target.value)}
                                 required
                             />
@@ -63,10 +63,10 @@ const Login = () => {
                         {/* INPUT SENHA */}
                         <Box2>
                             <label htmlFor="Senha">Senha</label>
-                            <input 
+                            <input
                                 id="Senha"
-                                Type="password"
-                                Value={senha}
+                                type="password"
+                                value={senha}
                                 onChange={(event) => setSenha(event.target.value)}
                                 minLength='6'
                                 required
@@ -91,7 +91,7 @@ const Login = () => {
 
                 {/* IMAGEM */}
                 <Imagem>
-                <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
+                    <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
                 </Imagem>
 
             </Container>
