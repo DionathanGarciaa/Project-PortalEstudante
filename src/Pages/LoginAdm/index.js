@@ -75,7 +75,7 @@ const Login = () => {
 
                         {/* LINK PARA REDEFINIR SENHA */}
                         <Senha>
-                            <Link to="/Redefinir">
+                            <Link to="/RedefinirSenhaAdm">
                                 <strong>Esqueci senha</strong>
                             </Link>
                         </Senha>

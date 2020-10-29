@@ -42,6 +42,33 @@ export const Formulario = styled.div`
     }
 `;
 
+export const Check = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    label{
+        font-size: 15px;
+        color: #000;
+        margin-left: 15px;
+    }
+`;
+
+export const CheckBox = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 25px 20px 20px; 
+    width: 120px;
+
+    /* .Box1:Focus {
+        box-shadow: 0 0 0 3px #6C63FF, 0 0 0 5px #6c63ff;  
+     } */
+
+     
+`;
+
+
 export const Box1 =styled.div`
     display: flex;
     flex-direction: column;
@@ -125,6 +152,12 @@ export const Botao = styled.div`
 
 export const Imagem = styled.div`
     position: absolute;
-    top: 350px;
-    left: 1030px;
+    right: 0;
+    bottom: 0;
+
+    img{
+        display: block;
+        right: 0;
+        bottom: 0;
+    }
 `;
