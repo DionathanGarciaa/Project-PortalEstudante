@@ -15,7 +15,7 @@ const Disciplina = (props) => {
     const [errorMessage, setErrorMessage] = useState(false);
 
 
-    function ModalClickSuccess(){
+    function ModalClickSuccess() {
         setModalAlertSuccess(false);
     }
 
@@ -25,8 +25,10 @@ const Disciplina = (props) => {
     }
 
     function createDiscipline() {
-        Api.post("/discipline", { name: nome, idTeacher: matricula, numberStudents: alunos }).then(res => {
-            if(res.data){
+        Api.post("/discipline", { name: nome, idTeacher: matricula, numberStudents: alunos }, {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then(res => {
+            if (res.data) {
                 setModalAlertSuccess(true)
             }
         }, (err) => {
@@ -36,11 +38,11 @@ const Disciplina = (props) => {
     }
 
     return (
-        
+
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Disciplina cadastrada"}/>}
-            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage}/>}
+            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Disciplina cadastrada"} />}
+            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage} />}
 
             <Container>
 
@@ -48,7 +50,7 @@ const Disciplina = (props) => {
 
                     {/* SAIR  */}
                     <Exit onClick={() => props.showModal2(false)}>
-                        <BsX fontSize={30} color="red"/>
+                        <BsX fontSize={30} color="red" />
                     </Exit>
 
                     {/* TITULO */}
@@ -60,7 +62,7 @@ const Disciplina = (props) => {
                     <form onSubmit={handleSubmit}>
 
                         {/* INPUT NOME */}
-                        <input 
+                        <input
                             id="nome"
                             type="text"
                             placeholder="Nome"
@@ -68,9 +70,9 @@ const Disciplina = (props) => {
                             onChange={(event) => setNome(event.target.value)}
                             required
                         />
-                            
+
                         {/* INPUT MATRICULA PROFESSOR RESPONSAVEL */}
-                        <input 
+                        <input
                             id="matricula"
                             type="text"
                             placeholder="Matrícula Professor Responsável"
@@ -80,7 +82,7 @@ const Disciplina = (props) => {
                         />
 
                         {/* INPUT QUANTIDADE DE ALUNOS */}
-                        <input 
+                        <input
                             id="alunos"
                             type="text"
                             placeholder="Quantidade de Alunos"
@@ -93,12 +95,12 @@ const Disciplina = (props) => {
                         <Button>
                             <button>Salvar</button>
                         </Button>
-                                
+
                     </form>
                 </Formulario>
             </Container>
         </>
-    
+
     )
 }
 
