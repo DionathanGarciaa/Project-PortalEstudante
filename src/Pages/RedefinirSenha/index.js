@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
-import Img from '../../assets/img.svg';
+import Img from '../../Assets/img.svg';
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';

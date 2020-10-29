@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Senha, Botao, Imagem } from './style';
-import Img from '../../assets/img.svg';
+import Img from '../../Assets/img.svg';
 import Api from '../../services/Api';
 import Alert from '../../components/ModalAlerts/ErroAlert';
 
@@ -53,8 +53,8 @@ const Login = () => {
                             <label htmlFor="Email">E-mail</label>
                             <input 
                                 id="Email"
-                                Type="email"
-                                Value={email}
+                                type="email"
+                                value={email}
                                 onChange={(event) => setEmail(event.target.value)}
                                 required
                             />
@@ -65,8 +65,8 @@ const Login = () => {
                             <label htmlFor="Senha">Senha</label>
                             <input 
                                 id="Senha"
-                                Type="password"
-                                Value={senha}
+                                type="password"
+                                value={senha}
                                 onChange={(event) => setSenha(event.target.value)}
                                 minLength='6'
                                 required
