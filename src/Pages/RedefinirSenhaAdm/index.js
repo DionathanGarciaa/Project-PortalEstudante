@@ -8,9 +8,9 @@ import AlertErro from '../../components/ModalAlerts/ErroAlert';
 
 
 const RedefinirSenha = () => {
-    const[email, setEmail] = useState('');
-    const[cpf, setCpf] = useState('');
-    const[password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [password, setPassword] = useState('');
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
