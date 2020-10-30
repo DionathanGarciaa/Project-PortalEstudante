@@ -20,6 +20,7 @@ const Usuario = (props) => {
 
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
+        window.location.reload();
     }
 
     function handleSubmit(event) {
@@ -28,6 +29,7 @@ const Usuario = (props) => {
     }
 
     function createUser() {
+
         Api.post("/users", { firstname: nome, lastname: sobrenome, cpf, email, password: senha, usertype: tipoUsuario }, {
             headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
         }).then(res => {

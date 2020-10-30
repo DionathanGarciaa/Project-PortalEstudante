@@ -1,14 +1,15 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom";
-import Padrao from '../Pages/Padrao';
-import Login from '../Pages/LoginAdm';
-import RedefinirAdm from '../Pages/RedefinirSenhaAdm';
-import Home from '../Pages/Home';
-import Matricula from '../Pages/Matricula';
-import CadastroUsuario from '../Pages/CadastroUsuario';
-import CadastrarDisciplina from '../Pages/CadastrarDisciplina';
-import MeuPortal from '../Pages/LoginAlunoProfessor';
-import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
+import Padrao from '../pages/Padrao';
+import Login from '../pages/LoginAdm';
+import RedefinirAdm from '../pages/RedefinirSenhaAdm';
+import Home from '../pages/Home';
+import Matricula from '../pages/Matricula';
+import CadastroUsuario from '../pages/CadastroUsuario';
+import CadastrarDisciplina from '../pages/CadastrarDisciplina';
+import MeuPortal from '../pages/LoginAlunoProfessor';
+import RedefinirAlunoProfessor from '../pages/RedefinirSenhaAlunoProfessor';
+import ListaDeDisciplinas from '../pages/ListaDeDisciplinas';
 
 function Routes() {
     return (
@@ -22,6 +23,7 @@ function Routes() {
             <Route path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <Route path="/MeuPortal" component={MeuPortal} />
             <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
+            <Route path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
         </Switch>
     );
 }

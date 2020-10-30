@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
-import Img from '../../Assets/img.svg';
+import Img from '../../assets/img.svg';
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
@@ -11,6 +11,7 @@ const RedefinirSenha = () => {
     const [email, setEmail] = useState('');
     const [cpf, setCpf] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setloading] = useState(false);
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
@@ -28,6 +29,8 @@ const RedefinirSenha = () => {
     }
 
     function senha() {
+
+        setloading(true)
         Api.post("/sessions/resetpassword", { email, cpf, password }).then(response => {
             if (response.data) {
                 setModalAlertSuccess(true)
@@ -35,8 +38,10 @@ const RedefinirSenha = () => {
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true);
+            setloading(false)
         })
     }
+
 
     return (
 
@@ -103,9 +108,7 @@ const RedefinirSenha = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            <button>
-                                <strong>Redefinir Senha</strong>
-                            </button>
+                            {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
                         </Botao>
 
                     </form>

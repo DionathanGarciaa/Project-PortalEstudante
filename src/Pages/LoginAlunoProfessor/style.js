@@ -69,12 +69,13 @@ export const CheckBox = styled.div`
         height: 12px;
         border: 6px solid  rgba(231, 232, 246, 0.8);
         border-radius:6px;
-     }
-  
+    }
 
-     
+    input:checked + .checkbox-color span{
+        color: #6C63FF;
+        font-weight: bold;
+    }
 `;
-
 
 export const Box1 = styled.div`
     display: flex;

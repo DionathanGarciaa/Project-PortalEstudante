@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Senha, Botao, Imagem } from './style';
-import Img from '../../Assets/img2.svg';
+import Img from '../../assets/img2.svg';
 import Api from '../../services/Api';
 import Alert from '../../components/ModalAlerts/ErroAlert';
 
@@ -9,13 +9,11 @@ import Alert from '../../components/ModalAlerts/ErroAlert';
 const MeuPortal = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [loading, setloading] = useState(false);
     const [checkbox, setCheckbox] = useState('');
+    const [loading, setloading] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
-
-
 
 
     function handleSubmit(event) {
@@ -24,6 +22,7 @@ const MeuPortal = () => {
     }
 
     function loginUser() {
+        
         setloading(true)
         if (checkbox === "2") {
             Api.post("/sessions/teacher", { email: email, password: senha }).then(response => {
@@ -48,6 +47,7 @@ const MeuPortal = () => {
             }, (err) => {
                 setErrorMessage(err.response.data.error);
                 setModalAlertErro(true)
+                setloading(false)
             })
         }
     }
@@ -69,20 +69,35 @@ const MeuPortal = () => {
                 <Formulario>
                     <form onSubmit={handleSubmit}>
 
-                        {/* CHECK BOX ESTUDANTE */}
+                        {/* CHECK BOX*/}
                         <Check>
 
+                            {/* CHECK BOX ESTUDANTE */}
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="checkbox" value="3" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
-                                {console.log(checkbox)}
-                                <label htmlFor="checkbox">Estudante</label>
+                                <input 
+                                    className="Box1" 
+                                    type="checkbox" 
+                                    id="checkbox1" 
+                                    value="3" 
+                                    onChange={(event) => setCheckbox(event.target.value)}
+                                />
+                                <div className="checkbox-color">
+                                    <label htmlFor="checkbox1"><span>Estudante</span></label>
+                                </div>
                             </CheckBox>
-
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="checkbox" value="2" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
-                                <label htmlFor="checkbox">Professor</label>
+                                <input 
+                                    className="Box1" 
+                                    type="checkbox" 
+                                    id="checkbox2" 
+                                    value="2" 
+                                    onChange={(event) => setCheckbox(event.target.value)} 
+                                />
+                                <div className="checkbox-color">
+                                <label htmlFor="checkbox2"><span>Professor</span></label>
+                            </div>
                             </CheckBox>
 
                         </Check>
@@ -110,6 +125,7 @@ const MeuPortal = () => {
                         <Botao>
                             {loading ? <button> <strong>Carregando...</strong> </button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
+                        
                     </form>
                 </Formulario>
 

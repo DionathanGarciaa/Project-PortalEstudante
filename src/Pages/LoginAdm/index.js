@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Senha, Botao, Imagem } from './style';
-import Img from '../../Assets/img.svg';
+import Img from '../../assets/img.svg';
 import Api from '../../services/Api';
 import Alert from '../../components/ModalAlerts/ErroAlert';
 
@@ -21,6 +21,7 @@ const Login = () => {
     }
 
     function loginUser() {
+        
         setloading(true)
         Api.post("/sessions/adm", { email: email, password: senha }).then(response => {
             if (response.data.token) {
@@ -31,6 +32,7 @@ const Login = () => {
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true)
+            setloading(false)
         })
     }
 
@@ -38,7 +40,7 @@ const Login = () => {
 
         <>
             {/* MODAL */}
-            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage} />}
+            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage}/>}
 
             <Container>
 

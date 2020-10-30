@@ -16,8 +16,8 @@ const Header = () => {
           <li data-dropdown>
             <FaUserCircle fontSize={50} color="#fff" />
             <ul className="dropdown-menu animeDown">
-              <li> <a href="/">Meus Dados</a> </li>
-              <li> <a href="/Login">Sair</a></li>
+              <li> <a href="">Meus Dados</a> </li>
+              <li> <a href="/MeuPortal">Sair</a></li>
             </ul>
           </li>
         </ul>
