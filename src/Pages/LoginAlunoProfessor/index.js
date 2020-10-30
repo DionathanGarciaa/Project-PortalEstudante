@@ -9,10 +9,12 @@ import Alert from '../../components/ModalAlerts/ErroAlert';
 const MeuPortal = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [loading, setloading] = useState(false);
     const [checkbox, setCheckbox] = useState('');
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
+
 
 
 
@@ -22,16 +24,32 @@ const MeuPortal = () => {
     }
 
     function loginUser() {
-        Api.post("/sessions", { email: email, password: senha }).then(response => {
-            if (response.data.token) {
-                sessionStorage.setItem("token", response.data.token)
-                sessionStorage.setItem("check", checkbox)
-                history.push("/Home")
-            }
-        }, (err) => {
-            setErrorMessage(err.response.data.error);
-            setModalAlertErro(true)
-        })
+        setloading(true)
+        if (checkbox === "2") {
+            Api.post("/sessions/teacher", { email: email, password: senha }).then(response => {
+                if (response.data.token) {
+                    sessionStorage.setItem("token", response.data.token)
+                    sessionStorage.setItem("firstname", response.data.user.firstname)
+                    sessionStorage.setItem("check", checkbox)
+                    history.push("/Home")
+                }
+            }, (err) => {
+                setErrorMessage(err.response.data.error);
+                setModalAlertErro(true)
+            })
+        } else {
+            Api.post("/sessions", { email: email, password: senha }).then(response => {
+                if (response.data.token) {
+                    sessionStorage.setItem("token", response.data.token)
+                    sessionStorage.setItem("firstname", response.data.user.firstname)
+                    sessionStorage.setItem("check", checkbox)
+                    history.push("/Home")
+                }
+            }, (err) => {
+                setErrorMessage(err.response.data.error);
+                setModalAlertErro(true)
+            })
+        }
     }
 
     return (
@@ -55,14 +73,15 @@ const MeuPortal = () => {
                         <Check>
 
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="checkbox" value="3" onChange={(event) => setCheckbox(event.target.value)} />
+                                <input className="Box1" id="checkbox" type="checkbox" value="3" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
+                                {console.log(checkbox)}
                                 <label htmlFor="checkbox">Estudante</label>
                             </CheckBox>
 
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="checkbox" value="2" onChange={(event) => setCheckbox(event.target.value)} />
+                                <input className="Box1" id="checkbox" type="checkbox" value="2" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
                                 <label htmlFor="checkbox">Professor</label>
                             </CheckBox>
 
@@ -89,9 +108,7 @@ const MeuPortal = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            <button>
-                                <strong>Entrar</strong>
-                            </button>
+                            {loading ? <button> <strong>Carregando...</strong> </button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
                     </form>
                 </Formulario>

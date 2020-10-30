@@ -9,6 +9,7 @@ import Alert from '../../components/ModalAlerts/ErroAlert';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [loading, setloading] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
@@ -20,7 +21,8 @@ const Login = () => {
     }
 
     function loginUser() {
-        Api.post("/sessions", { email: email, password: senha }).then(response => {
+        setloading(true)
+        Api.post("/sessions/adm", { email: email, password: senha }).then(response => {
             if (response.data.token) {
                 sessionStorage.setItem("token", response.data.token)
                 sessionStorage.setItem("firstname", response.data.user.firstname)
@@ -83,9 +85,7 @@ const Login = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            <button>
-                                <strong>Entrar</strong>
-                            </button>
+                            {loading ? <button><strong>Carregando...</strong></button> : <button><strong>Entrar</strong></button>}
                         </Botao>
                     </form>
                 </Formulario>
