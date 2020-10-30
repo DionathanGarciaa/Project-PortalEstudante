@@ -9,8 +9,6 @@ export const Container = styled.div`
     background-color: #6C63FF;
     
     h2 {
-        height: 200px;
-        width: 250px;
         color: #fff;
         font-family: Helvetica, Arial,  sans-serif;
         font-size: 24px;
@@ -19,43 +17,54 @@ export const Container = styled.div`
 `;
 
 export const User = styled.div`
-    display: flex;
-    flex-direction: column;
-    
 
-    div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 12px;
-        margin-top: 25px;       
-    }
-
-    ul{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 150px;
-        height: 100px;
-        background: #6C63FF;
-        padding: 10px 0 5px 0;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        font-size: 19px;
-        
-    }
-
-    li{
-        color: #000;
-        list-style-type: none;
-        margin: 10px 5px 0 5px;
-        padding: 0 0 5px 0;
-        color: #fff;
-    }
-
+    padding-top:16px;
     a{
         text-decoration:none;
-        color: #fff;
+        color:white
+    }
+    li{
+        list-style:none
+    }
+    ul{
+        margin-right:8px;
+    }
+
+    [data-dropdown] .dropdown-menu{
+        display:none;
+    }
+
+    [data-dropdown]:hover .dropdown-menu{
+        display:block;
+    }
+
+    .dropdown-menu{
+        text-align:center;
+        line-height:2;
+        padding:15px;
+        position:absolute;
+        right:0;
+        background:#6C63FF;
+        width:100px;
+        z-index:200;
+        border-radius: 6px;
+    }
+
+    .dropdown-menu li a:hover{
+        color: #aaa
+    }
+
+
+    .animeDown{
+        opacity:0;
+        transform:translateY(-10px);
+        animation: animeDown 0.3s forwards;
+    }
+
+    @keyframes animeDown{
+        to{
+            opacity:1;
+            transform:initial
+        }
     }
 `;

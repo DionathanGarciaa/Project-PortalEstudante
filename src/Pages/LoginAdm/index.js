@@ -23,6 +23,7 @@ const Login = () => {
         Api.post("/sessions", { email: email, password: senha }).then(response => {
             if (response.data.token) {
                 sessionStorage.setItem("token", response.data.token)
+                sessionStorage.setItem("firstname", response.data.user.firstname)
                 history.push("/Home")
             }
         }, (err) => {
