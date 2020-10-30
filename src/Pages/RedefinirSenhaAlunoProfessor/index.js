@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Box3, Botao, Imagem } from './style';
-import Img from '../../assets/img2.svg';
-// import Api from '../../services/Api';
-// import Alert from '../../components/ModalAlerts/ErroAlert';
-// import AlertErro from '../../components/ModalAlerts/ErroAlert';
+import Img from '../../Assets/img2.svg';
+import Api from '../../services/Api';
+import AlertErro from '../../components/ModalAlerts/ErroAlert';
+import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 
 
 const SenhaAlunoProfessor = () => {
@@ -13,45 +13,45 @@ const SenhaAlunoProfessor = () => {
     const [password, setPassword] = useState('');
     const [checkboxEstudante, setCheckboxEstudante] = useState('');
     const [checkboxProfessor, setCheckboxProfessor] = useState('');
-    // const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
-    // const [modalAlertErro, setModalAlertErro] = useState(false);
-    // const [errorMessage, setErrorMessage] = useState(false);
+    const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
+    const [modalAlertErro, setModalAlertErro] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
 
-    // function ModalClickSuccess(){
-    //     setModalAlertSuccess(false);
-    //     history.push("/MeuPortal");
-    // }
-    
-    function handleSubmit(event) {
-        event.preventDefault();
-        // senha();
+    function ModalClickSuccess() {
+        setModalAlertSuccess(false);
+        history.push("/MeuPortal");
     }
 
-    // function senha() {
-    //     Api.post("/sessions/resetpassword", {email, cpf, password}).then(response => {
-    //         if(response.data){
-    //             setModalAlertSuccess(true)
-    //         }
-    //     }, (err) => {
-    //         setErrorMessage(err.response.data.error);
-    //         setModalAlertErro(true);
-    //     })
-    // }
+    function handleSubmit(event) {
+        event.preventDefault();
+        senha();
+    }
+
+    function senha() {
+        Api.post("/sessions/resetpassword", { email, cpf, password }).then(response => {
+            if (response.data) {
+                setModalAlertSuccess(true)
+            }
+        }, (err) => {
+            setErrorMessage(err.response.data.error);
+            setModalAlertErro(true);
+        })
+    }
 
     return (
 
         <>
-            {/* MODAL */}
-            {/* {modalAlertSuccess && <AlertSuccess 
-                showAlertSuccess={ModalClickSuccess} 
+            MODAL
+            {modalAlertSuccess && <AlertSuccess
+                showAlertSuccess={ModalClickSuccess}
                 text={"As suas Informações foram atualizadas, senha redefinida."}
             />}
 
-            {modalAlertErro && <AlertErro 
-                showAlertErro={setModalAlertErro} 
+            {modalAlertErro && <AlertErro
+                showAlertErro={setModalAlertErro}
                 text={errorMessage}
-            />} */}
+            />}
 
             <Container>
 
@@ -68,34 +68,34 @@ const SenhaAlunoProfessor = () => {
                         <Check>
 
                             <CheckBox>
-                                <input 
+                                <input
                                     className="Box1"
                                     id="checkbox"
                                     type="checkbox"
                                     value={checkboxEstudante}
                                     onChange={(event) => setCheckboxEstudante(event.target.value)}
-                                /> 
+                                />
                                 <label htmlFor="checkbox">Estudante</label>
                             </CheckBox>
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
-                                    <input
-                                    className="Box1" 
+                                <input
+                                    className="Box1"
                                     id="checkbox"
                                     type="checkbox"
                                     value={checkboxProfessor}
                                     onChange={(event) => setCheckboxProfessor(event.target.value)}
-                                    /> 
+                                />
                                 <label htmlFor="checkbox">Professor</label>
-                                </CheckBox>
-                        
+                            </CheckBox>
+
                         </Check>
 
                         {/* INPUT EMAIL */}
                         <Box1>
                             <label htmlFor="Email">E-mail</label>
-                            <input 
+                            <input
                                 id="Email"
                                 Type="email"
                                 Value={email}
@@ -107,7 +107,7 @@ const SenhaAlunoProfessor = () => {
                         {/* INPUT CPF */}
                         <Box2>
                             <label htmlFor="cpf">CPF</label>
-                            <input 
+                            <input
                                 id="cpf"
                                 Type="text"
                                 Value={cpf}
@@ -119,8 +119,8 @@ const SenhaAlunoProfessor = () => {
                         {/* INPUT NOVA SENHA */}
                         <Box3>
                             <label htmlFor="Senha">Nova Senha</label>
-                        
-                            <input 
+
+                            <input
                                 id="Senha"
                                 Type="password"
                                 Value={password}
@@ -136,13 +136,13 @@ const SenhaAlunoProfessor = () => {
                                 <strong>Redefinir Senha</strong>
                             </button>
                         </Botao>
-                        
+
                     </form>
                 </Formulario>
 
                 {/* IMAGEM */}
                 <Imagem>
-                <img src={Img} alt='ilustração de alguém caminhando'></img>
+                    <img src={Img} alt='ilustração de alguém caminhando'></img>
                 </Imagem>
 
             </Container>

@@ -6,29 +6,32 @@ import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
+import { useHistory } from 'react-router-dom';
 
 
 const Matricula = () => {
+    const history = useHistory();
     const [matricula, setMatricula] = useState();
     const [disciplinas, setDisciplinas] = useState([]);
-    const [disciplinesSelected, setDisciplinesSelected]= useState([
-       '', '', '', '', '', ''
-    ])
+    const [disciplinesSelected, setDisciplinesSelected] = useState([])
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
-    
 
-    function ModalClickSuccess(){
+
+    function ModalClickSuccess() {
         setModalAlertSuccess(false);
+        history.push('/Home')
     }
 
     useEffect(() => {
-        Api.get('/content').then((response) => {
+        Api.get('/content', {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then((response) => {
             setDisciplinas(response.data.discipline)
         })
     }, [])
- 
+
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -36,11 +39,10 @@ const Matricula = () => {
     }
 
     function cadastrarDisciplinas() {
-        // let materia = [disciplina1, disciplina2, disciplina3, disciplina4, disciplina5, disciplina6];
-
-
-        Api.post(`/registration/${matricula}`, {disciplines: disciplinesSelected}).then((response) => {
-            if(response.data){
+        Api.post(`/registration/${matricula}`, { disciplines: disciplinesSelected }, {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then((response) => {
+            if (response.data) {
                 setModalAlertSuccess(true)
             }
         }, (err) => {
@@ -53,18 +55,18 @@ const Matricula = () => {
 
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess 
-                showAlertSuccess={ModalClickSuccess} 
+            {modalAlertSuccess && <AlertSuccess
+                showAlertSuccess={ModalClickSuccess}
                 text={"Aluno matriculado"}
             />}
 
-            {modalAlertErro && <AlertErro 
-                showAlertErro={setModalAlertErro} 
+            {modalAlertErro && <AlertErro
+                showAlertErro={setModalAlertErro}
                 text={errorMessage}
             />}
 
             {/* CABEÇALHO */}
-            <Header/>
+            <Header />
 
             {/* SAIR */}
             <Exit>
@@ -72,15 +74,15 @@ const Matricula = () => {
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
                 </Link>
             </Exit>
-        
+
             {/* CONTAINER */}
             <Container>
-           
+
                 {/* FORMULÁRIO */}
                 <form onSubmit={handleSubmit}>
 
                     {/* INPUT N° MATRICULA ALUNO */}
-                    <input 
+                    <input
                         id="number"
                         type="text"
                         placeholder="CPF"
@@ -88,102 +90,82 @@ const Matricula = () => {
                         required
                         onChange={(event) => setMatricula(event.target.value)}
                     />
-                    <br/>
-                    
+                    <br />
+
                     {/* SELECT DISCIPLINA */}
                     <Selects>
-                        <select 
-                            id="disciplinas"
-                            value={disciplinesSelected[0]}
-                            onChange={(event) =>{
-                                let disciplines = [...disciplinesSelected];
-                                disciplines[0]=event.target.value;
-                                setDisciplinesSelected(disciplines)}}
-                                
-                        >
-                            <option value="" disabled selected>Disciplina</option>
-                            {disciplinas.map((disciplina)=>(
-                                    <option value={disciplina._id}>{disciplina.name}</option>
+
+                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                            let disciplines = [...disciplinesSelected];
+                            disciplines[0] = event.target.value;
+                            setDisciplinesSelected(disciplines)
+                        }}>
+                            <option disabled >Disciplina</option>
+                            {disciplinas.map((disciplina) => (
+                                <option key={disciplina._id} value={disciplina._id}>{disciplina.name}</option>
                             ))}
                         </select>
 
-                        <select 
-                            id="disciplinas"
-                            value={disciplinesSelected[1]}
-                            onChange={(event) =>{
+                        <select
+                            id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
                                 let disciplines = [...disciplinesSelected];
-                                disciplines[1]=event.target.value;
-                                setDisciplinesSelected(disciplines)}}
-                        >
-                            <option value="" disabled selected>Disciplina</option>
-                            {disciplinas.map((disciplina)=>(
-                                <option value={disciplina._id}>{disciplina.name}</option>
+                                disciplines[1] = event.target.value;
+                                setDisciplinesSelected(disciplines)
+                            }} >
+                            <option disabled>Disciplina</option>
+                            {disciplinas.map((disciplina) => (
+                                <option key={disciplina._id} value={disciplina._id}>{disciplina.name}</option>
                             ))}
                         </select>
 
-                        <select 
-                            id="disciplinas"
-                            value={disciplinesSelected[2]}
-                            onChange={(event) =>{
-                                let disciplines = [...disciplinesSelected];
-                                disciplines[2]=event.target.value;
-                                setDisciplinesSelected(disciplines)}}
-
-                        >
-                            <option value="" disabled selected>Disciplina</option>
-                            {disciplinas.map((disciplina)=>(
-                                <option value={disciplina._id}>{disciplina.name}</option>
+                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                            let disciplines = [...disciplinesSelected];
+                            disciplines[2] = event.target.value;
+                            setDisciplinesSelected(disciplines)
+                        }}>
+                            <option disabled >Disciplina</option>
+                            {disciplinas.map((disciplina) => (
+                                <option key={disciplina._id} value={disciplina._id}>{disciplina.name}</option>
                             ))}
                         </select>
 
-                        <select 
-                            id="disciplinas"
-                            value={disciplinesSelected[3]}
-                            onChange={(event) =>{
-                                let disciplines = [...disciplinesSelected];
-                                disciplines[3]=event.target.value;
-                                setDisciplinesSelected(disciplines)}}
-
-                        >
-                            <option value="" disabled selected>Disciplina</option>
-                                {disciplinas.map((disciplina)=>(
-                                <option value={disciplina._id}>{disciplina.name}</option>
+                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                            let disciplines = [...disciplinesSelected];
+                            disciplines[3] = event.target.value;
+                            setDisciplinesSelected(disciplines)
+                        }}>
+                            <option disabled>Disciplina</option>
+                            {disciplinas.map((disciplina) => (
+                                <option key={disciplina._id} value={disciplina._id}>{disciplina.name}</option>
                             ))}
                         </select>
 
-                        <select 
-                            id="disciplinas"
-                            value={disciplinesSelected[4]}
-                            onChange={(event) =>{
-                                let disciplines = [...disciplinesSelected];
-                                disciplines[4]=event.target.value;
-                                setDisciplinesSelected(disciplines)}}
-
-                        >
-                            <option value="" disabled selected>Disciplina</option>
-                            {disciplinas.map((disciplina)=>(
-                                <option value={disciplina._id}>{disciplina.name}</option>
+                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                            let disciplines = [...disciplinesSelected];
+                            disciplines[4] = event.target.value;
+                            setDisciplinesSelected(disciplines)
+                        }}>
+                            <option disabled >Disciplina</option>
+                            {disciplinas.map((disciplina) => (
+                                <option key={disciplina._id} value={disciplina._id}>{disciplina.name}</option>
                             ))}
                         </select>
 
-                        <select 
-                            id="disciplinas"
-                            value={disciplinesSelected[5]}
-                            onChange={(event) =>{
+                        <select
+                            id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
                                 let disciplines = [...disciplinesSelected];
-                                disciplines[5]=event.target.value;
-                                setDisciplinesSelected(disciplines)}}
-
-                        >
-                            <option value="" disabled selected>Disciplina</option>
-                            {disciplinas.map((disciplina)=>(
-                                <option value={disciplina._id}>{disciplina.name}</option>
+                                disciplines[5] = event.target.value;
+                                setDisciplinesSelected(disciplines)
+                            }}>
+                            <option disabled >Disciplina</option>
+                            {disciplinas.map((disciplina) => (
+                                <option key={disciplina._id} value={disciplina._id}>{disciplina.name}</option>
                             ))}
                         </select>
                     </Selects>
-            <Button>
-                <button type="submit" >Salvar</button>
-            </Button>
+                    <Button>
+                        <button type="submit" >Salvar</button>
+                    </Button>
                 </form>
             </Container>
 

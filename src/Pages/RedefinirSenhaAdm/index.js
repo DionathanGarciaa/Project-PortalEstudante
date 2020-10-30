@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
-import Img from '../../assets/img.svg';
+import Img from '../../Assets/img.svg';
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
@@ -17,7 +17,7 @@ const RedefinirSenha = () => {
     const history = useHistory();
 
 
-    function ModalClickSuccess(){
+    function ModalClickSuccess() {
         setModalAlertSuccess(false);
         history.push("/Login");
     }
@@ -28,8 +28,8 @@ const RedefinirSenha = () => {
     }
 
     function senha() {
-        Api.post("/sessions/resetpassword", {email, cpf, password}).then(response => {
-            if(response.data){
+        Api.post("/sessions/resetpassword", { email, cpf, password }).then(response => {
+            if (response.data) {
                 setModalAlertSuccess(true)
             }
         }, (err) => {
@@ -42,13 +42,13 @@ const RedefinirSenha = () => {
 
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess 
-                showAlertSuccess={ModalClickSuccess} 
+            {modalAlertSuccess && <AlertSuccess
+                showAlertSuccess={ModalClickSuccess}
                 text={"As suas Informações foram atualizadas, senha redefinida."}
             />}
 
-            {modalAlertErro && <AlertErro 
-                showAlertErro={setModalAlertErro} 
+            {modalAlertErro && <AlertErro
+                showAlertErro={setModalAlertErro}
                 text={errorMessage}
             />}
 
@@ -66,10 +66,10 @@ const RedefinirSenha = () => {
                         {/* INPUT EMAIL */}
                         <Box1>
                             <label htmlFor="Email">E-mail</label>
-                            <input 
+                            <input
                                 id="Email"
-                                Type="email"
-                                Value={email}
+                                type="email"
+                                value={email}
                                 onChange={(event) => setEmail(event.target.value)}
                                 required
                             />
@@ -78,10 +78,10 @@ const RedefinirSenha = () => {
                         {/* INPUT CPF */}
                         <Box2>
                             <label htmlFor="cpf">CPF</label>
-                            <input 
+                            <input
                                 id="cpf"
-                                Type="text"
-                                Value={cpf}
+                                type="text"
+                                value={cpf}
                                 onChange={(event) => setCpf(event.target.value)}
                                 required
                             />
@@ -90,11 +90,11 @@ const RedefinirSenha = () => {
                         {/* INPUT NOVA SENHA */}
                         <Box3>
                             <label htmlFor="Senha">Nova Senha</label>
-                        
-                            <input 
+
+                            <input
                                 id="Senha"
-                                Type="password"
-                                Value={password}
+                                type="password"
+                                value={password}
                                 onChange={(event) => setPassword(event.target.value)}
                                 minLength='6'
                                 required
@@ -107,15 +107,15 @@ const RedefinirSenha = () => {
                                 <strong>Redefinir Senha</strong>
                             </button>
                         </Botao>
-                        
+
                     </form>
                 </Formulario>
 
                 {/* IMAGEM */}
                 <Imagem>
-                <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
+                    <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
                 </Imagem>
-                
+
             </Container>
         </>
     )
