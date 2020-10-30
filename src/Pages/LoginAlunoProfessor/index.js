@@ -24,6 +24,9 @@ const MeuPortal = () => {
     }
 
     function loginUser() {
+        if (checkbox === "") {
+            //messagem de erro
+        }
         setloading(true)
         if (checkbox === "2") {
             Api.post("/sessions/teacher", { email: email, password: senha }).then(response => {
@@ -36,6 +39,7 @@ const MeuPortal = () => {
             }, (err) => {
                 setErrorMessage(err.response.data.error);
                 setModalAlertErro(true)
+                setloading(false)
             })
         } else {
             Api.post("/sessions", { email: email, password: senha }).then(response => {
@@ -48,6 +52,7 @@ const MeuPortal = () => {
             }, (err) => {
                 setErrorMessage(err.response.data.error);
                 setModalAlertErro(true)
+                setloading(false)
             })
         }
     }
@@ -74,7 +79,6 @@ const MeuPortal = () => {
 
                             <CheckBox>
                                 <input className="Box1" id="checkbox" type="checkbox" value="3" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
-                                {console.log(checkbox)}
                                 <label htmlFor="checkbox">Estudante</label>
                             </CheckBox>
 

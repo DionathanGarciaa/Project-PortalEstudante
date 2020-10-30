@@ -31,6 +31,7 @@ const Login = () => {
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true)
+            setloading(false)
         })
     }
 
