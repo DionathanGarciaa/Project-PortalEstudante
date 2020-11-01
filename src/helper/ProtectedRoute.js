@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Redirect } from "react-router-dom";
-import { isLogged } from '../auth/atuh'
+import { isLogged } from '../auth/auth'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => isLogged() ? (<Component {...props} />) : (
