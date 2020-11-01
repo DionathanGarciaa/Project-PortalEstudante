@@ -6,7 +6,7 @@ const Padrao = () => {
 
     const history = useHistory();
     useEffect(() => {
-        history.push('/Login');
+        history.push('/MeuPortal');
     }, [history]);
 
     return (
