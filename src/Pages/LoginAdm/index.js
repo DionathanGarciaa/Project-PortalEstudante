@@ -33,6 +33,7 @@ const Login = () => {
             setModalAlertErro(true)
             setloading(false)
         })
+        setloading(false)
     }
 
     return (

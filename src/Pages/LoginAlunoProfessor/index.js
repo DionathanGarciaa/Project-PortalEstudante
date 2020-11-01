@@ -34,7 +34,11 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
-                    history.push("/Home")
+                    history.push({
+                        pathname: "/ListaDeDisciplinas",
+                        state: response.data
+                    })
+
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -47,7 +51,10 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
-                    history.push("/Home")
+                    history.push({
+                        pathname: "/ListaDeDisciplinas",
+                        state: response.data.user
+                    })
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
