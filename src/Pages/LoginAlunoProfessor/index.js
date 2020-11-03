@@ -22,7 +22,6 @@ const MeuPortal = () => {
     }
 
     function loginUser() {
-        
         setloading(true)
         if (checkbox === "2") {
             Api.post("/sessions/teacher", { email: email, password: senha }).then(response => {
@@ -30,7 +29,7 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
-                    history.push("/Home")
+                    history.push("/ListaDeDisciplinas")
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -42,7 +41,7 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
-                    history.push("/Home")
+                    history.push("/ListaDeDisciplinas")
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -76,7 +75,7 @@ const MeuPortal = () => {
                             <CheckBox>
                                 <input 
                                     className="Box1" 
-                                    type="checkbox" 
+                                    type="checkbox"
                                     id="checkbox1" 
                                     value="3" 
                                     onChange={(event) => setCheckbox(event.target.value)}
