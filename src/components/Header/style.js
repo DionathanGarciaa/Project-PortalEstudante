@@ -17,6 +17,7 @@ export const Container = styled.div`
 `;
 
 export const User = styled.div`
+    margin-right: 40px;
 
     padding-top:16px;
     a{
@@ -27,7 +28,6 @@ export const User = styled.div`
         list-style:none
     }
     ul{
-        margin-right:8px;
     }
 
     [data-dropdown] .dropdown-menu{
