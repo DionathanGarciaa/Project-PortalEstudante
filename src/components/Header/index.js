@@ -2,10 +2,7 @@ import React from 'react';
 import { Container, User } from './style';
 import { FaUserCircle } from "react-icons/fa";
 
-
-
 const Header = () => {
-
   return (
 
     <Container>
@@ -16,8 +13,8 @@ const Header = () => {
           <li data-dropdown>
             <FaUserCircle fontSize={50} color="#fff" />
             <ul className="dropdown-menu animeDown">
-              <li> <a href="">Meus Dados</a> </li>
-              <li> <a href="/MeuPortal">Sair</a></li>
+              <li> <a href="/">Meus Dados</a> </li>
+              <li> <a href="/MeuPortal" onClick={() => sessionStorage.removeItem('token')}>Sair </a></li>
             </ul>
           </li>
         </ul>

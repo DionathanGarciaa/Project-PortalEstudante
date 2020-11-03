@@ -60,6 +60,7 @@ export const CheckBox = styled.div`
     align-items: center;
     margin: 30px 25px 20px 20px; 
     width: 120px;
+    
 
     .Box1:checked::before{
         content:"";
@@ -68,6 +69,7 @@ export const CheckBox = styled.div`
         width:12px;
         height: 12px;
         border: 6px solid  rgba(231, 232, 246, 0.8);
+<<<<<<< HEAD
         border-radius:6px;
     }
 
@@ -75,6 +77,15 @@ export const CheckBox = styled.div`
         color: #6C63FF;
         font-weight: bold;
     }
+=======
+        border-radius:50%;
+     }
+
+     input:checked + label{
+        color:#6C63FF;
+     }
+     
+>>>>>>> Develope
 `;
 
 export const Box1 = styled.div`
@@ -155,6 +166,20 @@ export const Botao = styled.div`
         outline: 0;
         background: #ffffff;
         cursor: pointer;
+    }
+
+    .spinner{
+        margin-left:4px;
+        border:2px solid rgba(231, 232, 246, 0.8);
+        border-left-color: #6c63ff;
+        height: 15px;
+        width: 15px;
+        border-radius:50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+        to{transform: rotate(360deg);}
     }
 `;
 

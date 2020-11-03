@@ -21,6 +21,8 @@ const MeuPortal = () => {
         loginUser();
     }
 
+
+
     function loginUser() {
         setloading(true)
         if (checkbox === "2") {
@@ -29,11 +31,16 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
-                    history.push("/ListaDeDisciplinas")
+                    history.push({
+                        pathname: "/ListaDeDisciplinas",
+                        state: response.data
+                    })
+
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
                 setModalAlertErro(true)
+                setloading(false)
             })
         } else {
             Api.post("/sessions", { email: email, password: senha }).then(response => {
@@ -41,7 +48,10 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
-                    history.push("/ListaDeDisciplinas")
+                    history.push({
+                        pathname: "/ListaDeDisciplinas",
+                        state: response.data.user
+                    })
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -50,6 +60,7 @@ const MeuPortal = () => {
             })
         }
     }
+
 
     return (
 
@@ -73,30 +84,14 @@ const MeuPortal = () => {
 
                             {/* CHECK BOX ESTUDANTE */}
                             <CheckBox>
-                                <input 
-                                    className="Box1" 
-                                    type="checkbox"
-                                    id="checkbox1" 
-                                    value="3" 
-                                    onChange={(event) => setCheckbox(event.target.value)}
-                                />
-                                <div className="checkbox-color">
-                                    <label htmlFor="checkbox1"><span>Estudante</span></label>
-                                </div>
+                                <input className="Box1" id="checkbox" type="radio" value="3" name="box1" onChange={({ target }) => setCheckbox(target.value)} />
+                                <label htmlFor="checkbox">Estudante</label>
                             </CheckBox>
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
-                                <input 
-                                    className="Box1" 
-                                    type="checkbox" 
-                                    id="checkbox2" 
-                                    value="2" 
-                                    onChange={(event) => setCheckbox(event.target.value)} 
-                                />
-                                <div className="checkbox-color">
-                                <label htmlFor="checkbox2"><span>Professor</span></label>
-                            </div>
+                                <input className="Box1" id="checkbox2" type="radio" value="2" name="box1" onClick={({ target }) => setCheckbox(target.value)} />
+                                <label htmlFor="checkbox2">Professor</label>
                             </CheckBox>
 
                         </Check>
@@ -122,7 +117,7 @@ const MeuPortal = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ? <button> <strong>Carregando...</strong> </button> : <button> <strong>Entrar</strong> </button>}
+                            {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
                         
                     </form>
