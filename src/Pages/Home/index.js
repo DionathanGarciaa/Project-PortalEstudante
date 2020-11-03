@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import Header from '../../components/Header';
 import { Link } from 'react-router-dom';
 import { Content, Card } from './style';
@@ -7,7 +7,7 @@ import CadastroDisciplina from '../CadastrarDisciplina';
 
 
 const Home = () => {
-    
+
     const [modalCadastroUsuario, setModalCadastroUsuario] = useState(false);
     const [modalCadastroDisciplina, setModalCadastroDisciplina] = useState(false);
 
@@ -16,18 +16,18 @@ const Home = () => {
         <Content>
 
             {/* MODAL */}
-            {modalCadastroUsuario && <CadastroUsuario showModal1={setModalCadastroUsuario}/>}
-            {modalCadastroDisciplina && <CadastroDisciplina showModal2={setModalCadastroDisciplina}/>}
+            {modalCadastroUsuario && <CadastroUsuario showModal1={setModalCadastroUsuario} />}
+            {modalCadastroDisciplina && <CadastroDisciplina showModal2={setModalCadastroDisciplina} />}
 
             {/* CABEÇALHO */}
-            <Header/>
+            <Header />
 
             {/* TITULO */}
             <h1>Escolha uma das opções abaixo:</h1>
 
             {/* MENU */}
             <Card>
-                
+
                 <div onClick={() => setModalCadastroUsuario(true)} className="p1">Cadastrar novo usuário</div>
                 <Link to="/Matricula" className="p2">Matricular aluno</Link>
                 <div onClick={() => setModalCadastroDisciplina(true)} className="p3">Cadastrar disciplina</div>

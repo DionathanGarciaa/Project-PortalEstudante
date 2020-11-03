@@ -1,5 +1,5 @@
 
-const token = sessionStorage.getItem('token')
-const isLogged = () => !!token
+const isLogged = () => !!sessionStorage.getItem('token')
+
 
 export { isLogged }

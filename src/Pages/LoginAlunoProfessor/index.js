@@ -23,10 +23,9 @@ const MeuPortal = () => {
         loginUser();
     }
 
+
+
     function loginUser() {
-        if (checkbox === "") {
-            //messagem de erro
-        }
         setloading(true)
         if (checkbox === "2") {
             Api.post("/sessions/teacher", { email: email, password: senha }).then(response => {
@@ -64,6 +63,8 @@ const MeuPortal = () => {
         }
     }
 
+    console.log(checkbox)
+
     return (
 
         <>
@@ -85,15 +86,15 @@ const MeuPortal = () => {
                         <Check>
 
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="checkbox" value="3" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
+                                <input className="Box1" id="checkbox" type="radio" value="3" name="box1" onChange={({ target }) => setCheckbox(target.value)} />
                                 <label htmlFor="checkbox">Estudante</label>
                             </CheckBox>
 
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="checkbox" value="2" name="box1" onChange={(event) => setCheckbox(event.target.value)} />
-                                <label htmlFor="checkbox">Professor</label>
+                                <input className="Box1" id="checkbox2" type="radio" value="2" name="box1" onClick={({ target }) => setCheckbox(target.value)} />
+                                <label htmlFor="checkbox2">Professor</label>
                             </CheckBox>
 
                         </Check>
@@ -119,7 +120,7 @@ const MeuPortal = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ? <button> <strong>Carregando...</strong> </button> : <button> <strong>Entrar</strong> </button>}
+                            {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
                     </form>
                 </Formulario>

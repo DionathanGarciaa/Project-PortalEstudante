@@ -11,6 +11,7 @@ const Conteudo = ({ ...props }) => {
 
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
+    const [loading, setloading] = useState(false);
 
     const data = props.location.state
     console.log(data._id)
@@ -22,12 +23,14 @@ const Conteudo = ({ ...props }) => {
 
 
     function createCont() {
+        setloading(true)
         Api.post(`/content/${data._id}`, { title, description }, {
             headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
-        }).then
-            ((response) => {
-                console.log(response);
-            })
+        }).then((response) => {
+            if (response.data)
+                console.log("ok")
+            setloading(false)
+        })
     }
 
 
@@ -66,7 +69,7 @@ const Conteudo = ({ ...props }) => {
                     />
 
                     <Button>
-                        <button>Salvar</button>
+                        {loading ? <button>Salvando ...<div className="spinner"></div></button> : <button>Salvar</button>}
                     </Button>
                 </form>
             </Container>

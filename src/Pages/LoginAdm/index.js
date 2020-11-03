@@ -33,7 +33,7 @@ const Login = () => {
             setModalAlertErro(true)
             setloading(false)
         })
-        setloading(false)
+
     }
 
     return (
@@ -56,26 +56,13 @@ const Login = () => {
                         {/* INPUT EMAIL */}
                         <Box1>
                             <label htmlFor="Email">E-mail</label>
-                            <input
-                                id="Email"
-                                type="email"
-                                value={email}
-                                onChange={(event) => setEmail(event.target.value)}
-                                required
-                            />
+                            <input id="Email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
                         </Box1>
 
                         {/* INPUT SENHA */}
                         <Box2>
                             <label htmlFor="Senha">Senha</label>
-                            <input
-                                id="Senha"
-                                type="password"
-                                value={senha}
-                                onChange={(event) => setSenha(event.target.value)}
-                                minLength='6'
-                                required
-                            />
+                            <input id="Senha" type="password" value={senha} onChange={(event) => setSenha(event.target.value)} minLength='6' required />
                         </Box2>
 
                         {/* LINK PARA REDEFINIR SENHA */}
@@ -87,7 +74,7 @@ const Login = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ? <button><strong>Carregando...</strong></button> : <button><strong>Entrar</strong></button>}
+                            {loading ?  <button > <strong>Carregando...</strong> <div className="spinner"></div></button>: <button><strong>Entrar</strong></button>}
                         </Botao>
                     </form>
                 </Formulario>

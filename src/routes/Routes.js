@@ -11,6 +11,11 @@ import MeuPortal from '../Pages/LoginAlunoProfessor';
 import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
 import CadastroContent from '../Pages/CadastroContent';
 import ListaDeDisciplinas from '../Pages/ListaDeDisciplinas';
+import ListarContent from '../Pages/ListarContent';
+
+
+import ProtectedRoute from '../helper/ProtectedRoute';
+
 
 
 
@@ -21,14 +26,15 @@ function Routes() {
             <Route path="/" exact component={Padrao} />
             <Route path="/Login" component={Login} />
             <Route path="/RedefinirSenhaAdm" component={RedefinirAdm} />
-            < Route path="/Home" component={Home} />
-            < Route path="/Matricula" component={Matricula} />
-            <Route path="/CadastroUsuario" component={CadastroUsuario} />
-            <Route path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <Route path="/MeuPortal" component={MeuPortal} />
             <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
-            <Route path="/CadastroContent" component={CadastroContent} />
-            <Route path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
+            < ProtectedRoute path="/Home" component={Home} />
+            < ProtectedRoute path="/Matricula" component={Matricula} />
+            <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
+            <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
+            <ProtectedRoute path="/CadastroContent" component={CadastroContent} />
+            <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
+            <ProtectedRoute path="/ListarContent" component={ListarContent} />
         </Switch>
     );
 }
