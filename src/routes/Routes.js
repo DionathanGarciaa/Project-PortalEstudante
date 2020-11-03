@@ -9,6 +9,7 @@ import CadastroUsuario from '../Pages/CadastroUsuario';
 import CadastrarDisciplina from '../Pages/CadastrarDisciplina';
 import MeuPortal from '../Pages/LoginAlunoProfessor';
 import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
+import CadastroNota from '../Pages/CadastroNota';
 
 function Routes() {
     return (
@@ -22,6 +23,7 @@ function Routes() {
             <Route path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <Route path="/MeuPortal" component={MeuPortal} />
             <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
+            <Route path="/CadastroNota" component={CadastroNota} />
         </Switch>
     );
 }
