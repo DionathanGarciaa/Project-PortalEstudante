@@ -28,7 +28,7 @@ const Home = () => {
             {/* MENU */}
             <Card>
 
-                <div onClick={() => setModalCadastroUsuario(true)} className="p1">Cadastrar novo usuário</div>
+                <div onClick={() => setModalCadastroUsuario(true)} className="p1"><div className="p">Cadastrar novo usuário</div></div>
                 <Link to="/Matricula" className="p2">Matricular aluno</Link>
                 <div onClick={() => setModalCadastroDisciplina(true)} className="p3">Cadastrar disciplina</div>
 

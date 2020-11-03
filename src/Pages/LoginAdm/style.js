@@ -121,12 +121,13 @@ export const Botao = styled.div`
         background: #ffffff;
         cursor: pointer;
     }
+    
     .spinner{
-        margin-left:4px;
-        border:2px solid rgba(231, 232, 246, 0.8);
+        margin: 0 0 5px 4px;
+        border:5px solid rgba(231, 232, 246, 0.8);
         border-left-color: #6c63ff;
-        height: 15px;
-        width: 15px;
+        height: 18px;
+        width: 18px;
         border-radius:50%;
         animation: spin 1s linear infinite;
     }

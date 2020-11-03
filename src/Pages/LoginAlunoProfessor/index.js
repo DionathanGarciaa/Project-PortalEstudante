@@ -117,7 +117,7 @@ const MeuPortal = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
+                            {loading ? <button> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
                         
                     </form>

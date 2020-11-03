@@ -69,15 +69,6 @@ export const CheckBox = styled.div`
         width:12px;
         height: 12px;
         border: 6px solid  rgba(231, 232, 246, 0.8);
-<<<<<<< HEAD
-        border-radius:6px;
-    }
-
-    input:checked + .checkbox-color span{
-        color: #6C63FF;
-        font-weight: bold;
-    }
-=======
         border-radius:50%;
      }
 
@@ -85,7 +76,6 @@ export const CheckBox = styled.div`
         color:#6C63FF;
      }
      
->>>>>>> Develope
 `;
 
 export const Box1 = styled.div`
@@ -169,11 +159,11 @@ export const Botao = styled.div`
     }
 
     .spinner{
-        margin-left:4px;
-        border:2px solid rgba(231, 232, 246, 0.8);
+        margin: 0 0 5px 4px;
+        border:5px solid rgba(231, 232, 246, 0.8);
         border-left-color: #6c63ff;
-        height: 15px;
-        width: 15px;
+        height: 18px;
+        width: 18px;
         border-radius:50%;
         animation: spin 1s linear infinite;
     }
