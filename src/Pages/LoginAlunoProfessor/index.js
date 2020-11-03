@@ -93,8 +93,8 @@ const MeuPortal = () => {
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
-                                <input className="Box1" id="checkbox" type="radio" value="2" name="box1" onClick={({ target }) => setCheckbox(target.value)} />
-                                <label htmlFor="checkbox">Professor</label>
+                                <input className="Box1" id="checkbox2" type="radio" value="2" name="box1" onClick={({ target }) => setCheckbox(target.value)} />
+                                <label htmlFor="checkbox2">Professor</label>
                             </CheckBox>
 
                         </Check>

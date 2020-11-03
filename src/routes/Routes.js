@@ -11,9 +11,11 @@ import MeuPortal from '../Pages/LoginAlunoProfessor';
 import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
 import CadastroContent from '../Pages/CadastroContent';
 import ListaDeDisciplinas from '../Pages/ListaDeDisciplinas';
+import ListarContent from '../Pages/ListarContent';
 
 
 import ProtectedRoute from '../helper/ProtectedRoute';
+
 
 
 
@@ -24,14 +26,15 @@ function Routes() {
             <Route path="/" exact component={Padrao} />
             <Route path="/Login" component={Login} />
             <Route path="/RedefinirSenhaAdm" component={RedefinirAdm} />
+            <Route path="/MeuPortal" component={MeuPortal} />
+            <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
             < ProtectedRoute path="/Home" component={Home} />
             < ProtectedRoute path="/Matricula" component={Matricula} />
             <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
             <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
-            <Route path="/MeuPortal" component={MeuPortal} />
-            <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
             <ProtectedRoute path="/CadastroContent" component={CadastroContent} />
             <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
+            <ProtectedRoute path="/ListarContent" component={ListarContent} />
         </Switch>
     );
 }

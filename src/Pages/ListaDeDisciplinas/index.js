@@ -35,7 +35,6 @@ const Home = ({ ...props }) => {
     }, [check, props.location.state, props.location.state.Api, props.location.state.user])
 
 
-
     return (
 
         <Container>
@@ -54,7 +53,7 @@ const Home = ({ ...props }) => {
                 {lists.map((list) => {
                     return (
                         <Card key={list._id} onClick={() => history.push({
-                            pathname: '/CadastroContent',
+                            pathname: '/ListarContent',
                             state: list
                         })}>
 
