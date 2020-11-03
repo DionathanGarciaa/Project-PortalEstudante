@@ -63,8 +63,6 @@ const MeuPortal = () => {
         }
     }
 
-    console.log(checkbox)
-
     return (
 
         <>

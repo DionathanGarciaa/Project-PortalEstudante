@@ -9,7 +9,7 @@ const ListarContent = ({ ...props }) => {
   const [contents, setContents] = useState([])
 
   const data = props.location.state
-
+  console.log(data[0])
   useEffect(() => {
     Api.get(`/content/${data._id}`, {
       headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
@@ -17,8 +17,6 @@ const ListarContent = ({ ...props }) => {
       setContents(res.data.discipline.contents)
     })
   }, [data._id])
-
-  console.log(contents)
 
 
 
