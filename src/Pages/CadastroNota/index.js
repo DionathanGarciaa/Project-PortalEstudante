@@ -7,35 +7,18 @@ import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
 import { useHistory } from 'react-router-dom';
-import styles from './index.module.css';
 
 
 const CadastroNota = () => {
 
     const [nota, setNota] = useState();
-    var element = document.getElementById("nota");
-
-
-    if(nota >= 6){
-        element.classList.remove("redNote");
-        element.classList.add("greenNote");
-
-    }
-
-    if (nota <= 5){
-        element.classList.remove("greenNote");
-        element.classList.add("redNote");
-    }
 
 
     return(
 
         <>
-
-            {/* CABEÇALHO */}
             <Header />
 
-            
             <Exit>
                 <Link to="/Home">
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
@@ -45,7 +28,7 @@ const CadastroNota = () => {
             <Container>
 
                 <TableDiv>
-                <table class={styles.flTable}>
+                <table className="flTable">
                     <thead>
                         <tr>
                             <th><strong>Alunos</strong></th>
@@ -55,12 +38,12 @@ const CadastroNota = () => {
                     <tbody>
                     <tr>
                         <td>
-                            Gustavoeqwe
+                            Gustavo
                         </td>
                         <td>
-                            <input id="nota" onChange={(event) => setNota(event.target.value)}></input>
+                            <input onChange={(event) => setNota(event.target.value)} className={nota >= 6 ? "greenNote" : "redNote"}></input>
                         </td>
-                        </tr>
+                    </tr>
                     </tbody>
                 </table>
                 </TableDiv>
