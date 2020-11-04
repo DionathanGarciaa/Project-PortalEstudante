@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
+import { Link } from 'react-router-dom'; 
+import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem, BotaoVoltar } from './style';
 import Img from '../../Assets/img.svg';
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
@@ -108,7 +109,16 @@ const RedefinirSenha = () => {
                             </button>
                         </Botao>
 
+                        <BotaoVoltar>
+                            <button >
+                                <Link to="/Login" className="LinkButton">
+                                    <strong>Voltar</strong>
+                                </Link>
+                            </button>
+                        </BotaoVoltar>
+
                     </form>
+
                 </Formulario>
 
                 {/* IMAGEM */}

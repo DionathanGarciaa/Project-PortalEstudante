@@ -137,6 +137,12 @@ const SenhaAlunoProfessor = () => {
                             </button>
                         </Botao>
 
+                        <Botao>
+                            <button>
+                                <strong>Voltar</strong>
+                            </button>
+                        </Botao>
+
                     </form>
                 </Formulario>
 
