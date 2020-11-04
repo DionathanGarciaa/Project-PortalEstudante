@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Box3, Botao, Imagem } from './style';
+import { Link } from 'react-router-dom'; 
+import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Box3, Botao, Imagem, BotaoVoltar } from './style';
 import Img from '../../Assets/img2.svg';
 import Api from '../../services/Api';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
@@ -142,11 +143,11 @@ const SenhaAlunoProfessor = () => {
                             {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
                         </Botao>
 
-                        <Botao>
-                            <button>
-                                <strong>Voltar</strong>
-                            </button>
-                        </Botao>
+                        <BotaoVoltar>
+                                <Link to="/MeuPortal" className="LinkButton">
+                                    <strong>Voltar</strong>
+                                </Link>
+                        </BotaoVoltar>
 
                     </form>
                 </Formulario>

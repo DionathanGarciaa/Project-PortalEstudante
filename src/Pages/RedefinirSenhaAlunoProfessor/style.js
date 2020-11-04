@@ -34,7 +34,7 @@ export const Formulario = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 400px;
+        height: 450px;
         width: 600px;
         border-radius: 5px;
         background: #ffffff;
@@ -171,6 +171,30 @@ export const Botao = styled.div`
         outline: 0;
         background: #ffffff;
         cursor: pointer;
+    }
+`;
+
+export const BotaoVoltar = styled.div`
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 23px;
+        width: 255px;
+        font-size: 15px;
+        border: 1px solid ;
+        border-color: #c0c0c0;
+        border-radius: 8px;
+        padding: 10px 0 5px 10px;
+        color: #6c63ff;
+        margin-bottom: 30px;
+        outline: 0;
+        background: #ffffff;
+        cursor: pointer;
+
+    .LinkButton {
+        text-decoration: none;
+        color: #6c63ff;
     }
 `;
 

@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 
 const CadastroNota = () => {
 
-    const [nota, setNota] = useState();
+    const [nota, setNota] = useState([]);
 
 
     return(
@@ -41,7 +41,25 @@ const CadastroNota = () => {
                             Gustavo
                         </td>
                         <td>
-                            <input onChange={(event) => setNota(event.target.value)} className={nota >= 6 ? "greenNote" : "redNote"}></input>
+                            <input onChange={(event) =>  {
+                                let notas = [...nota];
+                                notas[0] = event.target.value;
+                                setNota(notas)
+                            }} className={nota[0] >= 6 ? "greenNote" : "redNote"}></input>
+                            {console.log(nota)}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gustavo
+                        </td>
+                        <td>
+                            <input onChange={(event) =>  {
+                                let notas = [...nota];
+                                notas[1] = event.target.value;
+                                setNota(notas)
+                            }} className={nota[1] >= 6 ? "greenNote" : "redNote"}></input>
+                            {console.log(nota)}
                         </td>
                     </tr>
                     </tbody>
