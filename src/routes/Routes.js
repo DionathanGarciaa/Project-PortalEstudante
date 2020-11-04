@@ -3,13 +3,15 @@ import { Switch, Route } from "react-router-dom";
 import Padrao from '../Pages/Padrao';
 import Login from '../Pages/LoginAdm';
 import RedefinirAdm from '../Pages/RedefinirSenhaAdm';
-import Home from '../Pages/Home';
-import Matricula from '../Pages/Matricula';
-import CadastroUsuario from '../Pages/CadastroUsuario';
-import CadastrarDisciplina from '../Pages/CadastrarDisciplina';
 import MeuPortal from '../Pages/LoginAlunoProfessor';
 import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
-import CadastroContent from '../Pages/CadastroContent';
+
+import Home from '../Pages/Home';
+import Matricula from '../Pages/Matricula';
+
+import CadastroUsuario from '../Pages/CadastroUsuario';
+import CadastrarDisciplina from '../Pages/CadastrarDisciplina';
+import CadastroConteudo from '../Pages/CadastroConteudo';
 import ListaDeDisciplinas from '../Pages/ListaDeDisciplinas';
 import DetalhamentoDisciplina from '../Pages/DetalhamentoDisciplina';
 import VisualizarContent from '../Pages/VisualizarContent';
@@ -31,11 +33,11 @@ function Routes() {
             <ProtectedRoute path="/Matricula" component={Matricula} />
             <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
             <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
-            <ProtectedRoute path="/CadastroContent" component={CadastroContent} />
             <Route path="/DetalhamentoDisciplina" component={DetalhamentoDisciplina} />
             <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
-            <ProtectedRoute path="/CadastroNota" component={CadastroNota} />
+            <ProtectedRoute path="/CadastroConteudo" component={CadastroConteudo} />
             <ProtectedRoute path="/VisualizarContent" component={VisualizarContent} />
+            <ProtectedRoute path="/CadastroNota" component={CadastroNota} />
         </Switch>
     );
 }
