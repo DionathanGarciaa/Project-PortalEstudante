@@ -14,7 +14,6 @@ const Conteudo = ({ ...props }) => {
     const [loading, setloading] = useState(false);
 
     const data = props.location.state
-    console.log(data._id)
 
     function handleSubmit(event) {
         event.preventDefault();

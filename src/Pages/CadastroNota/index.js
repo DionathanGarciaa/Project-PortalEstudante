@@ -6,10 +6,10 @@ import { BsBoxArrowInLeft } from 'react-icons/bs';
 
 
 
-const CadastroNota = () => {
+const CadastroNota = ({ ...props }) => {
 
     const [nota, setNota] = useState();
-
+    const data = props.location.state;
 
     return (
 
@@ -17,7 +17,10 @@ const CadastroNota = () => {
             <Header />
 
             <Exit>
-                <Link to="/Home">
+                <Link to={{
+                    pathname: '/DetalhamentoDisciplina',
+                    state: data
+                }}>
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
                 </Link>
             </Exit>

@@ -82,7 +82,7 @@ const Detalhamento = ({ ...props }) => {
 
                     </Card2>
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
-                        pathname: '/CadastroConteudo',
+                        pathname: '/CadastroNota',
                         state: data
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards2>
