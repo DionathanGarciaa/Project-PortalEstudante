@@ -1,17 +1,18 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import Padrao from '../pages/Padrao';
-import Login from '../pages/LoginAdm';
-import RedefinirAdm from '../pages/RedefinirSenhaAdm';
-import Home from '../pages/Home';
-import Matricula from '../pages/Matricula';
-import CadastroUsuario from '../pages/CadastroUsuario';
-import CadastrarDisciplina from '../pages/CadastrarDisciplina';
-import MeuPortal from '../pages/LoginAlunoProfessor';
-import RedefinirAlunoProfessor from '../pages/RedefinirSenhaAlunoProfessor';
-import CadastroContent from '../pages/CadastroContent';
-import ListaDeDisciplinas from '../pages/ListaDeDisciplinas';
-import ListarContent from '../pages/ListarContent';
+import Padrao from '../Pages/Padrao';
+import Login from '../Pages/LoginAdm';
+import RedefinirAdm from '../Pages/RedefinirSenhaAdm';
+import Home from '../Pages/Home';
+import Matricula from '../Pages/Matricula';
+import CadastroUsuario from '../Pages/CadastroUsuario';
+import CadastrarDisciplina from '../Pages/CadastrarDisciplina';
+import MeuPortal from '../Pages/LoginAlunoProfessor';
+import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
+import CadastroContent from '../Pages/CadastroContent';
+import ListaDeDisciplinas from '../Pages/ListaDeDisciplinas';
+import DetalhamentoDisciplina from '../Pages/DetalhamentoDisciplina';
+import VisualizarContent from '../Pages/VisualizarContent';
 
 
 import ProtectedRoute from '../helper/ProtectedRoute';
@@ -33,8 +34,9 @@ function Routes() {
             <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
             <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <ProtectedRoute path="/CadastroContent" component={CadastroContent} />
+            <Route path="/DetalhamentoDisciplina" component={DetalhamentoDisciplina} />
             <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
-            <ProtectedRoute path="/ListarContent" component={ListarContent} />
+            <ProtectedRoute path="/VisualizarContent" component={VisualizarContent} />
         </Switch>
     );
 }

@@ -43,7 +43,10 @@ const Conteudo = ({ ...props }) => {
 
 
             <Exit>
-                <Link to="/Home">
+                <Link to={{
+                    pathname: '/DetalhamentoDisciplina',
+                    state: data
+                }}>
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
                 </Link>
             </Exit>
