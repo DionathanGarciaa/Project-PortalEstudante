@@ -11,7 +11,10 @@ const Home = ({ ...props }) => {
     const history = useHistory();
 
 
+
     const check = sessionStorage.getItem('check')
+
+
 
     useEffect(() => {
         if (check === "2") {
@@ -19,7 +22,6 @@ const Home = ({ ...props }) => {
             Api.get(`/discipline/${data._id}/${data.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
-                console.log(response)
                 setLists(response.data.discipline)
             })
         } else {
@@ -53,10 +55,9 @@ const Home = ({ ...props }) => {
                 {lists.map((list) => {
                     return (
                         <Card key={list._id} onClick={() => history.push({
-                            pathname: '/ListarContent',
+                            pathname: '/DetalhamentoDisciplina',
                             state: list
                         })}>
-
                             <span className="title" >{list.name} </span>
                             <span > Turma 345 </span>
                         </Card>

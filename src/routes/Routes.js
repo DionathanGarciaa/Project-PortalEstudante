@@ -11,7 +11,8 @@ import MeuPortal from '../Pages/LoginAlunoProfessor';
 import RedefinirAlunoProfessor from '../Pages/RedefinirSenhaAlunoProfessor';
 import CadastroContent from '../Pages/CadastroContent';
 import ListaDeDisciplinas from '../Pages/ListaDeDisciplinas';
-import ListarContent from '../Pages/ListarContent';
+import DetalhamentoDisciplina from '../Pages/DetalhamentoDisciplina';
+import VisualizarContent from '../Pages/VisualizarContent';
 
 
 import ProtectedRoute from '../helper/ProtectedRoute';
@@ -33,8 +34,9 @@ function Routes() {
             <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
             <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <ProtectedRoute path="/CadastroContent" component={CadastroContent} />
+            <Route path="/DetalhamentoDisciplina" component={DetalhamentoDisciplina} />
             <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
-            <ProtectedRoute path="/ListarContent" component={ListarContent} />
+            <ProtectedRoute path="/VisualizarContent" component={VisualizarContent} />
         </Switch>
     );
 }

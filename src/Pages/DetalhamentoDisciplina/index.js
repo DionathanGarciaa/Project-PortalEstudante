@@ -1,64 +1,93 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
-import { Link } from 'react-router-dom';
-import { Container, Principal, Title, Content, Cards, Cards2, Card1, Card2} from './styled';
+import Api from '../../services/Api';
+
+import { Container, Principal, Title, Content, Cards, Cards2, Card1, Card2 } from './style';
 
 
-const Detalhamento = () => {
+const Detalhamento = ({ ...props }) => {
 
-    const tipoDeUsuario="alno";
+
+    const [contents, setContents] = useState([])
+    const [notas, setNotas] = useState([])
+
+    const tipoDeUsuario = sessionStorage.getItem('check')
+    const history = useHistory();
+
+
+    const data = props.location.state
+
+    useEffect(() => {
+        Api.get(`/content/${data._id}`, {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then((res) => {
+            console.log(res)
+            setNotas(res.data.discipline.notas)
+            setContents(res.data.discipline.contents)
+        })
+    }, [data._id])
+
+
+
+
 
     return (
         <Container>
 
-            <Header/>
+            <Header />
+            <Principal>
 
-        <Principal>
+                <Title>
+                    <Content>
+                        <h1>{data.name} - Turma 345</h1>
+                    </Content>
+                </Title>
+                <Cards>
+                    <Card1 >
+                        {contents.map((content) => {
+                            return (
+                                <p key={content._id} onClick={() => history.push({
+                                    pathname: '/VisualizarContent',
+                                    state: { content, data }
+                                })}>{content.title}</p>
+                            )
+                        })}
+                    </Card1>
+                    {tipoDeUsuario === "2" && <button onClick={() => history.push({
+                        pathname: '/CadastroContent',
+                        state: data
+                    })}>Pulicar Novo Conteúdo</button>}
+                </Cards>
 
-            <Title>
-            <Content>
+                <Cards2>
+                    <Card2>
+                        {notas.map((nota) => {
+                            return (
+                                <p key={nota._id}>
+                                    <span>{nota.nomeNota}</span>
+                                    <span>Peso: {nota.pesoNota}</span>
 
-                <Link>Voltar</Link>
-                
-                <h1>Português - Turma 345</h1>
+                                    {nota.alunos.map((aluno) => {
+                                        console.log(aluno)
 
-            </Content>
-            </Title>
+                                        return (
+                                            tipoDeUsuario === "3" && <span key={aluno._id}> Nota {aluno.valorNota} </span>
+                                        )
+                                    })}
+                                </p>
+                            )
+                        })}
 
 
-            <Cards>
-                <Card1>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
+                    </Card2>
+                    {tipoDeUsuario === "2" && <button onClick={() => history.push({
+                        pathname: '/CadastroContent',
+                        state: data
+                    })}>Pulicar Novo Conteúdo</button>}
+                </Cards2>
+            </Principal>
 
-                </Card1>
-                   {tipoDeUsuario !=='aluno' && <button>Pulicar Novo Conteúdo</button>}
-            </Cards>
-
-            <Cards2>
-                <Card2>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                </Card2>
-                {tipoDeUsuario !=='aluno' && <button>Pulicar Nota</button>}
-            </Cards2>
-        </Principal>
-           
         </Container>
     )
 }
