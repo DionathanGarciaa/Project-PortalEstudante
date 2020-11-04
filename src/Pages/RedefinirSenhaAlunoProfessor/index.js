@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Box3, Botao, Imagem } from './style';
-import Img from '../../assets/img2.svg';
+import Img from '../../Assets/img2.svg';
 import Api from '../../services/Api';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
@@ -140,6 +140,12 @@ const SenhaAlunoProfessor = () => {
                         {/* BOTAO */}
                         <Botao>
                             {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
+                        </Botao>
+
+                        <Botao>
+                            <button>
+                                <strong>Voltar</strong>
+                            </button>
                         </Botao>
 
                     </form>

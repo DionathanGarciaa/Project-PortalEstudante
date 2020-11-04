@@ -13,12 +13,10 @@ import CadastroContent from '../Pages/CadastroContent';
 import ListaDeDisciplinas from '../Pages/ListaDeDisciplinas';
 import DetalhamentoDisciplina from '../Pages/DetalhamentoDisciplina';
 import VisualizarContent from '../Pages/VisualizarContent';
+import CadastroNota from '../Pages/CadastroNota';
 
 
 import ProtectedRoute from '../helper/ProtectedRoute';
-
-
-
 
 function Routes() {
 
@@ -29,13 +27,14 @@ function Routes() {
             <Route path="/RedefinirSenhaAdm" component={RedefinirAdm} />
             <Route path="/MeuPortal" component={MeuPortal} />
             <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
-            < ProtectedRoute path="/Home" component={Home} />
-            < ProtectedRoute path="/Matricula" component={Matricula} />
+            <ProtectedRoute path="/Home" component={Home} />
+            <ProtectedRoute path="/Matricula" component={Matricula} />
             <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
             <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <ProtectedRoute path="/CadastroContent" component={CadastroContent} />
             <Route path="/DetalhamentoDisciplina" component={DetalhamentoDisciplina} />
             <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
+            <ProtectedRoute path="/CadastroNota" component={CadastroNota} />
             <ProtectedRoute path="/VisualizarContent" component={VisualizarContent} />
         </Switch>
     );
