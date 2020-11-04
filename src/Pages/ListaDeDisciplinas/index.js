@@ -38,9 +38,6 @@ const Home = ({ ...props }) => {
 
         <Container>
 
-            {/* CABEÇALHO */}
-            <Header />
-
             {/* TITULO */}
             <Titulo>
                 <h1>Disciplinas:</h1>

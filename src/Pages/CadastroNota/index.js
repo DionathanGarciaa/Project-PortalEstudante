@@ -17,7 +17,6 @@ const CadastroNota = () => {
     return(
 
         <>
-            <Header />
 
             <Exit>
                 <Link to="/Home">

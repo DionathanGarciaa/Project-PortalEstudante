@@ -16,10 +16,6 @@ const VisualizarConteudo = () => {
     return(
 
         <>
-
-            {/* CABEÇALHO */}
-            <Header />
-
             
             <Exit>
                 <Link to="/Home">

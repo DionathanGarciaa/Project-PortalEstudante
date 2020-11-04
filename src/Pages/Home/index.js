@@ -19,9 +19,6 @@ const Home = () => {
             {modalCadastroUsuario && <CadastroUsuario showModal1={setModalCadastroUsuario} />}
             {modalCadastroDisciplina && <CadastroDisciplina showModal2={setModalCadastroDisciplina} />}
 
-            {/* CABEÇALHO */}
-            <Header />
-
             {/* TITULO */}
             <h1>Escolha uma das opções abaixo:</h1>
 

@@ -65,9 +65,6 @@ const Matricula = () => {
                 text={errorMessage}
             />}
 
-            {/* CABEÇALHO */}
-            <Header />
-
             {/* SAIR */}
             <Exit>
                 <Link to="/Home">

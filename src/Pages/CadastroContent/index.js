@@ -38,9 +38,6 @@ const Conteudo = ({ ...props }) => {
 
         <>
 
-            {/* CABEÇALHO */}
-            <Header />
-
 
             <Exit>
                 <Link to="/Home">

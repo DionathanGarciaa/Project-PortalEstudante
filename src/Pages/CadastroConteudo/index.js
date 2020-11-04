@@ -37,9 +37,6 @@ const Conteudo = () => {
 
         <>
 
-            {/* CABEÇALHO */}
-            <Header />
-
             
             <Exit>
                 <Link to="/Home">
