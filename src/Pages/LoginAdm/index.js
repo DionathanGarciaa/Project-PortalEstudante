@@ -28,6 +28,7 @@ const Login = () => {
                 sessionStorage.setItem("token", response.data.token)
                 sessionStorage.setItem("firstname", response.data.user.firstname)
                 history.push("/Home")
+                window.location.reload();
             }
         }, (err) => {
             setErrorMessage(err.response.data.error);

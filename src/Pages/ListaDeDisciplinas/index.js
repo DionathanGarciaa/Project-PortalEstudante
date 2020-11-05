@@ -9,7 +9,6 @@ const Home = ({ ...props }) => {
     const [lists, setLists] = useState([]);
     const history = useHistory();
 
-
     const check = sessionStorage.getItem('check')
 
     useEffect(() => {
