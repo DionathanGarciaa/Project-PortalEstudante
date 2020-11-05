@@ -21,7 +21,7 @@ const Login = () => {
     }
 
     function loginUser() {
-        
+
         setloading(true)
         Api.post("/sessions/adm", { email: email, password: senha }).then(response => {
             if (response.data.token) {
@@ -42,9 +42,9 @@ const Login = () => {
 
         <>
             {/* MODAL */}
-            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage}/>}
+            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage} />}
 
-            
+
 
             <Container>
 
@@ -78,7 +78,7 @@ const Login = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ?  <button > <strong>Carregando...</strong> <div className="spinner"></div></button>: <button><strong>Entrar</strong></button>}
+                            {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button><strong>Entrar</strong></button>}
                         </Botao>
                     </form>
                 </Formulario>

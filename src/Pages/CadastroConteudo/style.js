@@ -64,11 +64,27 @@ export const Button = styled.div`
         cursor: pointer;
         outline: 0;
     }
+
+    .spinner{
+        float:right;
+        padding-left:-10px;
+        border:2px solid rgba(231, 232, 246, 0.8);
+        border-left-color: #6c63ff;
+        height: 15px;
+        width: 15px;
+        border-radius:50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+        to{transform: rotate(360deg);}
+    }
+
+
 `;
 
 
 export const InputTitle = styled.div`
-
     padding: 1%;
     width: 25%;
 

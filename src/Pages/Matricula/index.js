@@ -79,14 +79,7 @@ const Matricula = () => {
                 <form onSubmit={handleSubmit}>
 
                     {/* INPUT N° MATRICULA ALUNO */}
-                    <input
-                        id="number"
-                        type="text"
-                        placeholder="CPF"
-                        value={matricula}
-                        required
-                        onChange={(event) => setMatricula(event.target.value)}
-                    />
+                    <input id="number" type="text" placeholder="CPF" value={matricula} required onChange={(event) => setMatricula(event.target.value)} />
                     <br />
 
                     {/* SELECT DISCIPLINA */}

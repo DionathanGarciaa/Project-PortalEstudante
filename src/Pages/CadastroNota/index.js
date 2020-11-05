@@ -1,29 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header';
 import { Exit, Container, TableDiv, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Api from '../../services/Api';
-import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
-import AlertErro from '../../components/ModalAlerts/ErroAlert';
-import { useHistory } from 'react-router-dom';
 
 
-const CadastroNota = () => {
 
-    const [nota, setNota] = useState([]);
+const CadastroNota = ({ ...props }) => {
+
+    const [nota, setNota] = useState();
+    const [alunos, setAlunos] = useState()
 
 
-    return(
+
+    const data = props.location.state;
+
+
+    useEffect(() => {
+        Api.get('listadeAlunos', { disciplines: data._id }).then((response) => {
+            console.log(response)
+            setAlunos(response.data)
+        })
+    }, [data._id])
+
+
+    console.log(alunos)
+
+
+
+    return (
 
         <>
 
             <Exit>
-                <Link to="/Home">
+                <Link to={{
+                    pathname: '/DetalhamentoDisciplina',
+                    state: data
+                }}>
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
                 </Link>
             </Exit>
-            
+
             <Container>
 
                 <TableDiv>
@@ -60,9 +78,12 @@ const CadastroNota = () => {
                             }} className={nota[1] >= 6 ? "greenNote" : "redNote"}></input>
                             {console.log(nota)}
                         </td>
-                    </tr>
-                    </tbody>
-                </table>
+                                <td>
+                                    <input onChange={(event) => setNota(event.target.value)} className={nota >= 6 ? "greenNote" : "redNote"}></input>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </TableDiv>
 
                 <Button>
