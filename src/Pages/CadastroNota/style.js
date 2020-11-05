@@ -132,6 +132,15 @@ export const TableDiv = styled.div`
 }
 
 @media (max-width: 767px) {
+
+    .redNote{
+        width:15%;
+    }
+
+    .greenNote{
+        width:15%;
+    }
+
     .flTable {
         display: block;
         width: 100%;
