@@ -13,6 +13,7 @@ const SenhaAlunoProfessor = () => {
     const [password, setPassword] = useState('');
     const [checkboxEstudante, setCheckboxEstudante] = useState('');
     const [checkboxProfessor, setCheckboxProfessor] = useState('');
+    const [loading, setloading] = useState(false);
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
@@ -29,6 +30,7 @@ const SenhaAlunoProfessor = () => {
     }
 
     function senha() {
+        setloading(true)
         Api.post("/sessions/resetpassword", { email, cpf, password }).then(response => {
             if (response.data) {
                 setModalAlertSuccess(true)
@@ -36,13 +38,14 @@ const SenhaAlunoProfessor = () => {
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true);
+            setloading(false)
         })
     }
 
     return (
 
         <>
-            MODAL
+            {/* MODAL */}
             {modalAlertSuccess && <AlertSuccess
                 showAlertSuccess={ModalClickSuccess}
                 text={"As suas Informações foram atualizadas, senha redefinida."}
@@ -70,24 +73,28 @@ const SenhaAlunoProfessor = () => {
                             <CheckBox>
                                 <input
                                     className="Box1"
-                                    id="checkbox"
                                     type="checkbox"
+                                    id="checkbox1"
                                     value={checkboxEstudante}
                                     onChange={(event) => setCheckboxEstudante(event.target.value)}
                                 />
-                                <label htmlFor="checkbox">Estudante</label>
+                                <div className="checkbox-color">
+                                    <label htmlFor="checkbox1"><span>Estudante</span></label>
+                                </div>
                             </CheckBox>
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
                                 <input
                                     className="Box1"
-                                    id="checkbox"
                                     type="checkbox"
+                                    id="checkbox2"
                                     value={checkboxProfessor}
                                     onChange={(event) => setCheckboxProfessor(event.target.value)}
                                 />
-                                <label htmlFor="checkbox">Professor</label>
+                                <div className="checkbox-color">
+                                    <label htmlFor="checkbox2"><span>Professor</span></label>
+                                </div>
                             </CheckBox>
 
                         </Check>
@@ -132,8 +139,12 @@ const SenhaAlunoProfessor = () => {
 
                         {/* BOTAO */}
                         <Botao>
+                            {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
+                        </Botao>
+
+                        <Botao>
                             <button>
-                                <strong>Redefinir Senha</strong>
+                                <strong>Voltar</strong>
                             </button>
                         </Botao>
 

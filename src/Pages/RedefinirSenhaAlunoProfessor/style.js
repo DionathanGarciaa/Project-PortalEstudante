@@ -61,9 +61,20 @@ export const CheckBox = styled.div`
     margin: 30px 25px 20px 20px; 
     width: 120px;
 
-    /* .Box1:Focus {
-        box-shadow: 0 0 0 3px #6C63FF, 0 0 0 5px #6c63ff;  
-     }  */
+    .Box1:checked::before{
+        content:"";
+        margin:-5.5px;
+        position:absolute;
+        width:12px;
+        height: 12px;
+        border: 6px solid  rgba(231, 232, 246, 0.8);
+        border-radius:6px;
+    }
+    
+    input:checked + .checkbox-color span{
+        color: #6C63FF;
+        font-weight: bold;
+    }
 `;
 
 export const Box1 = styled.div`

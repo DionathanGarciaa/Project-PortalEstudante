@@ -9,13 +9,11 @@ import Alert from '../../components/ModalAlerts/ErroAlert';
 const MeuPortal = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [loading, setloading] = useState(false);
     const [checkbox, setCheckbox] = useState('');
+    const [loading, setloading] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
-
-
 
 
     function handleSubmit(event) {
@@ -80,14 +78,14 @@ const MeuPortal = () => {
                 <Formulario>
                     <form onSubmit={handleSubmit}>
 
-                        {/* CHECK BOX ESTUDANTE */}
+                        {/* CHECK BOX*/}
                         <Check>
 
+                            {/* CHECK BOX ESTUDANTE */}
                             <CheckBox>
                                 <input className="Box1" id="checkbox" type="radio" value="3" name="box1" onChange={({ target }) => setCheckbox(target.value)} />
                                 <label htmlFor="checkbox">Estudante</label>
                             </CheckBox>
-
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
@@ -120,6 +118,7 @@ const MeuPortal = () => {
                         <Botao>
                             {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
+                        
                     </form>
                 </Formulario>
 

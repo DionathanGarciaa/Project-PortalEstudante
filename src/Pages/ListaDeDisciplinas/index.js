@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../../components/Header';
 import { useHistory } from 'react-router-dom';
-
 import Api from '../../services/Api';
 import { Container, Titulo, Disciplina, Card } from './style';
 
@@ -15,7 +14,8 @@ const Home = ({ ...props }) => {
     const check = sessionStorage.getItem('check')
 
 
-
+    const data = props.location.state
+    console.log(data._id)
     useEffect(() => {
         if (check === "2") {
             const data = props.location.state.user;
@@ -56,7 +56,7 @@ const Home = ({ ...props }) => {
                     return (
                         <Card key={list._id} onClick={() => history.push({
                             pathname: '/DetalhamentoDisciplina',
-                            state: list
+                            state: { list, data }
                         })}>
                             <span className="title" >{list.name} </span>
                             <span > Turma 345 </span>

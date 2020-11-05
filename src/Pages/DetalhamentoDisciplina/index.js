@@ -16,17 +16,19 @@ const Detalhamento = ({ ...props }) => {
     const history = useHistory();
 
 
-    const data = props.location.state
+    const { list, data } = props.location.state
+
+    console.log(data._id)
 
     useEffect(() => {
-        Api.get(`/content/${data._id}`, {
+        Api.get(`/content/${list._id}`, {
             headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
         }).then((res) => {
             console.log(res)
             setNotas(res.data.discipline.notas)
             setContents(res.data.discipline.contents)
         })
-    }, [data._id])
+    }, [list._id])
 
 
 
@@ -40,7 +42,7 @@ const Detalhamento = ({ ...props }) => {
 
                 <Title>
                     <Content>
-                        <h1>{data.name} - Turma 345</h1>
+                        <h1>{list.name} - Turma 345</h1>
                     </Content>
                 </Title>
                 <Cards>
@@ -55,34 +57,32 @@ const Detalhamento = ({ ...props }) => {
                         })}
                     </Card1>
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
-                        pathname: '/CadastroContent',
+                        pathname: '/CadastroConteudo',
                         state: data
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards>
 
                 <Cards2>
+
                     <Card2>
                         {notas.map((nota) => {
+                            const id = nota.alunos.filter(id => id.idAlunos === data._id).map(id => id.valorNota)
+
                             return (
                                 <p key={nota._id}>
                                     <span>{nota.nomeNota}</span>
                                     <span>Peso: {nota.pesoNota}</span>
-
-                                    {nota.alunos.map((aluno) => {
-                                        console.log(aluno)
-
-                                        return (
-                                            tipoDeUsuario === "3" && <span key={aluno._id}> Nota {aluno.valorNota} </span>
-                                        )
-                                    })}
+                                    {tipoDeUsuario === "3" && <span > Nota {id} </span>}
                                 </p>
                             )
                         })}
 
 
                     </Card2>
+
+
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
-                        pathname: '/CadastroContent',
+                        pathname: '/CadastroNota',
                         state: data
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards2>
