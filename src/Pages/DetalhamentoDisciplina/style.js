@@ -146,7 +146,7 @@ export const Card2 = styled.div`
     height: 255px;
     max-width:75%;
     color: #000;
-    /* max-width: 50%; */
+    max-width: 100%;
     overflow-x: scroll;
     ::-webkit-scrollbar {
     height: 10px;
