@@ -18,13 +18,12 @@ const Detalhamento = ({ ...props }) => {
 
     const { list, data } = props.location.state
 
-    console.log(data._id)
+    console.log(list)
 
     useEffect(() => {
         Api.get(`/content/${list._id}`, {
             headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
         }).then((res) => {
-            console.log(res)
             setNotas(res.data.discipline.notas)
             setContents(res.data.discipline.contents)
         })
@@ -51,19 +50,18 @@ const Detalhamento = ({ ...props }) => {
                             return (
                                 <p key={content._id} onClick={() => history.push({
                                     pathname: '/VisualizarContent',
-                                    state: { content, data }
+                                    state: { content, list }
                                 })}>{content.title}</p>
                             )
                         })}
                     </Card1>
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
                         pathname: '/CadastroConteudo',
-                        state: data
+                        state: list
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards>
 
                 <Cards2>
-
                     <Card2>
                         {notas.map((nota) => {
                             const id = nota.alunos.filter(id => id.idAlunos === data._id).map(id => id.valorNota)
@@ -79,11 +77,9 @@ const Detalhamento = ({ ...props }) => {
 
 
                     </Card2>
-
-
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
                         pathname: '/CadastroNota',
-                        state: data
+                        state: list
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards2>
             </Principal>

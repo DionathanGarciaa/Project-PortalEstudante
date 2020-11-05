@@ -15,7 +15,7 @@ const Home = ({ ...props }) => {
 
 
     const data = props.location.state
-    console.log(data._id)
+
     useEffect(() => {
         if (check === "2") {
             const data = props.location.state.user;
@@ -53,6 +53,7 @@ const Home = ({ ...props }) => {
             <Disciplina>
 
                 {lists.map((list) => {
+
                     return (
                         <Card key={list._id} onClick={() => history.push({
                             pathname: '/DetalhamentoDisciplina',
