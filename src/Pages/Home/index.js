@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header';
+
 import { Link } from 'react-router-dom';
 import { Content, Card } from './style';
 import CadastroUsuario from '../CadastroUsuario';

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, Selects, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';

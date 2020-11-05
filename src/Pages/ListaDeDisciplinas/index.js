@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header';
 import { useHistory } from 'react-router-dom';
 import Api from '../../services/Api';
 import { Container, Titulo, Disciplina, Card } from './style';
