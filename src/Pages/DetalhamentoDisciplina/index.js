@@ -68,12 +68,13 @@ const Detalhamento = ({ ...props }) => {
                     <Card2>
                         {notas.map((nota) => {
 
-                            const id = nota.alunos.filter(id => id.idAlunos === data._id)
+                            const id = nota.alunos.filter(id => id.idAlunos === data._id).map(id => id.valorNota)
+
                             return (
                                 <p key={nota._id}>
                                     <span>{nota.nomeNota}</span>
                                     <span>Peso: {nota.pesoNota}</span>
-                                    {tipoDeUsuario === "3" && <span > Nota {id[0].valorNota} </span>}
+                                    {tipoDeUsuario === "3" && <span > Nota {id} </span>}
                                 </p>
                             )
                         })}
