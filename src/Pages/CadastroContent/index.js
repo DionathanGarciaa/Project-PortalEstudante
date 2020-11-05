@@ -13,7 +13,8 @@ const Conteudo = ({ ...props }) => {
     const [description, setDescription] = useState();
     const [loading, setloading] = useState(false);
 
-    const { disciplina, data } = props.location.state
+    const data = props.location.state
+    console.log(data._id)
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -23,7 +24,7 @@ const Conteudo = ({ ...props }) => {
 
     function createCont() {
         setloading(true)
-        Api.post(`/content/${disciplina._id}`, { title, description }, {
+        Api.post(`/content/${data._id}`, { title, description }, {
             headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
         }).then((response) => {
             if (response.data)
@@ -37,19 +38,16 @@ const Conteudo = ({ ...props }) => {
 
         <>
 
-            
+
             <Exit>
-                <Link to={{
-                    pathname: '/DetalhamentoDisciplina',
-                    state: { disciplina, data }
-                }}>
+                <Link to="/Home">
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
                 </Link>
             </Exit>
 
             <Container>
 
-                <Title>{disciplina.name} - Turma 345</Title>
+                <Title>{data.name} - Turma 345</Title>
 
                 <Clear></Clear>
 

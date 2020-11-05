@@ -34,8 +34,9 @@ const MeuPortal = () => {
                     history.push({
                         pathname: "/ListaDeDisciplinas",
                         state: response.data
-                    })
 
+                    })
+                    window.location.reload();
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -52,6 +53,7 @@ const MeuPortal = () => {
                         pathname: "/ListaDeDisciplinas",
                         state: response.data.user
                     })
+                    window.location.reload();
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);

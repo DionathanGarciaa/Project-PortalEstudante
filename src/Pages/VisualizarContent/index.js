@@ -16,9 +16,6 @@ const VisualizarConteudo = ({ ...props }) => {
 
         <>
 
-            {/* CABEÇALHO */}
-            <Header />
-
 
             <Exit>
                 <Link to={{

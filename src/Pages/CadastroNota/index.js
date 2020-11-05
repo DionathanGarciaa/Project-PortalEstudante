@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, TableDiv, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
@@ -32,7 +31,6 @@ const CadastroNota = ({ ...props }) => {
     return (
 
         <>
-            <Header />
 
             <Exit>
                 <Link to={{
@@ -46,17 +44,38 @@ const CadastroNota = ({ ...props }) => {
             <Container>
 
                 <TableDiv>
-                    <table className="flTable">
-                        <thead>
-                            <tr>
-                                <th><strong>Alunos</strong></th>
-                                <th><strong>Nota</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Gustavo
+                <table className="flTable">
+                    <thead>
+                        <tr>
+                            <th><strong>Alunos</strong></th>
+                            <th><strong>Nota</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            Gustavo
+                        </td>
+                        <td>
+                            <input onChange={(event) =>  {
+                                let notas = [...nota];
+                                notas[0] = event.target.value;
+                                setNota(notas)
+                            }} className={nota[0] >= 6 ? "greenNote" : "redNote"}></input>
+                            {console.log(nota)}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gustavo
+                        </td>
+                        <td>
+                            <input onChange={(event) =>  {
+                                let notas = [...nota];
+                                notas[1] = event.target.value;
+                                setNota(notas)
+                            }} className={nota[1] >= 6 ? "greenNote" : "redNote"}></input>
+                            {console.log(nota)}
                         </td>
                                 <td>
                                     <input onChange={(event) => setNota(event.target.value)} className={nota >= 6 ? "greenNote" : "redNote"}></input>
