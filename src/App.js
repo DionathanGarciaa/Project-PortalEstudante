@@ -6,15 +6,16 @@ import MasterPage from '../src/components/MasterPage';
 
 const App = (props) => {
 
-  const loginPage = window.location.pathname.includes("login");
+  const loginPage = window.location.pathname;
+  console.log(loginPage);
 
   return (
 
         <BrowserRouter>
 
-          { loginPage ? <MasterPage>
+          { loginPage === '/Login'  || loginPage === '/MeuPortal' || loginPage === '/'  ? <Routes /> : <MasterPage>
             <Routes />
-          </MasterPage> : <Routes />
+          </MasterPage>
           }
           <GlobalStyle/>
         </BrowserRouter>

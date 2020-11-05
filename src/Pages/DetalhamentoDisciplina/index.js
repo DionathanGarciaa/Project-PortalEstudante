@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Header from '../../components/Header';
 import Api from '../../services/Api';
 
 import { Container, Principal, Title, Content, Cards, Cards2, Card1, Card2 } from './style';
@@ -39,7 +38,6 @@ const Detalhamento = ({ ...props }) => {
     return (
         <Container>
 
-            <Header />
             <Principal>
 
                 <Title>
@@ -68,12 +66,13 @@ const Detalhamento = ({ ...props }) => {
                     <Card2>
                         {notas.map((nota) => {
 
-                            const id = nota.alunos.filter(id => id.idAlunos === data._id)
+                            const id = nota.alunos.filter(id => id.idAlunos === data._id).map(id => id.valorNota)
+
                             return (
                                 <p key={nota._id}>
                                     <span>{nota.nomeNota}</span>
                                     <span>Peso: {nota.pesoNota}</span>
-                                    {tipoDeUsuario === "3" && <span > Nota {id[0].valorNota} </span>}
+                                    {tipoDeUsuario === "3" && <span > Nota {id} </span>}
                                 </p>
                             )
                         })}

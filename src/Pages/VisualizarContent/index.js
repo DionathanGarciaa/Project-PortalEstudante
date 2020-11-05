@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, Title, TitleContent, Clear, TextCtd } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
@@ -15,9 +14,6 @@ const VisualizarConteudo = ({ ...props }) => {
     return (
 
         <>
-
-            {/* CABEÇALHO */}
-            <Header />
 
 
             <Exit>

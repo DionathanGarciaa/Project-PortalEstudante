@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, Title, TitleContent, Descricao, Clear, DescCont, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
@@ -37,10 +36,7 @@ const Conteudo = ({ ...props }) => {
 
         <>
 
-            {/* CABEÇALHO */}
-            <Header />
-
-
+            
             <Exit>
                 <Link to={{
                     pathname: '/DetalhamentoDisciplina',

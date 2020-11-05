@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, TableDiv, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
@@ -32,7 +31,6 @@ const CadastroNota = ({ ...props }) => {
     return (
 
         <>
-            <Header />
 
             <Exit>
                 <Link to={{
