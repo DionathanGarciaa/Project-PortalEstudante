@@ -6,7 +6,7 @@ import { Container, Titulo, Disciplina, Card } from './style';
 
 
 const Home = ({ ...props }) => {
-    const [lists, setLists] = useState([]);
+    const [disciplinas, setDisciplinas] = useState([]);
     const history = useHistory();
 
 
@@ -22,14 +22,14 @@ const Home = ({ ...props }) => {
             Api.get(`/discipline/${data._id}/${data.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
-                setLists(response.data.discipline)
+                setDisciplinas(response.data.discipline)
             })
         } else {
             const data = props.location.state
             Api.get(`/discipline/${data._id}/${data.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
-                setLists(response.data.userDiscipline[0].disciplines)
+                setDisciplinas(response.data.userDiscipline[0].disciplines)
             })
         }
 
@@ -52,14 +52,14 @@ const Home = ({ ...props }) => {
             {/* MENU */}
             <Disciplina>
 
-                {lists.map((list) => {
+                {disciplinas.map((disciplina) => {
 
                     return (
-                        <Card key={list._id} onClick={() => history.push({
+                        <Card key={disciplina._id} onClick={() => history.push({
                             pathname: '/DetalhamentoDisciplina',
-                            state: { list, data }
+                            state: { disciplina, data }
                         })}>
-                            <span className="title" >{list.name} </span>
+                            <span className="title" >{disciplina.name} </span>
                             <span > Turma 345 </span>
                         </Card>
                     )

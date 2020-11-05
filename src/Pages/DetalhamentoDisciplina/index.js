@@ -9,6 +9,8 @@ import { Container, Principal, Title, Content, Cards, Cards2, Card1, Card2 } fro
 const Detalhamento = ({ ...props }) => {
 
 
+
+
     const [contents, setContents] = useState([])
     const [notas, setNotas] = useState([])
 
@@ -16,18 +18,19 @@ const Detalhamento = ({ ...props }) => {
     const history = useHistory();
 
 
-    const { list, data } = props.location.state
+    const { disciplina, data } = props.location.state
 
-    console.log(list)
+
+
 
     useEffect(() => {
-        Api.get(`/content/${list._id}`, {
+        Api.get(`/content/${disciplina._id}`, {
             headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
         }).then((res) => {
             setNotas(res.data.discipline.notas)
             setContents(res.data.discipline.contents)
         })
-    }, [list._id])
+    }, [disciplina._id])
 
 
 
@@ -41,7 +44,7 @@ const Detalhamento = ({ ...props }) => {
 
                 <Title>
                     <Content>
-                        <h1>{list.name} - Turma 345</h1>
+                        <h1>{disciplina.name} - Turma 345</h1>
                     </Content>
                 </Title>
                 <Cards>
@@ -50,27 +53,27 @@ const Detalhamento = ({ ...props }) => {
                             return (
                                 <p key={content._id} onClick={() => history.push({
                                     pathname: '/VisualizarContent',
-                                    state: { content, list }
+                                    state: { content, disciplina, data }
                                 })}>{content.title}</p>
                             )
                         })}
                     </Card1>
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
                         pathname: '/CadastroConteudo',
-                        state: list
+                        state: { disciplina, data }
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards>
 
                 <Cards2>
                     <Card2>
                         {notas.map((nota) => {
-                            const id = nota.alunos.filter(id => id.idAlunos === data._id).map(id => id.valorNota)
 
+                            const id = nota.alunos.filter(id => id.idAlunos === data._id)
                             return (
                                 <p key={nota._id}>
                                     <span>{nota.nomeNota}</span>
                                     <span>Peso: {nota.pesoNota}</span>
-                                    {tipoDeUsuario === "3" && <span > Nota {id} </span>}
+                                    {tipoDeUsuario === "3" && <span > Nota {id[0].valorNota} </span>}
                                 </p>
                             )
                         })}
@@ -79,7 +82,7 @@ const Detalhamento = ({ ...props }) => {
                     </Card2>
                     {tipoDeUsuario === "2" && <button onClick={() => history.push({
                         pathname: '/CadastroNota',
-                        state: list
+                        state: { disciplina, data }
                     })}>Pulicar Novo Conteúdo</button>}
                 </Cards2>
             </Principal>
