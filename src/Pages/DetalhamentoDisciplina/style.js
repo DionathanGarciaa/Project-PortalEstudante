@@ -44,7 +44,7 @@ h1 {
     font-size: 36px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: inherit;
-    margin: 30px 0px 50px 0px;
+    margin: 50px 0px 50px 0px;
 
 }
     
@@ -136,6 +136,7 @@ export const Cards2 = styled.div`
     border-radius: 5px;
     padding-left:10px;
     padding-right: 10px;
+    margin-bottom: 6%;
 
 button {
 
