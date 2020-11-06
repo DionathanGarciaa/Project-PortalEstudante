@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem, BotaoVoltar } from './style';
-import Img from '../../assets/img2.svg';
+import Img from '../../Assets/img2.svg'
 import Api from '../../services/Api';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';

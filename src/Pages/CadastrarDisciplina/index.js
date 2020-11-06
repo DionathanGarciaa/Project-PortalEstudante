@@ -15,7 +15,6 @@ const Disciplina = (props) => {
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
-    const history = useHistory();
 
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
@@ -45,14 +44,14 @@ const Disciplina = (props) => {
 
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess 
-                showAlertSuccess={ModalClickSuccess} 
-                text={"Disciplina cadastrada"} 
+            {modalAlertSuccess && <AlertSuccess
+                showAlertSuccess={ModalClickSuccess}
+                text={"Disciplina cadastrada"}
             />}
 
-            {modalAlertErro && <AlertErro 
-                showAlertErro={setModalAlertErro} 
-                text={errorMessage} 
+            {modalAlertErro && <AlertErro
+                showAlertErro={setModalAlertErro}
+                text={errorMessage}
             />}
 
             <Container>
