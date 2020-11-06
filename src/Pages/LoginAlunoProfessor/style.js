@@ -58,9 +58,27 @@ export const CheckBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 25px 20px 20px; 
+    margin: 30px 25px 20px 0px; 
     width: 120px;
     
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    span{
+        margin-left: 8px;
+    }
+
+    input[type=radio]{
+        display: none;
+    }
+
+    .Box1::after{
+        content: "";
+        clear: both;
+    }
 
     .Box1:checked::before{
         content:"";

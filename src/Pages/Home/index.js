@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header';
 import { Link } from 'react-router-dom';
 import { Content, Card } from './style';
 import CadastroUsuario from '../CadastroUsuario';
@@ -18,9 +17,6 @@ const Home = () => {
             {/* MODAL */}
             {modalCadastroUsuario && <CadastroUsuario showModal1={setModalCadastroUsuario} />}
             {modalCadastroDisciplina && <CadastroDisciplina showModal2={setModalCadastroDisciplina} />}
-
-            {/* CABEÇALHO */}
-            <Header />
 
             {/* TITULO */}
             <h1>Escolha uma das opções abaixo:</h1>

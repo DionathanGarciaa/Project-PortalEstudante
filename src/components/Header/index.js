@@ -2,7 +2,9 @@ import React from 'react';
 import { Container, User } from './style';
 import { FaUserCircle } from "react-icons/fa";
 
+
 const Header = () => {
+
   return (
 
     <Container>
@@ -18,8 +20,6 @@ const Header = () => {
             </ul>
           </li>
         </ul>
-
-
       </User>
 
     </Container>

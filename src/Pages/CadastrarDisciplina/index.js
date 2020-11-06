@@ -4,9 +4,11 @@ import { BsX } from "react-icons/bs";
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
+import { useHistory } from 'react-router-dom';
 
 
 const Disciplina = (props) => {
+    const history = useHistory();
     const [nome, setNome] = useState();
     const [matricula, setMatricula] = useState();
     const [alunos, setAlunos] = useState();
@@ -14,9 +16,9 @@ const Disciplina = (props) => {
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
 
-
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
+        history.push('/Home')
     }
 
     function handleSubmit(event) {
@@ -41,8 +43,15 @@ const Disciplina = (props) => {
 
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Disciplina cadastrada"} />}
-            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage} />}
+            {modalAlertSuccess && <AlertSuccess 
+                showAlertSuccess={ModalClickSuccess} 
+                text={"Disciplina cadastrada"} 
+            />}
+
+            {modalAlertErro && <AlertErro 
+                showAlertErro={setModalAlertErro} 
+                text={errorMessage} 
+            />}
 
             <Container>
 

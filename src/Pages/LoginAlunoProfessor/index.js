@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Senha, Botao, Imagem } from './style';
+import { GiGraduateCap } from "react-icons/gi";
+import { GoBriefcase } from "react-icons/go";
 import Img from '../../assets/img2.svg';
 import Api from '../../services/Api';
 import Alert from '../../components/ModalAlerts/ErroAlert';
@@ -15,13 +17,10 @@ const MeuPortal = () => {
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
 
-
     function handleSubmit(event) {
         event.preventDefault();
         loginUser();
     }
-
-
 
     function loginUser() {
         setloading(true)
@@ -35,7 +34,7 @@ const MeuPortal = () => {
                         pathname: "/ListaDeDisciplinas",
                         state: response.data
                     })
-
+                    window.location.reload();
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -48,10 +47,12 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
+                    console.log(response.data)
                     history.push({
                         pathname: "/ListaDeDisciplinas",
-                        state: response.data.user
+                        state: response.data
                     })
+                    window.location.reload();
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -60,7 +61,6 @@ const MeuPortal = () => {
             })
         }
     }
-
 
     return (
 
@@ -85,13 +85,15 @@ const MeuPortal = () => {
                             {/* CHECK BOX ESTUDANTE */}
                             <CheckBox>
                                 <input className="Box1" id="checkbox" type="radio" value="3" name="box1" onChange={({ target }) => setCheckbox(target.value)} />
-                                <label htmlFor="checkbox">Estudante</label>
+                                <label htmlFor="checkbox"> <GiGraduateCap fontSize="30" /> <span>Estudante</span> </label>
+                                
+                                
                             </CheckBox>
 
                             {/* CHECK BOX PROFESSOR */}
                             <CheckBox>
                                 <input className="Box1" id="checkbox2" type="radio" value="2" name="box1" onClick={({ target }) => setCheckbox(target.value)} />
-                                <label htmlFor="checkbox2">Professor</label>
+                                <label htmlFor="checkbox2"> <GoBriefcase fontSize="25" /> <span>Professor</span> </label>
                             </CheckBox>
 
                         </Check>
@@ -119,7 +121,7 @@ const MeuPortal = () => {
                         <Botao>
                             {loading ? <button> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
-                        
+
                     </form>
                 </Formulario>
 

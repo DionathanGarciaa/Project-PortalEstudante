@@ -27,8 +27,6 @@ export const Box = styled.div`
     border-bottom-left-radius: 5px;
     box-shadow: 3px 3px 3px #979797;
     cursor: pointer;
-
-
 `;
 
 export const BoxAlert = styled.div`

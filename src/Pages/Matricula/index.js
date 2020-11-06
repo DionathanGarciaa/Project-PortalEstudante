@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, Selects, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
@@ -9,7 +8,7 @@ import AlertErro from '../../components/ModalAlerts/ErroAlert';
 import { useHistory } from 'react-router-dom';
 
 
-const Matricula = () => {
+const Matricula = (props) => {
     const history = useHistory();
     const [matricula, setMatricula] = useState();
     const [disciplinas, setDisciplinas] = useState([]);
@@ -17,7 +16,6 @@ const Matricula = () => {
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
-
 
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
@@ -65,9 +63,6 @@ const Matricula = () => {
                 text={errorMessage}
             />}
 
-            {/* CABEÇALHO */}
-            <Header />
-
             {/* SAIR */}
             <Exit>
                 <Link to="/Home">
@@ -82,14 +77,7 @@ const Matricula = () => {
                 <form onSubmit={handleSubmit}>
 
                     {/* INPUT N° MATRICULA ALUNO */}
-                    <input
-                        id="number"
-                        type="text"
-                        placeholder="CPF"
-                        value={matricula}
-                        required
-                        onChange={(event) => setMatricula(event.target.value)}
-                    />
+                    <input id="number" type="text" placeholder="CPF" value={matricula} required onChange={(event) => setMatricula(event.target.value)} />
                     <br />
 
                     {/* SELECT DISCIPLINA */}

@@ -14,20 +14,20 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
 
-
     function handleSubmit(event) {
         event.preventDefault();
         loginUser();
     }
 
     function loginUser() {
-        
+
         setloading(true)
         Api.post("/sessions/adm", { email: email, password: senha }).then(response => {
             if (response.data.token) {
                 sessionStorage.setItem("token", response.data.token)
                 sessionStorage.setItem("firstname", response.data.user.firstname)
                 history.push("/Home")
+                window.location.reload();
             }
         }, (err) => {
             setErrorMessage(err.response.data.error);
@@ -41,7 +41,7 @@ const Login = () => {
 
         <>
             {/* MODAL */}
-            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage}/>}
+            {modalAlertErro && <Alert showAlertErro={setModalAlertErro} text={errorMessage} />}
 
             <Container>
 
@@ -75,7 +75,7 @@ const Login = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ?  <button ><div className="spinner"></div></button>: <button><strong>Entrar</strong></button>}
+                            {loading ? <button> <div className="spinner"> </div> </button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
                     </form>
                 </Formulario>

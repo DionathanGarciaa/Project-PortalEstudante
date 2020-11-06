@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem } from './style';
+import { Link } from 'react-router-dom';
+import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem, BotaoVoltar } from './style';
 import Img from '../../assets/img.svg';
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
@@ -17,7 +18,6 @@ const RedefinirSenha = () => {
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
 
-
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
         history.push("/Login");
@@ -29,7 +29,6 @@ const RedefinirSenha = () => {
     }
 
     function senha() {
-
         setloading(true)
         Api.post("/sessions/resetpassword", { email, cpf, password }).then(response => {
             if (response.data) {
@@ -41,7 +40,6 @@ const RedefinirSenha = () => {
             setloading(false)
         })
     }
-
 
     return (
 
@@ -108,10 +106,19 @@ const RedefinirSenha = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
+                            {loading ? <button> <div className="spinner"> </div> </button> : <button> <strong>Redefinir Senha</strong> </button>}
                         </Botao>
 
+                        <BotaoVoltar>
+                            <button >
+                                <Link to="/Login" className="LinkButton">
+                                    <strong>Voltar</strong>
+                                </Link>
+                            </button>
+                        </BotaoVoltar>
+
                     </form>
+
                 </Formulario>
 
                 {/* IMAGEM */}

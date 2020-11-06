@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header';
 import { useHistory } from 'react-router-dom';
-
 import Api from '../../services/Api';
 import { Container, Titulo, Disciplina, Card } from './style';
 
 
 const Home = ({ ...props }) => {
-    const [lists, setLists] = useState([]);
+    const [disciplinas, setDisciplinas] = useState([]);
     const history = useHistory();
-
 
     const check = sessionStorage.getItem('check')
 
+
+
+    const { user } = props.location.state
+
+
+    console.log(user._id)
+
+
+
     useEffect(() => {
         if (check === "2") {
-            const data = props.location.state.user;
-            Api.get(`/discipline/${data._id}/${data.usertype}`, {
+            Api.get(`/discipline/${user._id}/${user.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
                 console.log(response)
-                setLists(response.data.discipline)
+                setDisciplinas(response.data.discipline)
             })
         } else {
-            const data = props.location.state
-            Api.get(`/discipline/${data._id}/${data.usertype}`, {
+            Api.get(`/discipline/${user._id}/${user.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
-                setLists(response.data.userDiscipline[0].disciplines)
+                console.log(response)
+                setDisciplinas(response.data.userDiscipline[0].disciplines)
             })
         }
-
-
-    }, [check, props.location.state, props.location.state.Api, props.location.state.user])
+    }, [check, user._id, user.usertype])
 
 
     return (
 
         <Container>
-
-            {/* CABEÇALHO */}
-            <Header />
 
             {/* TITULO */}
             <Titulo>
@@ -50,14 +50,14 @@ const Home = ({ ...props }) => {
             {/* MENU */}
             <Disciplina>
 
-                {lists.map((list) => {
-                    return (
-                        <Card key={list._id} onClick={() => history.push({
-                            pathname: '/ListarContent',
-                            state: list
-                        })}>
+                {disciplinas.map((disciplina) => {
 
-                            <span className="title" >{list.name} </span>
+                    return (
+                        <Card key={disciplina._id} onClick={() => history.push({
+                            pathname: '/DetalhamentoDisciplina',
+                            state: { disciplina, user }
+                        })}>
+                            <span className="title" >{disciplina.name} </span>
                             <span > Turma 345 </span>
                         </Card>
                     )
