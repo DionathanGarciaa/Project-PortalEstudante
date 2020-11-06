@@ -22,11 +22,6 @@ export const Card = styled.div`
     padding: 30px;
     font-size: 24px;
 
-
-    p {
-        color: #;
-    }    
-
     a {
         text-decoration: none;
     }
@@ -42,7 +37,7 @@ export const Card = styled.div`
         border-radius: 20px;
         cursor: pointer;
     }
-
+    
     .p2{
         display: flex;
         justify-content: center;

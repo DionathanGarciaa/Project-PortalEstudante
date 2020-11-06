@@ -49,16 +49,16 @@ export const Box1 = styled.div`
     label{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        margin-right: 200px;
+        margin-right: 215px;
         padding: 10px 0 5px 0;
     }
-
+    
     input{
         height: 38px;
         width: 265px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
-        border: 1px solid ;
+        border: 1px solid;
         border-color: #c0c0c0;
         border-radius: 8px;
         padding-left: 10px;
@@ -68,47 +68,22 @@ export const Box1 = styled.div`
 `;
 
 export const Box2 = styled.div`
-    display:flex;
-    flex-direction: column;
-
-    label{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        margin-right: 200px;
-        padding: 10px 0 5px 0;
-    }
-
-    input{
-        height: 38px;
-        width: 265px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 15px;
-        border: 1px solid ;
-        border-color: #c0c0c0;
-        border-radius: 8px;
-        padding-left: 10px;
-        color: #000;
-        outline: 0;
-    }
-`;
-
-export const Box3 = styled.div`
     display: flex;
     flex-direction: column;
 
     label{
         font-family: Arial, Helvetica, sans-serif;
         font-size: 14px;
-        margin-right: 200px;
+        margin-right: 215px;
         padding: 10px 0 5px 0;
     }
-
+    
     input{
         height: 38px;
         width: 265px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
-        border: 1px solid ;
+        border: 1px solid;
         border-color: #c0c0c0;
         border-radius: 8px;
         padding-left: 10px;
@@ -117,8 +92,17 @@ export const Box3 = styled.div`
     }
 `;
 
+export const Senha = styled.div`
+    padding: 5px 0 0 155px;
+
+    a{
+        text-decoration: none;
+        color: #6C63FF;
+    }
+`;
+
 export const Botao = styled.div`
-    padding-top: 30px;
+    padding-top: 30px; 
 
     button{
         display: flex;
@@ -137,10 +121,30 @@ export const Botao = styled.div`
         background: #ffffff;
         cursor: pointer;
     }
+    
+    .spinner{
+        margin: 0 0 5px 4px;
+        border:5px solid rgba(231, 232, 246, 0.8);
+        border-left-color: #6c63ff;
+        height: 18px;
+        width: 18px;
+        border-radius:50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+        to{transform: rotate(360deg);}
+    }
 `;
 
 export const Imagem = styled.div`
     position: absolute;
-    top: 350px;
-    left: 1030px;
+    right: 0;
+    bottom: 0;
+
+    img{
+        display: block;
+        right: 0;
+        bottom: 0;
+    }
 `;
