@@ -33,7 +33,29 @@ const Matricula = () => {
 
 
     function handleSubmit(event) {
+
         event.preventDefault()
+
+        let duplicatedArray = [...disciplinesSelected];
+        let results = [];
+
+        const findDuplicates = (arr) => {
+            let sorted_arr = arr.slice().sort();
+
+            for (let i = 0; i < sorted_arr.length - 1; i++) {
+                if (sorted_arr[i + 1] == sorted_arr[i]) {
+                  results.push(sorted_arr[i]);
+                }
+              }
+              return results;
+        }
+
+        findDuplicates(duplicatedArray)
+
+        if(results != ''){
+            return (alert('Não pode haver disciplinas duplicadas no cadastro'));
+        }
+
         cadastrarDisciplinas()
     }
 
