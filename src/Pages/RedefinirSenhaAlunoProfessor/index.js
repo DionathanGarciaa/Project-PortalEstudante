@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Container, Title, Formulario, Check, CheckBox, Box1, Box2, Box3, Botao, Imagem } from './style';
+import { Link } from 'react-router-dom';
+import { Container, Title, Formulario, Box1, Box2, Box3, Botao, Imagem, BotaoVoltar } from './style';
 import Img from '../../Assets/img2.svg';
 import Api from '../../services/Api';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
@@ -11,8 +12,6 @@ const SenhaAlunoProfessor = () => {
     const [email, setEmail] = useState('');
     const [cpf, setCpf] = useState('');
     const [password, setPassword] = useState('');
-    const [checkboxEstudante, setCheckboxEstudante] = useState('');
-    const [checkboxProfessor, setCheckboxProfessor] = useState('');
     const [loading, setloading] = useState(false);
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
@@ -67,37 +66,6 @@ const SenhaAlunoProfessor = () => {
                 <Formulario>
                     <form onSubmit={handleSubmit}>
 
-                        {/* CHECK BOX ESTUDANTE */}
-                        <Check>
-
-                            <CheckBox>
-                                <input
-                                    className="Box1"
-                                    type="checkbox"
-                                    id="checkbox1"
-                                    value={checkboxEstudante}
-                                    onChange={(event) => setCheckboxEstudante(event.target.value)}
-                                />
-                                <div className="checkbox-color">
-                                    <label htmlFor="checkbox1"><span>Estudante</span></label>
-                                </div>
-                            </CheckBox>
-
-                            {/* CHECK BOX PROFESSOR */}
-                            <CheckBox>
-                                <input
-                                    className="Box1"
-                                    type="checkbox"
-                                    id="checkbox2"
-                                    value={checkboxProfessor}
-                                    onChange={(event) => setCheckboxProfessor(event.target.value)}
-                                />
-                                <div className="checkbox-color">
-                                    <label htmlFor="checkbox2"><span>Professor</span></label>
-                                </div>
-                            </CheckBox>
-
-                        </Check>
 
                         {/* INPUT EMAIL */}
                         <Box1>
@@ -141,6 +109,12 @@ const SenhaAlunoProfessor = () => {
                         <Botao>
                             {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
                         </Botao>
+
+                        <BotaoVoltar>
+                            <Link to="/MeuPortal" className="LinkButton">
+                                <strong>Voltar</strong>
+                            </Link>
+                        </BotaoVoltar>
 
                     </form>
                 </Formulario>

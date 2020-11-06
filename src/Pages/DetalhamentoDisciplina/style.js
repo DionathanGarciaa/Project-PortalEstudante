@@ -4,6 +4,16 @@ export const Container = styled.div`
 
 `
 
+export const Exit = styled.div`
+    margin: 3% 0 1% 10%;
+
+    a {
+        color: #000;
+    }
+`;
+
+
+
 export const Principal = styled.div`
     display: flex;
     flex-direction: column;
@@ -45,6 +55,7 @@ export const Cards = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center;
+    min-width:77%;
     max-width:77%;
     border: 1px solid #0E4DA4;
     border-radius: 5px;
@@ -74,8 +85,9 @@ export const Card1 = styled.div`
     justify-content: flex-start; 
     align-items: center;
     height: 255px;
-
+    max-width:860px;
     color: #fff;
+
     overflow-x: scroll;
     ::-webkit-scrollbar {
     height: 10px;
@@ -108,6 +120,7 @@ p {
     background-color: #FFBB12;
     border-radius: 20px;
     margin: 25px;
+    cursor: pointer;
 
 }
 
@@ -118,6 +131,7 @@ export const Cards2 = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center;
+    min-width:77%;
     max-width:77%;
     border: 1px solid #0E4DA4;
     border-radius: 5px;
@@ -143,8 +157,9 @@ button {
 export const Card2 = styled.div`
     display:flex;
     height: 255px;
+    max-width:75%;
     color: #000;
-    /* max-width: 50%; */
+    max-width: 100%;
     overflow-x: scroll;
     ::-webkit-scrollbar {
     height: 10px;
@@ -167,21 +182,12 @@ export const Card2 = styled.div`
     border-radius: 5px;
   }
 
-p {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    height: 170px;
-    min-width: 170px;
-    background-color: #FFBB12;
-    border-radius: 20px;
-    margin: 25px;
 
-}
 
-p {
+p{
     display: flex;
+    flex-direction:column;
+    line-height:2;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -190,7 +196,6 @@ p {
     background-color: #F0f0f0;
     border-radius: 20px;
     margin: 25px;
-
 }
 
 `

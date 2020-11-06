@@ -35,7 +35,7 @@ const MeuPortal = () => {
                         pathname: "/ListaDeDisciplinas",
                         state: response.data
                     })
-
+                    window.location.reload();
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -52,6 +52,7 @@ const MeuPortal = () => {
                         pathname: "/ListaDeDisciplinas",
                         state: response.data.user
                     })
+                    window.location.reload();
                 }
             }, (err) => {
                 setErrorMessage(err.response.data.error);
@@ -60,7 +61,6 @@ const MeuPortal = () => {
             })
         }
     }
-
 
     return (
 
@@ -119,7 +119,7 @@ const MeuPortal = () => {
                         <Botao>
                             {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
-                        
+
                     </form>
                 </Formulario>
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../../components/Header';
 import { Exit, Container, Selects, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
@@ -65,9 +64,6 @@ const Matricula = () => {
                 text={errorMessage}
             />}
 
-            {/* CABEÇALHO */}
-            <Header />
-
             {/* SAIR */}
             <Exit>
                 <Link to="/Home">
@@ -82,14 +78,7 @@ const Matricula = () => {
                 <form onSubmit={handleSubmit}>
 
                     {/* INPUT N° MATRICULA ALUNO */}
-                    <input
-                        id="number"
-                        type="text"
-                        placeholder="CPF"
-                        value={matricula}
-                        required
-                        onChange={(event) => setMatricula(event.target.value)}
-                    />
+                    <input id="number" type="text" placeholder="CPF" value={matricula} required onChange={(event) => setMatricula(event.target.value)} />
                     <br />
 
                     {/* SELECT DISCIPLINA */}
