@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Exit, Container, TableDiv, Button } from './style';
+import { Exit, Container, TableDiv, Button, ValorTrabalho, NameValueTrab } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Api from '../../services/Api';
@@ -83,12 +83,15 @@ const CadastroNota = ({ ...props }) => {
                 <TableDiv>
                     <form onSubmit={handleSubmit}>
 
-                        <label htmlFor="">
-                            Nome do trabalho <input type="text" onChange={({ target }) => setNomeNota(target.value)} />
-                        </label>
-                        <label htmlFor="">
-                            valor do trabalho <input type="text" onChange={({ target }) => setPesoNota(target.value)} />
-                        </label>
+                        <NameValueTrab>
+                            <label htmlFor="">
+                                <ValorTrabalho>Nome do trabalho <input type="text" className="InputValor" onChange={({ target }) => setNomeNota(target.value)} /></ValorTrabalho>
+                            </label>
+
+                            <label htmlFor="">
+                                <ValorTrabalho>Valor do trabalho <input type="text" className="InputValor" onChange={({ target }) => setPesoNota(target.value)}></input></ValorTrabalho>
+                            </label>
+                        </NameValueTrab>
 
                         <table className="flTable">
                             <thead>

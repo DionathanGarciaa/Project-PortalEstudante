@@ -207,3 +207,26 @@ export const TableDiv = styled.div`
 }
 
 `;
+
+export const ValorTrabalho = styled.div`
+font-size: 18px;
+
+span{
+    color: #0E4DA4;
+}
+
+.InputValor{
+    padding: 1.8%;
+    width: 40%;    
+}
+
+`;
+
+export const NameValueTrab = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-right:20%;
+    padding-bottom: 3%;
+
+
+`;
