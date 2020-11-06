@@ -1,31 +1,27 @@
 import React from 'react';
 import { Container, User } from './style';
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-
 
 const Header = () => {
-
   return (
 
     <Container>
-        <h2>Bem-vindo, fulaninho</h2>
+      <h2>Bem-vindo, {sessionStorage.getItem("firstname")}</h2>
 
-        <User>
-
-          <div>
-              <FaUserCircle fontSize={50} color="#fff"/>
-          </div>
-          
-            <ul>
-              <li>Meus Dados</li>
-              <li>
-                <Link to="/Login">Sair</Link>
-              </li>
+      <User>
+        <ul>
+          <li data-dropdown>
+            <FaUserCircle fontSize={50} color="#fff" />
+            <ul className="dropdown-menu animeDown">
+              <li> <a href="/">Meus Dados</a> </li>
+              <li> <a href="/MeuPortal" onClick={() => sessionStorage.removeItem('token')}>Sair </a></li>
             </ul>
-        
-        </User>
-        
+          </li>
+        </ul>
+
+
+      </User>
+
     </Container>
 
   );

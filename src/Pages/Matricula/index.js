@@ -25,7 +25,9 @@ const Matricula = () => {
     }
 
     useEffect(() => {
-        Api.get('/content').then((response) => {
+        Api.get('/content', {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then((response) => {
             setDisciplinas(response.data.discipline)
         })
     }, [])
@@ -37,7 +39,9 @@ const Matricula = () => {
     }
 
     function cadastrarDisciplinas() {
-        Api.post(`/registration/${matricula}`, { disciplines: disciplinesSelected }).then((response) => {
+        Api.post(`/registration/${matricula}`, { disciplines: disciplinesSelected }, {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then((response) => {
             if (response.data) {
                 setModalAlertSuccess(true)
             }
@@ -78,7 +82,14 @@ const Matricula = () => {
                 <form onSubmit={handleSubmit}>
 
                     {/* INPUT N° MATRICULA ALUNO */}
-                    <input id="number" type="text" placeholder="Nº matricula aluno" required onChange={(event) => setMatricula(event.target.value)} />
+                    <input
+                        id="number"
+                        type="text"
+                        placeholder="CPF"
+                        value={matricula}
+                        required
+                        onChange={(event) => setMatricula(event.target.value)}
+                    />
                     <br />
 
                     {/* SELECT DISCIPLINA */}

@@ -8,16 +8,17 @@ import AlertErro from '../../components/ModalAlerts/ErroAlert';
 
 
 const RedefinirSenha = () => {
-    const[email, setEmail] = useState('');
-    const[cpf, setCpf] = useState('');
-    const[password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setloading] = useState(false);
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
     const history = useHistory();
 
 
-    function ModalClickSuccess(){
+    function ModalClickSuccess() {
         setModalAlertSuccess(false);
         history.push("/Login");
     }
@@ -28,27 +29,31 @@ const RedefinirSenha = () => {
     }
 
     function senha() {
-        Api.post("/sessions/resetpassword", {email, cpf, password}).then(response => {
-            if(response.data){
+
+        setloading(true)
+        Api.post("/sessions/resetpassword", { email, cpf, password }).then(response => {
+            if (response.data) {
                 setModalAlertSuccess(true)
             }
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true);
+            setloading(false)
         })
     }
+
 
     return (
 
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess 
-                showAlertSuccess={ModalClickSuccess} 
+            {modalAlertSuccess && <AlertSuccess
+                showAlertSuccess={ModalClickSuccess}
                 text={"As suas Informações foram atualizadas, senha redefinida."}
             />}
 
-            {modalAlertErro && <AlertErro 
-                showAlertErro={setModalAlertErro} 
+            {modalAlertErro && <AlertErro
+                showAlertErro={setModalAlertErro}
                 text={errorMessage}
             />}
 
@@ -66,10 +71,10 @@ const RedefinirSenha = () => {
                         {/* INPUT EMAIL */}
                         <Box1>
                             <label htmlFor="Email">E-mail</label>
-                            <input 
+                            <input
                                 id="Email"
-                                Type="email"
-                                Value={email}
+                                type="email"
+                                value={email}
                                 onChange={(event) => setEmail(event.target.value)}
                                 required
                             />
@@ -78,10 +83,10 @@ const RedefinirSenha = () => {
                         {/* INPUT CPF */}
                         <Box2>
                             <label htmlFor="cpf">CPF</label>
-                            <input 
+                            <input
                                 id="cpf"
-                                Type="text"
-                                Value={cpf}
+                                type="text"
+                                value={cpf}
                                 onChange={(event) => setCpf(event.target.value)}
                                 required
                             />
@@ -90,11 +95,11 @@ const RedefinirSenha = () => {
                         {/* INPUT NOVA SENHA */}
                         <Box3>
                             <label htmlFor="Senha">Nova Senha</label>
-                        
-                            <input 
+
+                            <input
                                 id="Senha"
-                                Type="password"
-                                Value={password}
+                                type="password"
+                                value={password}
                                 onChange={(event) => setPassword(event.target.value)}
                                 minLength='6'
                                 required
@@ -103,19 +108,17 @@ const RedefinirSenha = () => {
 
                         {/* BOTAO */}
                         <Botao>
-                            <button>
-                                <strong>Redefinir Senha</strong>
-                            </button>
+                            {loading ? <button><strong>Redefinindo...</strong></button> : <button><strong>Redefinir Senha</strong></button>}
                         </Botao>
-                        
+
                     </form>
                 </Formulario>
 
                 {/* IMAGEM */}
                 <Imagem>
-                <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
+                    <img src={Img} alt='ilustração de alguém desenhando no quadro'></img>
                 </Imagem>
-                
+
             </Container>
         </>
     )

@@ -18,8 +18,9 @@ const Usuario = (props) => {
     const [errorMessage, setErrorMessage] = useState(false);
 
 
-    function ModalClickSuccess(){
+    function ModalClickSuccess() {
         setModalAlertSuccess(false);
+        window.location.reload();
     }
 
     function handleSubmit(event) {
@@ -28,29 +29,32 @@ const Usuario = (props) => {
     }
 
     function createUser() {
-        Api.post("/users", { firstname: nome, lastname: sobrenome, cpf, email, password: senha, usertype: tipoUsuario }).then(res => {
-            if(res.data){
+
+        Api.post("/users", { firstname: nome, lastname: sobrenome, cpf, email, password: senha, usertype: tipoUsuario }, {
+            headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
+        }).then(res => {
+            if (res.data) {
                 setModalAlertSuccess(true)
-            } 
+            }
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true);
         })
     }
 
-    return(
+    return (
 
         <>
             {/* MODAL */}
-            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Usuário Cadastrado"}/>}
-            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage}/>}
+            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Usuário Cadastrado"} />}
+            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage} />}
 
             <Container>
                 <Formulario>
-                        
+
                     {/* SAIR */}
                     <Exit onClick={() => props.showModal1(false)}>
-                        <BsX fontSize={30} color="red"/>
+                        <BsX fontSize={30} color="red" />
                     </Exit>
 
                     {/* TITULO */}
@@ -63,7 +67,7 @@ const Usuario = (props) => {
                         <div className="inputNome">
 
                             {/* INPUT NOME */}
-                            <input 
+                            <input
                                 className="input1"
                                 id="nome"
                                 type="text"
@@ -74,7 +78,7 @@ const Usuario = (props) => {
                             />
 
                             {/* INPUT SOBRENOME */}
-                            <input 
+                            <input
                                 className="input2"
                                 id="sobrenome"
                                 type="text"
@@ -86,7 +90,7 @@ const Usuario = (props) => {
                         </div>
 
                         {/* INPUT CPF */}
-                        <input 
+                        <input
                             id="cpf"
                             type="text"
                             placeholder="CPF"
@@ -96,7 +100,7 @@ const Usuario = (props) => {
                         />
 
                         {/* INPUT EMAIL */}
-                        <input 
+                        <input
                             id="email"
                             type="text"
                             placeholder="E-mail"
@@ -106,7 +110,7 @@ const Usuario = (props) => {
                         />
 
                         {/* INPUT SENHA */}
-                        <input 
+                        <input
                             id="senha"
                             type="password"
                             placeholder="Senha"
@@ -117,14 +121,14 @@ const Usuario = (props) => {
 
                         {/* INPUT TIPO DE USUARIO*/}
                         <Select>
-                            <select 
+                            <select
                                 id="disciplinas"
                                 onChange={(event) => setTipoUsuario(event.target.value)}
                             >
-                                <option value="1" selected>Administrador</option>   
+                                <option value="1" selected>Administrador</option>
                                 <option value="2" selected>Professor</option>
                                 <option value="3" selected>Aluno</option>
-                                <option value=""  disabled selected>Tipo de Usuário</option>
+                                <option value="" disabled selected>Tipo de Usuário</option>
 
                             </select>
                         </Select>
@@ -133,11 +137,11 @@ const Usuario = (props) => {
                         <Button>
                             <button>Salvar</button>
                         </Button>
-                                
+
                     </form>
-                        
+
                 </Formulario>
-                    
+
             </Container>
         </>
     )

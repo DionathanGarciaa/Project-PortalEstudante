@@ -42,7 +42,7 @@ export const Formulario = styled.div`
     }
 `;
 
-export const Box1 =styled.div`
+export const Box1 = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -67,7 +67,7 @@ export const Box1 =styled.div`
     }
 `;
 
-export const Box2 =styled.div`
+export const Box2 = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -121,10 +121,29 @@ export const Botao = styled.div`
         background: #ffffff;
         cursor: pointer;
     }
+    .spinner{
+        margin-left:4px;
+        border:2px solid rgba(231, 232, 246, 0.8);
+        border-left-color: #6c63ff;
+        height: 15px;
+        width: 15px;
+        border-radius:50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin{
+        to{transform: rotate(360deg);}
+    }
 `;
 
 export const Imagem = styled.div`
     position: absolute;
-    top: 350px;
-    left: 1030px;
+    right: 0;
+    bottom: 0;
+
+    img{
+        display: block;
+        right: 0;
+        bottom: 0;
+    }
 `;

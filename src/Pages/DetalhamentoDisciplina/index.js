@@ -29,15 +29,6 @@ const Detalhamento = () => {
             <Cards>
                 <Card1>
                     <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
-                    <p>Linguagem<br/>Estruturada</p>
 
                 </Card1>
                    {tipoDeUsuario !=='aluno' && <button>Pulicar Novo Conteúdo</button>}
@@ -45,11 +36,6 @@ const Detalhamento = () => {
 
             <Cards2>
                 <Card2>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
-                    <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
                     <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
                     <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>
                     <p>Trabalho 1<br/>Peso 2.0<br/>{tipoDeUsuario =='aluno' && "Nota 10"}</p>

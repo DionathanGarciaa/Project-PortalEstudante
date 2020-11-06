@@ -141,6 +141,12 @@ export const Botao = styled.div`
 
 export const Imagem = styled.div`
     position: absolute;
-    top: 350px;
-    left: 1030px;
+    right: 0;
+    bottom: 0;
+
+    img{
+        display: block;
+        right: 0;
+        bottom: 0;
+    }
 `;
