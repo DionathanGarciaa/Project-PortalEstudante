@@ -3,8 +3,7 @@ import { BsBoxArrowInLeft } from 'react-icons/bs';
 import { Link, useHistory } from 'react-router-dom';
 import Api from '../../services/Api';
 
-
-import { Container, Principal, Title, Content, Cards, Cards2, Card1, Card2 } from './style';
+import { Exit, Container, Principal, Title, Content, Cards, Cards2, Card1, Card2 } from './style';
 
 
 const Detalhamento = ({ ...props }) => {
@@ -32,13 +31,14 @@ const Detalhamento = ({ ...props }) => {
 
     return (
         <Container>
-
-            <Link to={{
-                pathname: '/ListaDeDisciplinas',
-                state: { disciplina, user }
-            }}>
-                <BsBoxArrowInLeft fontSize={30} color="#000" />
-            </Link>
+            < Exit>
+                <Link to={{
+                    pathname: '/ListaDeDisciplinas',
+                    state: { disciplina, user }
+                }}>
+                    <BsBoxArrowInLeft fontSize={30} color="#000" />
+                </Link>
+            </Exit>
             <Principal>
 
                 <Title>
