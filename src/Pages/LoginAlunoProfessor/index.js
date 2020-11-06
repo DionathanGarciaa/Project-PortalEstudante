@@ -34,7 +34,6 @@ const MeuPortal = () => {
                     history.push({
                         pathname: "/ListaDeDisciplinas",
                         state: response.data
-
                     })
                     window.location.reload();
                 }
@@ -120,7 +119,7 @@ const MeuPortal = () => {
                         <Botao>
                             {loading ? <button > <strong>Carregando...</strong> <div className="spinner"></div></button> : <button> <strong>Entrar</strong> </button>}
                         </Botao>
-                        
+
                     </form>
                 </Formulario>
 
