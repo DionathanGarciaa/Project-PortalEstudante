@@ -195,6 +195,8 @@ export const BotaoVoltar = styled.div`
     .LinkButton {
         text-decoration: none;
         color: #6c63ff;
+        text-align:center;
+        width:100%;
     }
 `;
 
