@@ -47,7 +47,7 @@ export const Title = styled.div`
         display: flex;
         align-items: flex-start;
         font-weight: inherit;
-        font-size: 28px;
+        font-size: 35px;
         padding-bottom: 50px;
         color: #000
     }
@@ -67,21 +67,18 @@ export const Formulario = styled.div`
     background: #fff;
 
     form{
-        display: grid;
+        display: flex;
         flex-direction: column;
         width: 75%;
         border-radius: 5px;
         color: #000;
-
-        .inputNome{
-            width:100%;
-            display:grid;
-
-            input{
-                width:100%;
-            }
-        }
-    }    
+        line-height: 2;
+        font-size:18pt;
+    }
+    p{
+        border-bottom: 1px solid black
+    }
+       
 `;
 
 
