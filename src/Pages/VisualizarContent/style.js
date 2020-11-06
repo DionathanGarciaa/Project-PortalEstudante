@@ -57,4 +57,5 @@ export const TextCtd = styled.p`
 line-height: 2rem;
 text-align: justify;
 margin-bottom: 10%;
+font-size:18pt;
 `;

@@ -30,11 +30,11 @@ const Usuario = ({ ...props }) => {
         <>
             <Container>
                 <Formulario>
-
-                    {/* SAIR */}
                     <Exit onClick={() => props.showModal1(false)}>
                         <BsX fontSize={30} color="red" />
                     </Exit>
+
+                    {/* SAIR */}
 
                     {/* TITULO */}
                     <Title>

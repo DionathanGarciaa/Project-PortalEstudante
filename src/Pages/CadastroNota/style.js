@@ -71,6 +71,7 @@ export const TableDiv = styled.div`
         width: 3%;
     }
 
+
     .greenNote:focus{
         border-color:#7FC008;
     }
@@ -227,6 +228,13 @@ export const NameValueTrab = styled.div`
     justify-content: space-around;
     margin-right:20%;
     padding-bottom: 3%;
+
+
+    input{
+        border:none;
+        border-bottom:1px solid black;
+        outline-style: none;
+    }
 
 
 `;

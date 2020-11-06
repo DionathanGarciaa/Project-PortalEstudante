@@ -89,11 +89,11 @@ const CadastroNota = ({ ...props }) => {
 
                         <NameValueTrab>
                             <label htmlFor="">
-                                <ValorTrabalho>Nome do trabalho <input type="text" className="InputValor" required onChange={({ target }) => setNomeNota(target.value)} /></ValorTrabalho>
+                                <ValorTrabalho>Nome do trabalho:  <input type="text" className="InputValor" required onChange={({ target }) => setNomeNota(target.value)} /></ValorTrabalho>
                             </label>
 
                             <label htmlFor="">
-                                <ValorTrabalho>Valor do trabalho <input type="text" className="InputValor" required onChange={({ target }) => setPesoNota(target.value)}></input></ValorTrabalho>
+                                <ValorTrabalho>Valor do trabalho:  <input type="text" className="InputValor" required onChange={({ target }) => setPesoNota(target.value)}></input></ValorTrabalho>
                             </label>
                         </NameValueTrab>
 

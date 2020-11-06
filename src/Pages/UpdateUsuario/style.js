@@ -34,6 +34,7 @@ export const Exit = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-left: 500px;
+    right:0;
     cursor: pointer;
     padding: 10px;
 `;
@@ -57,7 +58,7 @@ export const Formulario = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height:90vh;
+    height:50vh;
     width: 40vw;
     flex-direction:column;
     box-sizing: border-box;

@@ -25,6 +25,13 @@ span{
     color: #0E4DA4;
 }
 
+input{
+    border: none;
+    border-bottom: 1px solid black;
+    outline-style:none;
+    font-size:16pt
+}
+
 .InputTitle{
     padding: 0.8%;
     width: 25%;    
