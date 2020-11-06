@@ -8,7 +8,7 @@ import { BsBoxArrowInLeft } from 'react-icons/bs';
 
 const VisualizarConteudo = ({ ...props }) => {
 
-    const { content, disciplina, data } = props.location.state
+    const { content, disciplina, user } = props.location.state
 
 
     return (
@@ -19,7 +19,7 @@ const VisualizarConteudo = ({ ...props }) => {
             <Exit>
                 <Link to={{
                     pathname: '/DetalhamentoDisciplina',
-                    state: { content, disciplina, data }
+                    state: { content, disciplina, user }
                 }}>
 
 

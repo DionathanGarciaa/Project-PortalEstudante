@@ -115,7 +115,6 @@ const SenhaAlunoProfessor = () => {
                                 <strong>Voltar</strong>
                             </Link>
                         </BotaoVoltar>
-
                     </form>
                 </Formulario>
 

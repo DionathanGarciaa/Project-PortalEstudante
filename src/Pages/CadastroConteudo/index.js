@@ -12,7 +12,7 @@ const Conteudo = ({ ...props }) => {
     const [description, setDescription] = useState();
     const [loading, setloading] = useState(false);
 
-    const { disciplina, data } = props.location.state
+    const { disciplina, user } = props.location.state
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -36,11 +36,11 @@ const Conteudo = ({ ...props }) => {
 
         <>
 
-            
+
             <Exit>
                 <Link to={{
                     pathname: '/DetalhamentoDisciplina',
-                    state: { disciplina, data }
+                    state: { disciplina, user }
                 }}>
                     <BsBoxArrowInLeft fontSize={30} color="#000" />
                 </Link>
@@ -59,11 +59,7 @@ const Conteudo = ({ ...props }) => {
                 <Descricao>Descrição: </Descricao>
 
                 <form onSubmit={handleSubmit} >
-                    <DescCont
-                        id="conteudo"
-                        type="textarea"
-                        placeholder="Descrição do conteudo"
-                        onChange={(event) => setDescription(event.target.value)}
+                    <DescCont id="conteudo" type="textarea" placeholder="Descrição do conteudo" onChange={(event) => setDescription(event.target.value)}
                     />
 
                     <Button>

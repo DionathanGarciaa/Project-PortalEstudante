@@ -132,6 +132,15 @@ export const TableDiv = styled.div`
 }
 
 @media (max-width: 767px) {
+
+    .redNote{
+        width:15%;
+    }
+
+    .greenNote{
+        width:15%;
+    }
+
     .flTable {
         display: block;
         width: 100%;
@@ -196,5 +205,28 @@ export const TableDiv = styled.div`
         text-align: center;
     }
 }
+
+`;
+
+export const ValorTrabalho = styled.div`
+font-size: 16px;
+
+span{
+    color: #0E4DA4;
+}
+
+.InputValor{
+    padding: 1.8%;
+    width: 40%;    
+}
+
+`;
+
+export const NameValueTrab = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-right:20%;
+    padding-bottom: 3%;
+
 
 `;

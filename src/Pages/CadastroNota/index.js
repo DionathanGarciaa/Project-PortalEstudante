@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Exit, Container, TableDiv, Button } from './style';
+import { Exit, Container, TableDiv, Button, ValorTrabalho, NameValueTrab } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Api from '../../services/Api';
@@ -28,6 +28,8 @@ const CadastroNota = ({ ...props }) => {
     }
 
     const data = props.location.state;
+
+
     useEffect(() => {
 
         Api.get(`listadeAlunos/${data.disciplina._id}`,).then((response) => {
@@ -53,11 +55,13 @@ const CadastroNota = ({ ...props }) => {
         setloading(true)
         Api.post(`nota/${data.disciplina._id}`, { notas }
         ).then((res) => {
-            console.log(res.data)
-            setModalAlertSuccess(true)
+            if (res.data) {
+                setModalAlertSuccess(true)
+            }
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true);
+            setloading(false)
         })
     }
 
@@ -83,12 +87,15 @@ const CadastroNota = ({ ...props }) => {
                 <TableDiv>
                     <form onSubmit={handleSubmit}>
 
-                        <label htmlFor="">
-                            Nome do trabalho <input type="text" onChange={({ target }) => setNomeNota(target.value)} />
-                        </label>
-                        <label htmlFor="">
-                            valor do trabalho <input type="text" onChange={({ target }) => setPesoNota(target.value)} />
-                        </label>
+                        <NameValueTrab>
+                            <label htmlFor="">
+                                <ValorTrabalho>Nome do trabalho <input type="text" className="InputValor" required onChange={({ target }) => setNomeNota(target.value)} /></ValorTrabalho>
+                            </label>
+
+                            <label htmlFor="">
+                                <ValorTrabalho>Valor do trabalho <input type="text" className="InputValor" required onChange={({ target }) => setPesoNota(target.value)}></input></ValorTrabalho>
+                            </label>
+                        </NameValueTrab>
 
                         <table className="flTable">
                             <thead>
@@ -103,7 +110,7 @@ const CadastroNota = ({ ...props }) => {
                                         <tr key={aluno._id}>
                                             <td> {aluno.firstname} </td>
                                             <td>
-                                                <input onChange={({ target }) => {
+                                                <input required onChange={({ target }) => {
                                                     let notas = nota;
                                                     let aux = {
                                                         idAlunos: aluno._id,
