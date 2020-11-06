@@ -27,7 +27,9 @@ export const User = styled.div`
     li{
         list-style:none
     }
-    ul{
+    p{
+        cursor:pointer;
+        color:white
     }
 
     [data-dropdown] .dropdown-menu{
@@ -51,6 +53,9 @@ export const User = styled.div`
     }
 
     .dropdown-menu li a:hover{
+        color: #aaa
+    }
+    .dropdown-menu li p:hover{
         color: #aaa
     }
 

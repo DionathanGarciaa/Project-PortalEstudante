@@ -15,10 +15,12 @@ const Disciplina = (props) => {
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
+    const history = useHistory();
 
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
         history.push('/Home')
+        window.location.reload();
     }
 
     function handleSubmit(event) {

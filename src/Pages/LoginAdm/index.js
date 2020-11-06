@@ -26,6 +26,7 @@ const Login = () => {
             if (response.data.token) {
                 sessionStorage.setItem("token", response.data.token)
                 sessionStorage.setItem("firstname", response.data.user.firstname)
+                sessionStorage.setItem("user", response.data.user._id)
                 history.push("/Home")
                 window.location.reload();
             }

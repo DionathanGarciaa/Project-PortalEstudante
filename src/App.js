@@ -17,6 +17,7 @@ const App = (props) => {
         loginPage === '/login' || 
         loginPage === '/MeuPortal' || 
         loginPage === '/RedefinirSenhaAlunoProfessor' ||
+        loginPage === '/RedefinirSenhaAdm' ||
         loginPage === '/'  ? <Routes /> : <MasterPage>
         <Routes />
         </MasterPage>

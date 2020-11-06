@@ -15,9 +15,6 @@ const Home = ({ ...props }) => {
     const { user } = props.location.state
 
 
-    console.log(user._id)
-
-
 
     useEffect(() => {
         if (check === "2") {
