@@ -46,24 +46,10 @@ const Usuario = ({ ...props }) => {
                         console.log(u)
                         return (
                             <form key={u._id} >
-                                <div className="inputNome">
-                                    {/* INPUT NOME */}
-                                    <span>Nome</span>
-                                    <input className="input1" id="nome" type="text" value={u.firstname} />
-
-
-                                    {/* INPUT SOBRENOME */}
-                                    <span>Sobrenome</span>
-                                    <input className="input2" id="sobrenome" type="text" value={u.lastname} />
-                                </div>
-
-                                {/* INPUT CPF */}
-                                <span>CPF</span>
-                                <input id="cpf" type="text" value={u.cpf} />
-
-                                {/* INPUT EMAIL */}
-                                <span>Email</span>
-                                <input id="email" type="text" value={u.email} />
+                                <p>Nome: {u.firstname}</p>
+                                <p>Sobrenome: {u.lastname}</p>
+                                <p>CPF: {u.cpf}</p>
+                                <p>Email: {u.email}</p>
                             </form>
                         )
                     })}

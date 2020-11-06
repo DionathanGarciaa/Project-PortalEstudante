@@ -11,15 +11,15 @@ const App = (props) => {
 
   return (
 
-        <BrowserRouter>
+    <BrowserRouter>
 
-          { loginPage === '/Login'  || loginPage === '/MeuPortal' || loginPage === '/'  ? <Routes /> : <MasterPage>
-            <Routes />
-          </MasterPage>
-          }
-          <GlobalStyle/>
-        </BrowserRouter>
-  
+      { loginPage === '/Login' || loginPage === '/MeuPortal' || loginPage === '/' || loginPage === '/login/' ? <Routes /> : <MasterPage>
+        <Routes />
+      </MasterPage>
+      }
+      <GlobalStyle />
+    </BrowserRouter>
+
   );
 }
 
