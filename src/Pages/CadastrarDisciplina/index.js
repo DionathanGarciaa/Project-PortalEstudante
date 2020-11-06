@@ -4,6 +4,7 @@ import { BsX } from "react-icons/bs";
 import Api from '../../services/Api';
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
+import { useHistory } from 'react-router-dom';
 
 
 const Disciplina = (props) => {
@@ -13,10 +14,13 @@ const Disciplina = (props) => {
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
+    const history = useHistory();
 
 
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
+        history.push('/Home')
+        window.location.reload();
     }
 
     function handleSubmit(event) {

@@ -4,6 +4,7 @@ import Api from '../../services/Api';
 import { BsX } from "react-icons/bs";
 import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
 import AlertErro from '../../components/ModalAlerts/ErroAlert';
+import { useHistory } from 'react-router-dom';
 
 
 const Usuario = (props) => {
@@ -16,10 +17,12 @@ const Usuario = (props) => {
     const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
     const [modalAlertErro, setModalAlertErro] = useState(false);
     const [errorMessage, setErrorMessage] = useState(false);
+    const history = useHistory();
 
 
     function ModalClickSuccess() {
         setModalAlertSuccess(false);
+        history.push('/Home')
         window.location.reload();
     }
 
