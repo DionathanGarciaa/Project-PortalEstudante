@@ -29,23 +29,15 @@ function Routes() {
             <Route path="/RedefinirSenhaAdm" component={RedefinirAdm} />
             <Route path="/MeuPortal" component={MeuPortal} />
             <Route path="/RedefinirSenhaAlunoProfessor" component={RedefinirAlunoProfessor} />
-<<<<<<< HEAD
-            <Route path="/DetalhamentoDisciplina" component={DetalhamentoDisciplina} />
-=======
->>>>>>> f9c42039bb93f00b1f58a1d0f0c85487b755b113
             <ProtectedRoute path="/Home" component={Home} />
             <ProtectedRoute path="/Matricula" component={Matricula} />
             <ProtectedRoute path="/CadastroUsuario" component={CadastroUsuario} />
             <ProtectedRoute path="/CadastrarDisciplina" component={CadastrarDisciplina} />
             <Route path="/DetalhamentoDisciplina" component={DetalhamentoDisciplina} />
             <ProtectedRoute path="/ListaDeDisciplinas" component={ListaDeDisciplinas} />
-<<<<<<< HEAD
-            <ProtectedRoute path="/ListarContent" component={ListarContent} />
-=======
             <ProtectedRoute path="/CadastroConteudo" component={CadastroConteudo} />
             <ProtectedRoute path="/VisualizarContent" component={VisualizarContent} />
             <ProtectedRoute path="/CadastroNota" component={CadastroNota} />
->>>>>>> f9c42039bb93f00b1f58a1d0f0c85487b755b113
         </Switch>
     );
 }
