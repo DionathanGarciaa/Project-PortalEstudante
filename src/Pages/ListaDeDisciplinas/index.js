@@ -9,29 +9,33 @@ const Home = ({ ...props }) => {
     const history = useHistory();
 
     const check = sessionStorage.getItem('check')
-    const data = props.location.state
-    console.log(data)
+
+
+
+    const { user } = props.location.state
+
+
+    console.log(user._id)
+
 
 
     useEffect(() => {
         if (check === "2") {
-            const data = props.location.state.user;
-            Api.get(`/discipline/${data._id}/${data.usertype}`, {
+            Api.get(`/discipline/${user._id}/${user.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
+                console.log(response)
                 setDisciplinas(response.data.discipline)
             })
         } else {
-            const data = props.location.state
-            Api.get(`/discipline/${data._id}/${data.usertype}`, {
+            Api.get(`/discipline/${user._id}/${user.usertype}`, {
                 headers: { Authorization: 'Bearer ' + sessionStorage.getItem('token') }
             }).then((response) => {
+                console.log(response)
                 setDisciplinas(response.data.userDiscipline[0].disciplines)
             })
         }
-
-
-    }, [check, props.location.state, props.location.state.Api, props.location.state.user])
+    }, [check, user._id, user.usertype])
 
 
     return (
@@ -51,7 +55,7 @@ const Home = ({ ...props }) => {
                     return (
                         <Card key={disciplina._id} onClick={() => history.push({
                             pathname: '/DetalhamentoDisciplina',
-                            state: { disciplina, data }
+                            state: { disciplina, user }
                         })}>
                             <span className="title" >{disciplina.name} </span>
                             <span > Turma 345 </span>

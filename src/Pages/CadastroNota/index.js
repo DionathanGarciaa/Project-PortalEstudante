@@ -28,6 +28,8 @@ const CadastroNota = ({ ...props }) => {
     }
 
     const data = props.location.state;
+
+
     useEffect(() => {
 
         Api.get(`listadeAlunos/${data.disciplina._id}`,).then((response) => {

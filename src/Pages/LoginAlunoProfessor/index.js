@@ -31,6 +31,7 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
+                    console.log(response.data)
                     history.push({
                         pathname: "/ListaDeDisciplinas",
                         state: response.data
@@ -48,9 +49,10 @@ const MeuPortal = () => {
                     sessionStorage.setItem("token", response.data.token)
                     sessionStorage.setItem("firstname", response.data.user.firstname)
                     sessionStorage.setItem("check", checkbox)
+                    console.log(response.data)
                     history.push({
                         pathname: "/ListaDeDisciplinas",
-                        state: response.data.user
+                        state: response.data
                     })
                     window.location.reload();
                 }
