@@ -4,6 +4,16 @@ export const Container = styled.div`
 
 `
 
+export const Exit = styled.div`
+    margin: 3% 0 1% 10%;
+
+    a {
+        color: #000;
+    }
+`;
+
+
+
 export const Principal = styled.div`
     display: flex;
     flex-direction: column;
@@ -44,7 +54,8 @@ export const Cards = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center;
-    max-width:60%;
+    min-width:77%;
+    max-width:77%;
     border: 1px solid #0E4DA4;
     border-radius: 5px;
     margin-bottom: 50px;
@@ -119,7 +130,8 @@ export const Cards2 = styled.div`
     display: flex;
     justify-content: center; 
     align-items: center;
-    max-width:860px;
+    min-width:77%;
+    max-width:77%;
     border: 1px solid #0E4DA4;
     border-radius: 5px;
     padding-left:10px;
