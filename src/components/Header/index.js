@@ -25,8 +25,6 @@ const Header = () => {
             </ul>
           </li>
         </ul>
-
-
       </User>
 
     </Container>
