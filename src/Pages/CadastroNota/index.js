@@ -55,11 +55,13 @@ const CadastroNota = ({ ...props }) => {
         setloading(true)
         Api.post(`nota/${data.disciplina._id}`, { notas }
         ).then((res) => {
-            console.log(res.data)
-            setModalAlertSuccess(true)
+            if (res.data) {
+                setModalAlertSuccess(true)
+            }
         }, (err) => {
             setErrorMessage(err.response.data.error);
             setModalAlertErro(true);
+            setloading(false)
         })
     }
 
@@ -87,11 +89,11 @@ const CadastroNota = ({ ...props }) => {
 
                         <NameValueTrab>
                             <label htmlFor="">
-                                <ValorTrabalho>Nome do trabalho <input type="text" className="InputValor" onChange={({ target }) => setNomeNota(target.value)} /></ValorTrabalho>
+                                <ValorTrabalho>Nome do trabalho <input type="text" className="InputValor" required onChange={({ target }) => setNomeNota(target.value)} /></ValorTrabalho>
                             </label>
 
                             <label htmlFor="">
-                                <ValorTrabalho>Valor do trabalho <input type="text" className="InputValor" onChange={({ target }) => setPesoNota(target.value)}></input></ValorTrabalho>
+                                <ValorTrabalho>Valor do trabalho <input type="text" className="InputValor" required onChange={({ target }) => setPesoNota(target.value)}></input></ValorTrabalho>
                             </label>
                         </NameValueTrab>
 
@@ -108,7 +110,7 @@ const CadastroNota = ({ ...props }) => {
                                         <tr key={aluno._id}>
                                             <td> {aluno.firstname} </td>
                                             <td>
-                                                <input onChange={({ target }) => {
+                                                <input required onChange={({ target }) => {
                                                     let notas = nota;
                                                     let aux = {
                                                         idAlunos: aluno._id,

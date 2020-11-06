@@ -38,6 +38,7 @@ padding-bottom:0.5%;
 `;
 
 export const DescCont = styled.textarea`
+font-size:1.5rem;
 padding:2%;
 max-width:96%;
 min-width:96%;

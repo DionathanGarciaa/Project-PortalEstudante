@@ -59,11 +59,7 @@ const Conteudo = ({ ...props }) => {
                 <Descricao>Descrição: </Descricao>
 
                 <form onSubmit={handleSubmit} >
-                    <DescCont
-                        id="conteudo"
-                        type="textarea"
-                        placeholder="Descrição do conteudo"
-                        onChange={(event) => setDescription(event.target.value)}
+                    <DescCont id="conteudo" type="textarea" placeholder="Descrição do conteudo" onChange={(event) => setDescription(event.target.value)}
                     />
 
                     <Button>
