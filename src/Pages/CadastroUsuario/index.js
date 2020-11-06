@@ -67,57 +67,20 @@ const Usuario = (props) => {
                         <div className="inputNome">
 
                             {/* INPUT NOME */}
-                            <input
-                                className="input1"
-                                id="nome"
-                                type="text"
-                                placeholder="Nome"
-                                value={nome}
-                                required
-                                onChange={(event) => setNome(event.target.value)}
-                            />
+                            <input className="input1" id="nome" type="text" placeholder="Nome" value={nome} required onChange={(event) => setNome(event.target.value)} />
 
                             {/* INPUT SOBRENOME */}
-                            <input
-                                className="input2"
-                                id="sobrenome"
-                                type="text"
-                                placeholder="Sobrenome"
-                                value={sobrenome}
-                                required
-                                onChange={(event) => setSobrenome(event.target.value)}
-                            />
+                            <input className="input2" id="sobrenome" type="text" placeholder="Sobrenome" value={sobrenome} required onChange={(event) => setSobrenome(event.target.value)} />
                         </div>
 
                         {/* INPUT CPF */}
-                        <input
-                            id="cpf"
-                            type="text"
-                            placeholder="CPF"
-                            value={cpf}
-                            required
-                            onChange={(event) => setCpf(event.target.value)}
-                        />
+                        <input id="cpf" type="text" placeholder="CPF" value={cpf} required onChange={(event) => setCpf(event.target.value)} />
 
                         {/* INPUT EMAIL */}
-                        <input
-                            id="email"
-                            type="text"
-                            placeholder="E-mail"
-                            value={email}
-                            required
-                            onChange={(event) => setEmail(event.target.value)}
-                        />
+                        <input id="email" type="text" placeholder="E-mail" value={email} required onChange={(event) => setEmail(event.target.value)} />
 
                         {/* INPUT SENHA */}
-                        <input
-                            id="senha"
-                            type="password"
-                            placeholder="Senha"
-                            value={senha}
-                            required
-                            onChange={(event) => setSenha(event.target.value)}
-                        />
+                        <input id="senha" type="password" placeholder="Senha" value={senha} required onChange={(event) => setSenha(event.target.value)} />
 
                         {/* INPUT TIPO DE USUARIO*/}
                         <Select>
