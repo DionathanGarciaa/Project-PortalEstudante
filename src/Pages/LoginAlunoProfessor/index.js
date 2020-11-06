@@ -88,8 +88,8 @@ const MeuPortal = () => {
                             <CheckBox>
                                 <input className="Box1" id="checkbox" type="radio" value="3" name="box1" onChange={({ target }) => setCheckbox(target.value)} />
                                 <label htmlFor="checkbox"> <GiGraduateCap fontSize="30" /> <span>Estudante</span> </label>
-                                
-                                
+
+
                             </CheckBox>
 
                             {/* CHECK BOX PROFESSOR */}
