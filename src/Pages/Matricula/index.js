@@ -32,10 +32,37 @@ const Matricula = () => {
     }, [])
 
 
+    
+
     function handleSubmit(event) {
+
         event.preventDefault()
+
+        let duplicatedArray = [...disciplinesSelected];
+        let results = [];
+
+        const findDuplicates = (arr) => {
+            let sorted_arr = arr.slice().sort();
+
+            for (let i = 0; i < sorted_arr.length - 1; i++) {
+                if (sorted_arr[i + 1] == sorted_arr[i]) {
+                  results.push(sorted_arr[i]);
+                }
+              }
+              return results;
+        }
+
+        findDuplicates(duplicatedArray)
+
+        if(results != ''){
+            return (alert('Não pode haver disciplinas duplicadas no cadastro'));
+        }
+
         cadastrarDisciplinas()
     }
+
+
+
 
     function cadastrarDisciplinas() {
         Api.post(`/registration/${matricula}`, { disciplines: disciplinesSelected }, {
@@ -49,6 +76,9 @@ const Matricula = () => {
             setModalAlertErro(true);
         })
     }
+
+    
+
 
     return (
 
@@ -84,7 +114,7 @@ const Matricula = () => {
                     {/* SELECT DISCIPLINA */}
                     <Selects>
 
-                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                        <select id="disciplinas1" defaultValue="Disciplina" onChange={(event) => {
                             let disciplines = [...disciplinesSelected];
                             disciplines[0] = event.target.value;
                             setDisciplinesSelected(disciplines)
@@ -96,7 +126,7 @@ const Matricula = () => {
                         </select>
 
                         <select
-                            id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                            id="disciplinas2" defaultValue="Disciplina" onChange={(event) => {
                                 let disciplines = [...disciplinesSelected];
                                 disciplines[1] = event.target.value;
                                 setDisciplinesSelected(disciplines)
@@ -107,7 +137,7 @@ const Matricula = () => {
                             ))}
                         </select>
 
-                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                        <select id="disciplinas3" defaultValue="Disciplina" onChange={(event) => {
                             let disciplines = [...disciplinesSelected];
                             disciplines[2] = event.target.value;
                             setDisciplinesSelected(disciplines)
@@ -118,7 +148,7 @@ const Matricula = () => {
                             ))}
                         </select>
 
-                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                        <select id="disciplinas4" defaultValue="Disciplina" onChange={(event) => {
                             let disciplines = [...disciplinesSelected];
                             disciplines[3] = event.target.value;
                             setDisciplinesSelected(disciplines)
@@ -129,7 +159,7 @@ const Matricula = () => {
                             ))}
                         </select>
 
-                        <select id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                        <select id="disciplinas5" defaultValue="Disciplina" onChange={(event) => {
                             let disciplines = [...disciplinesSelected];
                             disciplines[4] = event.target.value;
                             setDisciplinesSelected(disciplines)
@@ -141,7 +171,7 @@ const Matricula = () => {
                         </select>
 
                         <select
-                            id="disciplinas" defaultValue="Disciplina" onChange={(event) => {
+                            id="disciplinas6" defaultValue="Disciplina" onChange={(event) => {
                                 let disciplines = [...disciplinesSelected];
                                 disciplines[5] = event.target.value;
                                 setDisciplinesSelected(disciplines)
