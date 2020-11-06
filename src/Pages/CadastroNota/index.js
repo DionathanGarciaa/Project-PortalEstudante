@@ -3,35 +3,72 @@ import { Exit, Container, TableDiv, Button } from './style';
 import { Link } from 'react-router-dom';
 import { BsBoxArrowInLeft } from 'react-icons/bs';
 import Api from '../../services/Api';
+import AlertSuccess from '../../components/ModalAlerts/SuccessAlert';
+import AlertErro from '../../components/ModalAlerts/ErroAlert';
 
 
 
 const CadastroNota = ({ ...props }) => {
 
-    const [nota, setNota] = useState();
-    const [alunos, setAlunos] = useState()
+    const [nota, setNota] = useState([]);
+    const [alunos, setAlunos] = useState([]);
+    const [nomeNota, setNomeNota] = useState([]);
+    const [pesoNota, setPesoNota] = useState([]);
+    const [render, setRender] = useState(false);
+    const [loading, setloading] = useState(false);
+    const [modalAlertErro, setModalAlertErro] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(false);
+    const [modalAlertSuccess, setModalAlertSuccess] = useState(false);
 
 
+
+    function ModalClickSuccess() {
+        setModalAlertSuccess(false);
+        window.location.reload();
+    }
 
     const data = props.location.state;
-
-
     useEffect(() => {
-        Api.get('listadeAlunos', { disciplines: data._id }).then((response) => {
-            console.log(response)
-            setAlunos(response.data)
+
+        Api.get(`listadeAlunos/${data.disciplina._id}`,).then((response) => {
+            setAlunos(response.data.disciplinas)
         })
-    }, [data._id])
+
+    }, [data, data._id, data.disciplina._id])
 
 
-    console.log(alunos)
+    function handleSubmit(event) {
+        event.preventDefault();
+        cadastroNota()
+    }
+
+
+
+    function cadastroNota() {
+        let notas = {
+            nomeNota: nomeNota,
+            pesoNota: pesoNota,
+            alunos: nota
+        }
+        setloading(true)
+        Api.post(`nota/${data.disciplina._id}`, { notas }
+        ).then((res) => {
+            console.log(res.data)
+            setModalAlertSuccess(true)
+        }, (err) => {
+            setErrorMessage(err.response.data.error);
+            setModalAlertErro(true);
+        })
+    }
 
 
 
     return (
 
         <>
-
+            {/* MODAL */}
+            {modalAlertSuccess && <AlertSuccess showAlertSuccess={ModalClickSuccess} text={"Notas cadastradas com sucesso"} />}
+            {modalAlertErro && <AlertErro showAlertErro={setModalAlertErro} text={errorMessage} />}
             <Exit>
                 <Link to={{
                     pathname: '/DetalhamentoDisciplina',
@@ -44,29 +81,50 @@ const CadastroNota = ({ ...props }) => {
             <Container>
 
                 <TableDiv>
-                    <table className="flTable">
-                        <thead>
-                            <tr>
-                                <th><strong>Alunos</strong></th>
-                                <th><strong>Nota</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Gustavo
-                        </td>
-                                <td>
-                                    <input onChange={(event) => setNota(event.target.value)} className={nota >= 6 ? "greenNote" : "redNote"}></input>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form onSubmit={handleSubmit}>
+
+                        <label htmlFor="">
+                            Nome do trabalho <input type="text" onChange={({ target }) => setNomeNota(target.value)} />
+                        </label>
+                        <label htmlFor="">
+                            valor do trabalho <input type="text" onChange={({ target }) => setPesoNota(target.value)} />
+                        </label>
+
+                        <table className="flTable">
+                            <thead>
+                                <tr>
+                                    <th><strong>Alunos</strong></th>
+                                    <th><strong>Nota</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {alunos.map((aluno, index) => {
+                                    return (
+                                        <tr key={aluno._id}>
+                                            <td> {aluno.firstname} </td>
+                                            <td>
+                                                <input onChange={({ target }) => {
+                                                    let notas = nota;
+                                                    let aux = {
+                                                        idAlunos: aluno._id,
+                                                        valorNota: target.value
+                                                    }
+                                                    notas[index] = aux
+                                                    setNota(notas)
+                                                    setRender(!render)
+                                                }} className={nota[index] && Number(nota[index].valorNota) >= 6 ? "greenNote" : "redNote"}></input>
+
+                                            </td>
+                                        </tr>)
+                                })}
+                            </tbody>
+                        </table>
+                        <Button>
+                            {loading ? <button >Salvando...</button> : <button type="submit">Salvar</button>}
+                        </Button>
+                    </form>
                 </TableDiv>
 
-                <Button>
-                    <button>Salvar</button>
-                </Button>
 
             </Container>
         </>

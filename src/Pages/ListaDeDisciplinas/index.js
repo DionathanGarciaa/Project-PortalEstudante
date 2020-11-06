@@ -8,12 +8,10 @@ const Home = ({ ...props }) => {
     const [disciplinas, setDisciplinas] = useState([]);
     const history = useHistory();
 
-
-
     const check = sessionStorage.getItem('check')
-
-
     const data = props.location.state
+    console.log(data)
+
 
     useEffect(() => {
         if (check === "2") {

@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Api from '../../services/Api';
 
+
 import { Container, Principal, Title, Content, Cards, Cards2, Card1, Card2 } from './style';
 
 
 const Detalhamento = ({ ...props }) => {
-
-
-
-
     const [contents, setContents] = useState([])
     const [notas, setNotas] = useState([])
 
@@ -37,7 +34,6 @@ const Detalhamento = ({ ...props }) => {
 
     return (
         <Container>
-
             <Principal>
 
                 <Title>
