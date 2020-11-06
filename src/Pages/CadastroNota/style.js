@@ -209,7 +209,7 @@ export const TableDiv = styled.div`
 `;
 
 export const ValorTrabalho = styled.div`
-font-size: 18px;
+font-size: 16px;
 
 span{
     color: #0E4DA4;
