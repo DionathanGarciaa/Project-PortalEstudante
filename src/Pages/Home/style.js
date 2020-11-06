@@ -21,6 +21,7 @@ export const Card = styled.div`
     height: 180px;
     padding: 30px;
     font-size: 24px;
+    padding-bottom: 7%;
 
 
     p {
